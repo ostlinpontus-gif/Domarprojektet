@@ -356,13 +356,13 @@
         </div>
 
         <!-- Footer credit -->
-        <p class="text-center text-white text-opacity-20 text-xs mt-8">
-            © <span id="footer-year"></span> Pontus Östlin · Löpning &amp; Stark
+        <p class="text-center text-white text-opacity-20 text-xs mt-8 pb-10">
+            © <span id="yr-now"></span> Löpning &amp; Stark - Stolt supporter av Hälsinglands domare
         </p>
     </main>
 
     <script>
-        document.getElementById('footer-year').textContent = new Date().getFullYear();
+        document.getElementById('yr-now').textContent = new Date().getFullYear();
 
         /* ── Toggle password visibility ── */
         function togglePassword() {
@@ -406,7 +406,6 @@
             btnIcon.classList.add('hidden');
             spinner.classList.remove('hidden');
 
-            // Simulate auth delay then redirect to dashboard
             setTimeout(() => {
                 window.location.href = 'member_dashboard.html';
             }, 1200);

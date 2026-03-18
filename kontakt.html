@@ -340,13 +340,13 @@
                 <div class="info-card rounded-2xl p-7 space-y-4">
                     <h3 class="text-sm font-bold uppercase tracking-widest text-white text-opacity-40">Direkt kontakt</h3>
 
-                    <a href="mailto:pontus@lopningochstark.se" class="flex items-center gap-3 group">
+                    <a href="mailto:lopningstark@gmail.com" class="flex items-center gap-3 group">
                         <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background: rgba(82,183,136,0.12); border: 1px solid rgba(82,183,136,0.2);">
                             <span class="text-lg">✉️</span>
                         </div>
                         <div>
                             <p class="text-xs text-white text-opacity-40 mb-0.5">E-post</p>
-                            <p class="text-sm font-semibold text-forest-lighter group-hover:text-white transition-colors">pontus@lopningochstark.se</p>
+                            <p class="text-sm font-semibold text-forest-lighter group-hover:text-white transition-colors">lopningstark@gmail.com</p>
                         </div>
                     </a>
 
@@ -399,27 +399,56 @@
     <!-- ===========================
          FOOTER
     ============================ -->
-    <footer class="border-t divider px-6 py-10 mt-8">
-        <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6 text-white text-opacity-30 text-sm">
-            <div class="flex items-center gap-3">
-                <div class="w-7 h-7 rounded-lg flex items-center justify-center" style="background: linear-gradient(135deg, #2d6a4f, #52b788);">
-                    <svg viewBox="0 0 24 24" class="w-4 h-4 fill-white" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="13" cy="4" r="2"/>
-                        <path d="M6 13l1.5 5H11l1-4 3 2v4h2v-5l-3.5-2.5L15 10l-3-1.5-2.5 3L6 13z"/>
-                    </svg>
+    <!-- ======================================
+          FOOTER
+     ============================================ -->
+    <footer class="border-t divider px-6 py-16 mt-12 bg-navy bg-opacity-40">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-3 gap-16 mb-16">
+                <div>
+                    <a href="index.html" class="flex items-center gap-3 mb-6">
+                        <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-forest">
+                            <svg viewBox="0 0 24 24" class="w-4 h-4 fill-white"><circle cx="13" cy="4" r="2"/><path d="M6 13l1.5 5H11l1-4 3 2v4h2v-5l-3.5-2.5L15 10l-3-1.5-2.5 3L6 13z"/></svg>
+                        </div>
+                        <span class="font-bold tracking-wide text-white">Löpning &amp; Stark</span>
+                    </a>
+                    <p class="text-white text-opacity-40 text-sm leading-relaxed max-w-xs">
+                        Träning för psykisk hälsa – en investering i människan och idrotten i Hälsingland. Stolt supporter av våra domare.
+                    </p>
                 </div>
-                <span>Löpning &amp; Stark · Pontus Östlin · <span id="footer-year"></span></span>
+                <div>
+                    <h4 class="text-white font-bold mb-6 text-xs uppercase tracking-[0.2em] opacity-40">Kontakt</h4>
+                    <ul class="space-y-4 text-sm text-white text-opacity-40">
+                        <li class="flex items-center gap-3">
+                            <span class="text-lg">📍</span> Bollnäs / Hudiksvall
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="text-lg">✉️</span> <a href="mailto:lopningstark@gmail.com" class="hover:text-white transition-colors">lopningstark@gmail.com</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-6 text-xs uppercase tracking-[0.2em] opacity-40">Navigering</h4>
+                    <div class="grid grid-cols-2 gap-x-8 gap-y-3 text-sm">
+                        <a href="index.html" class="text-white text-opacity-40 hover:text-white transition-colors">Hem</a>
+                        <a href="partner.html" class="text-white text-opacity-40 hover:text-white transition-colors">Bli Partner</a>
+                        <a href="kontakt.html" class="text-white text-opacity-40 hover:text-white transition-colors">Kontakt</a>
+                        <a href="login.html" class="text-white text-opacity-40 hover:text-white transition-colors">Logga in</a>
+                    </div>
+                </div>
             </div>
-            <div class="flex gap-6">
-                <a href="index.html"             class="hover:text-white transition-colors">Hem</a>
-                <a href="partner.html"   class="hover:text-white transition-colors">Företagspartner</a>
-                <a href="member_dashboard.html"  class="hover:text-white transition-colors">Medlemsportal</a>
+            <div class="pt-8 border-t border-white border-opacity-5 flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] text-white text-opacity-20 uppercase tracking-[0.3em] font-bold">
+                <span>© <span id="yr-footer"></span> Löpning &amp; Stark - Stolt supporter av Hälsinglands domare</span>
+                <div class="flex gap-6">
+                    <a href="#" class="hover:text-white transition-colors">Instagram</a>
+                    <a href="#" class="hover:text-white transition-colors">LinkedIn</a>
+                </div>
             </div>
         </div>
     </footer>
 
     <script>
-        document.getElementById('footer-year').textContent = new Date().getFullYear();
+        document.getElementById('yr-footer').textContent = new Date().getFullYear();
 
         function toggleMenu() {
             const menu = document.getElementById('mobile-menu');
