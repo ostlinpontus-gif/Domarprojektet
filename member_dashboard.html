@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Löpning & Stark – Din Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy:  { DEFAULT: '#0f1f3d', light: '#1a3260', lighter: '#223d73' },
+                        forest: { DEFAULT: '#2d6a4f', light: '#40916c', lighter: '#52b788', pale: '#d8f3dc' },
+                        sand:  '#f4f1eb',
+                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #0f1f3d; }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .play-ring {
+            box-shadow: 0 0 0 12px rgba(82, 183, 136, 0.15), 0 0 0 24px rgba(82, 183, 136, 0.07);
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+        .play-ring:hover {
+            box-shadow: 0 0 0 16px rgba(82, 183, 136, 0.25), 0 0 0 32px rgba(82, 183, 136, 0.12);
+            transform: scale(1.07);
+        }
+
+        .card-hover {
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.35);
+        }
+
+        .pulse-dot {
+            animation: pulse-green 2s infinite;
+        }
+        @keyframes pulse-green {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(82, 183, 136, 0.5); }
+            50%       { box-shadow: 0 0 0 6px rgba(82, 183, 136, 0); }
+        }
+
+        .progress-bar {
+            background: linear-gradient(90deg, #2d6a4f, #52b788);
+            border-radius: 99px;
+            transition: width 1s ease;
+        }
+
+        .badge {
+            background: rgba(82, 183, 136, 0.15);
+            border: 1px solid rgba(82, 183, 136, 0.3);
+        }
+    </style>
+</head>
+<body class="font-sans text-white min-h-screen">
+
+    <!-- Subtle background texture -->
+    <div class="fixed inset-0 pointer-events-none" style="background: radial-gradient(ellipse at 20% 10%, rgba(45,106,79,0.18) 0%, transparent 55%), radial-gradient(ellipse at 80% 80%, rgba(82,183,136,0.10) 0%, transparent 50%);"></div>
+
+    <!-- ===== HEADER / NAV ===== -->
+    <header class="relative z-10 border-b border-white border-opacity-10">
+        <div class="max-w-5xl mx-auto px-6 py-5 flex items-center justify-between">
+
+            <!-- Logo -->
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background: linear-gradient(135deg, #2d6a4f, #52b788);">
+                    <!-- Running figure icon -->
+                    <svg viewBox="0 0 24 24" class="w-6 h-6 text-white fill-current" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="13" cy="4" r="2"/>
+                        <path d="M6.5 10.5L9 7l4 2 2-2.5 3 1.5M7 13l1.5 5H11l1-4 3 2v4h2v-5l-3.5-2.5L15 10l-3-1.5-2.5 3L6 13z"/>
+                    </svg>
+                </div>
+                <div>
+                    <p class="font-bold text-base leading-tight tracking-wide">Löpning &amp; Stark</p>
+                    <p class="text-xs text-forest-lighter opacity-80">Hälso&shy;portal</p>
+                </div>
+            </div>
+
+            <!-- User greeting chip + logout -->
+            <div class="flex items-center gap-3">
+                <span class="hidden sm:block text-sm text-white text-opacity-60">Inloggad som</span>
+                <div class="glass px-4 py-2 rounded-full flex items-center gap-2">
+                    <div class="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold bg-forest-light">AN</div>
+                    <span class="font-semibold text-sm">Anna</span>
+                </div>
+                <a href="index.html" title="Logga ut" class="flex items-center gap-1.5 text-xs font-semibold text-white text-opacity-40 hover:text-white transition-colors px-3 py-2 rounded-full hover:bg-white hover:bg-opacity-5">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
+                    <span class="hidden sm:inline">Logga ut</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== MAIN ===== -->
+    <main class="relative z-10 max-w-5xl mx-auto px-6 py-10 space-y-10">
+
+        <!-- Welcome heading -->
+        <section>
+            <h1 class="text-3xl sm:text-4xl font-extrabold leading-tight mb-1">
+                Välkommen till din hälsoresa, <span style="background: linear-gradient(90deg, #52b788, #95d5b2); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">Anna!</span>
+            </h1>
+            <p class="text-white text-opacity-50 text-base">Vecka 12 · 18 mars 2026</p>
+        </section>
+
+        <!-- ===== VECKANS FOKUS ===== -->
+        <section>
+            <div class="flex items-center gap-2 mb-4">
+                <span class="text-xs font-bold uppercase tracking-widest text-forest-lighter">Veckans fokus</span>
+                <div class="flex-1 h-px bg-white opacity-10"></div>
+                <span class="badge text-xs px-3 py-1 rounded-full text-forest-lighter font-semibold">Ny lektion</span>
+            </div>
+
+            <div class="relative rounded-2xl overflow-hidden card-hover glass">
+                <!-- Decorative gradient sweep -->
+                <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(120deg, rgba(45,106,79,0.35) 0%, rgba(15,31,61,0.5) 60%);"></div>
+
+                <!-- Forest nature image placeholder -->
+                <div class="absolute inset-0" style="background: linear-gradient(135deg, #1a3260 0%, #2d6a4f 100%); opacity:0.5;"></div>
+                <div class="absolute inset-0 flex items-center justify-end pr-8 opacity-10">
+                    <svg viewBox="0 0 200 200" class="w-64 h-64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M100 10 L130 70 H170 L140 105 L155 165 L100 130 L45 165 L60 105 L30 70 H70 Z" fill="white"/>
+                    </svg>
+                </div>
+
+                <div class="relative flex flex-col sm:flex-row items-center gap-8 p-8">
+                    <!-- Play button -->
+                    <button
+                        class="play-ring w-20 h-20 rounded-full flex items-center justify-center flex-shrink-0 cursor-pointer"
+                        style="background: linear-gradient(135deg, #2d6a4f, #52b788);"
+                        aria-label="Spela föreläsning"
+                        onclick="document.getElementById('play-label').textContent = 'Startar video…'"
+                    >
+                        <svg viewBox="0 0 24 24" class="w-9 h-9 fill-white ml-1" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                    </button>
+
+                    <!-- Text -->
+                    <div class="text-center sm:text-left">
+                        <p id="play-label" class="text-xs font-semibold uppercase tracking-widest text-forest-lighter mb-1">Spela föreläsning · 22 min</p>
+                        <h2 class="text-2xl font-bold mb-2">Löpning som medicinsk intervention</h2>
+                        <p class="text-white text-opacity-60 text-sm max-w-md">Hur regelbunden löpning direkt påverkar serotoninnivåer, ångest och sömnkvalitet – evidensbaserat och praktiskt tillämpbart i din vardag.</p>
+                        <div class="mt-4 flex items-center gap-2 justify-center sm:justify-start">
+                            <div class="w-2 h-2 rounded-full bg-forest-lighter pulse-dot"></div>
+                            <span class="text-xs text-white text-opacity-50">8 kollegor har sett den här veckan</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== TRÄNINGSSCHEMA ===== -->
+        <section>
+            <div class="flex items-center gap-2 mb-4">
+                <span class="text-xs font-bold uppercase tracking-widest text-forest-lighter">Träningsschema</span>
+                <div class="flex-1 h-px bg-white opacity-10"></div>
+            </div>
+
+            <div class="grid sm:grid-cols-3 gap-4">
+
+                <!-- Måndag -->
+                <div class="glass rounded-2xl p-6 card-hover cursor-pointer group">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs font-bold uppercase tracking-widest text-forest-lighter">Måndag</span>
+                        <span class="text-lg">🌲</span>
+                    </div>
+                    <p class="font-bold text-lg mb-1 group-hover:text-forest-lighter transition-colors">Lugn distans</p>
+                    <p class="text-white text-opacity-50 text-sm mb-4">5 km i ditt eget tempo · fokus på närvaro</p>
+                    <div class="flex items-center gap-2">
+                        <div class="h-1.5 flex-1 bg-white bg-opacity-10 rounded-full overflow-hidden">
+                            <div class="progress-bar h-full" style="width: 0%; transition-delay: 0.1s;"></div>
+                        </div>
+                        <span class="text-xs text-white text-opacity-30">Ej startad</span>
+                    </div>
+                </div>
+
+                <!-- Onsdag -->
+                <div class="rounded-2xl p-6 card-hover cursor-pointer group" style="background: linear-gradient(135deg, rgba(45,106,79,0.4), rgba(15,31,61,0.6)); border: 1px solid rgba(82,183,136,0.25);">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs font-bold uppercase tracking-widest text-forest-lighter">Onsdag</span>
+                        <span class="text-lg">🧘</span>
+                    </div>
+                    <p class="font-bold text-lg mb-1 group-hover:text-forest-lighter transition-colors">Styrka för själen</p>
+                    <p class="text-white text-opacity-50 text-sm mb-4">20 min · rörlighet & andning</p>
+                    <div class="flex items-center gap-2">
+                        <div class="h-1.5 flex-1 bg-white bg-opacity-10 rounded-full overflow-hidden">
+                            <div class="progress-bar h-full" style="width: 0%; transition-delay: 0.2s;"></div>
+                        </div>
+                        <span class="text-xs text-white text-opacity-30">Ej startad</span>
+                    </div>
+                </div>
+
+                <!-- Fredag -->
+                <div class="glass rounded-2xl p-6 card-hover cursor-pointer group">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs font-bold uppercase tracking-widest text-forest-lighter">Fredag</span>
+                        <span class="text-lg">⚡</span>
+                    </div>
+                    <p class="font-bold text-lg mb-1 group-hover:text-forest-lighter transition-colors">Intervaller i skogen</p>
+                    <p class="text-white text-opacity-50 text-sm mb-4">6 × 2 min hård, 2 min vila</p>
+                    <div class="flex items-center gap-2">
+                        <div class="h-1.5 flex-1 bg-white bg-opacity-10 rounded-full overflow-hidden">
+                            <div class="progress-bar h-full" style="width: 0%; transition-delay: 0.3s;"></div>
+                        </div>
+                        <span class="text-xs text-white text-opacity-30">Ej startad</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ===== COMMUNITY WIDGET ===== -->
+        <section>
+            <div class="flex items-center gap-2 mb-4">
+                <span class="text-xs font-bold uppercase tracking-widest text-forest-lighter">Gemenskap</span>
+                <div class="flex-1 h-px bg-white opacity-10"></div>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-4">
+
+                <!-- Live-trainers -->
+                <div class="glass rounded-2xl p-6 flex items-center gap-5">
+                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0" style="background: rgba(82,183,136,0.15); border: 1px solid rgba(82,183,136,0.25);">
+                        <span class="text-2xl">🏃</span>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-2 mb-1">
+                            <div class="w-2 h-2 rounded-full bg-forest-lighter pulse-dot"></div>
+                            <span class="text-xs font-semibold text-forest-lighter uppercase tracking-wide">Just nu</span>
+                        </div>
+                        <p class="text-2xl font-extrabold">12 kollegor</p>
+                        <p class="text-white text-opacity-50 text-sm">tränar i det här ögonblicket</p>
+                    </div>
+                </div>
+
+                <!-- Domare-impact -->
+                <div class="rounded-2xl p-6 flex items-center gap-5" style="background: linear-gradient(135deg, rgba(45,106,79,0.4), rgba(15,31,61,0.6)); border: 1px solid rgba(82,183,136,0.25);">
+                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0" style="background: rgba(82,183,136,0.15); border: 1px solid rgba(82,183,136,0.25);">
+                        <span class="text-2xl">🏅</span>
+                    </div>
+                    <div>
+                        <p class="text-2xl font-extrabold">45 domare</p>
+                        <p class="text-white text-opacity-50 text-sm">i Hälsingland – finansierade av ert engagemang</p>
+                        <!-- Progress towards goal -->
+                        <div class="mt-2 h-1.5 w-full bg-white bg-opacity-10 rounded-full overflow-hidden">
+                            <div class="progress-bar h-full" style="width: 100%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ===== FOOTER NOTE ===== -->
+        <footer class="text-center text-white text-opacity-25 text-xs pb-6 space-y-1">
+            <p>Löpning &amp; Stark · Pontus Östlin · <span id="year"></span></p>
+            <p><a href="index.html" class="hover:text-white transition-colors underline underline-offset-2">Tillbaka till startsidan</a></p>
+        </footer>
+
+    </main>
+
+    <script>
+        // Set current year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Animate progress bars on load (placeholder: all at 0%)
+        // To show a card as "completed", update the width below and label text.
+        // Example: document.querySelectorAll('.progress-bar')[0].style.width = '100%';
+    </script>
+
+</body>
+</html>

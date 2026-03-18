@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt – Löpning & Stark</title>
+    <meta name="description" content="Ta kontakt med Pontus Östlin – boka föreläsning eller bli företagspartner i Hälsingland.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy:   { DEFAULT: '#0f1f3d', light: '#1a3260', lighter: '#223d73' },
+                        forest: { DEFAULT: '#2d6a4f', light: '#40916c', lighter: '#52b788', pale: '#d8f3dc' },
+                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root { scroll-behavior: smooth; }
+        body  { background-color: #0f1f3d; color: #fff; }
+
+        .navbar-glass {
+            background: rgba(15, 31, 61, 0.75);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255,255,255,0.07);
+        }
+
+        .nav-link { position: relative; }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -3px; left: 0;
+            width: 0; height: 2px;
+            background: #52b788;
+            border-radius: 2px;
+            transition: width 0.25s ease;
+        }
+        .nav-link:hover::after { width: 100%; }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #2d6a4f, #52b788);
+            transition: opacity 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .btn-primary:hover {
+            opacity: 0.92;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 28px rgba(82,183,136,0.35);
+        }
+        .btn-outline {
+            border: 1.5px solid rgba(82,183,136,0.5);
+            color: #52b788;
+            transition: background 0.25s ease, color 0.25s ease;
+        }
+        .btn-outline:hover { background: rgba(82,183,136,0.12); }
+
+        .pill {
+            background: rgba(82,183,136,0.12);
+            border: 1px solid rgba(82,183,136,0.3);
+            color: #52b788;
+        }
+
+        .divider { border-color: rgba(255,255,255,0.07); }
+
+        /* ── Form inputs ── */
+        .form-input {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.10);
+            color: #fff;
+            transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+        }
+        .form-input::placeholder { color: rgba(255,255,255,0.25); }
+        .form-input:focus {
+            outline: none;
+            border-color: rgba(82,183,136,0.55);
+            background: rgba(255,255,255,0.07);
+            box-shadow: 0 0 0 3px rgba(82,183,136,0.12);
+        }
+        .form-input option { background: #1a3260; color: #fff; }
+
+        /* ── Radio pill toggle ── */
+        .radio-card input { display: none; }
+        .radio-card label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            padding: 14px 18px;
+            border-radius: 14px;
+            border: 1.5px solid rgba(255,255,255,0.10);
+            background: rgba(255,255,255,0.04);
+            transition: border-color 0.2s ease, background 0.2s ease;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+        .radio-card input:checked + label {
+            border-color: rgba(82,183,136,0.55);
+            background: rgba(82,183,136,0.12);
+            color: #52b788;
+        }
+        .radio-dot {
+            width: 16px; height: 16px;
+            border-radius: 50%;
+            border: 2px solid rgba(255,255,255,0.25);
+            flex-shrink: 0;
+            transition: border-color 0.2s ease, background 0.2s ease;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .radio-card input:checked + label .radio-dot {
+            border-color: #52b788;
+            background: #52b788;
+        }
+        .radio-dot::after {
+            content: '';
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            background: #0f1f3d;
+            opacity: 0;
+            transition: opacity 0.15s;
+        }
+        .radio-card input:checked + label .radio-dot::after { opacity: 1; }
+
+        /* ── Info card ── */
+        .info-card {
+            background: linear-gradient(135deg, rgba(45,106,79,0.25), rgba(15,31,61,0.55));
+            border: 1px solid rgba(82,183,136,0.18);
+        }
+
+        /* ── Stat badge ── */
+        .stat-num {
+            background: linear-gradient(90deg, #52b788, #95d5b2);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .pulse-dot { animation: pulseG 2s infinite; }
+        @keyframes pulseG {
+            0%,100% { box-shadow: 0 0 0 0 rgba(82,183,136,0.5); }
+            50%      { box-shadow: 0 0 0 6px rgba(82,183,136,0); }
+        }
+
+        /* ── Success state ── */
+        #success-msg { display: none; }
+
+        /* ── Reveal ── */
+        .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        /* ── Hero sub gradient ── */
+        .hero-bg {
+            background:
+                radial-gradient(ellipse at 75% 30%, rgba(45,106,79,0.22) 0%, transparent 55%),
+                radial-gradient(ellipse at 20% 80%, rgba(82,183,136,0.08) 0%, transparent 45%),
+                linear-gradient(160deg, #0a1628 0%, #0f1f3d 50%, #112a1d 100%);
+        }
+    </style>
+</head>
+
+<body class="font-sans min-h-screen">
+
+    <!-- ===========================
+         NAVBAR
+    ============================ -->
+    <nav class="navbar-glass fixed top-0 inset-x-0 z-50">
+        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+
+            <a href="index.html" class="flex items-center gap-3 group">
+                <div class="w-9 h-9 rounded-xl flex items-center justify-center" style="background: linear-gradient(135deg, #2d6a4f, #52b788);">
+                    <svg viewBox="0 0 24 24" class="w-5 h-5 fill-white" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="13" cy="4" r="2"/>
+                        <path d="M6 13l1.5 5H11l1-4 3 2v4h2v-5l-3.5-2.5L15 10l-3-1.5-2.5 3L6 13z"/>
+                    </svg>
+                </div>
+                <span class="font-bold text-sm tracking-wide">Löpning &amp; Stark</span>
+            </a>
+
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-white text-opacity-70">
+                <a href="index.html"            class="nav-link hover:text-white transition-colors">Hem</a>
+                <a href="partner_preview.html"  class="nav-link hover:text-white transition-colors">Bli Partner</a>
+                <a href="kontakt.html"           class="nav-link hover:text-white transition-colors">Kontakta Pontus</a>
+            </div>
+
+            <a href="login.html" class="btn-primary hidden sm:inline-block text-white text-sm font-semibold px-5 py-2.5 rounded-full">
+                Logga in
+            </a>
+
+            <button id="menu-btn" class="md:hidden text-white p-2" aria-label="Öppna meny" onclick="toggleMenu()">
+                <svg id="icon-open"  class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-6 pt-2 space-y-3 text-sm font-medium text-white text-opacity-80">
+            <a href="index.html"           class="block py-2 border-b border-white border-opacity-10" onclick="toggleMenu()">Hem</a>
+            <a href="partner_preview.html" class="block py-2 border-b border-white border-opacity-10" onclick="toggleMenu()">Bli Partner</a>
+            <a href="kontakt.html"          class="block py-2 border-b border-white border-opacity-10" onclick="toggleMenu()">Kontakta Pontus</a>
+            <a href="login.html" class="btn-primary inline-block text-white px-5 py-2.5 rounded-full mt-2" onclick="toggleMenu()">Logga in</a>
+        </div>
+    </nav>
+
+    <!-- ===========================
+         PAGE HERO
+    ============================ -->
+    <section class="hero-bg pt-36 pb-16 px-6 text-center relative overflow-hidden">
+        <div class="absolute inset-0 pointer-events-none opacity-5" style="background-image: linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px); background-size: 60px 60px;"></div>
+        <div class="relative max-w-2xl mx-auto">
+            <span class="pill text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full inline-block mb-5">Ta första steget</span>
+            <h1 class="text-5xl sm:text-6xl font-black mb-5 leading-tight">
+                Låt oss ta en kaffe<br>
+                <span style="background: linear-gradient(90deg, #52b788, #95d5b2); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">och göra skillnad</span>
+            </h1>
+            <p class="text-white text-opacity-55 text-lg max-w-lg mx-auto">
+                I Bollnäs eller Hudiksvall – jag berättar hur vi kan stärka er personal och samtidigt rädda domarfotbollen i Hälsingland.
+            </p>
+        </div>
+    </section>
+
+    <!-- ===========================
+         MAIN: FORM + INFO SIDE
+    ============================ -->
+    <main id="formular" class="max-w-6xl mx-auto px-6 py-16">
+        <div class="grid lg:grid-cols-5 gap-10 items-start">
+
+            <!-- ── CONTACT FORM (3/5) ── -->
+            <div class="lg:col-span-3 reveal">
+                <form id="contact-form" class="space-y-5" onsubmit="handleSubmit(event)" novalidate>
+
+                    <!-- Name + Company row -->
+                    <div class="grid sm:grid-cols-2 gap-5">
+                        <div>
+                            <label for="name" class="block text-xs font-semibold uppercase tracking-widest text-white text-opacity-50 mb-2">Namn *</label>
+                            <input
+                                id="name" name="name" type="text" required
+                                placeholder="Anna Lindqvist"
+                                class="form-input w-full px-4 py-3.5 rounded-xl text-sm"
+                            >
+                        </div>
+                        <div>
+                            <label for="company" class="block text-xs font-semibold uppercase tracking-widest text-white text-opacity-50 mb-2">Företag</label>
+                            <input
+                                id="company" name="company" type="text"
+                                placeholder="AB Exempelföretaget"
+                                class="form-input w-full px-4 py-3.5 rounded-xl text-sm"
+                            >
+                        </div>
+                    </div>
+
+                    <!-- Email -->
+                    <div>
+                        <label for="email" class="block text-xs font-semibold uppercase tracking-widest text-white text-opacity-50 mb-2">E-post *</label>
+                        <input
+                            id="email" name="email" type="email" required
+                            placeholder="anna@foretaget.se"
+                            class="form-input w-full px-4 py-3.5 rounded-xl text-sm"
+                        >
+                    </div>
+
+                    <!-- Ärende: Radio cards -->
+                    <div>
+                        <p class="block text-xs font-semibold uppercase tracking-widest text-white text-opacity-50 mb-3">Ärende *</p>
+                        <div class="grid sm:grid-cols-2 gap-3">
+
+                            <div class="radio-card">
+                                <input type="radio" id="arende-forelasning" name="arende" value="Boka föreläsning" checked>
+                                <label for="arende-forelasning">
+                                    <span class="radio-dot"></span>
+                                    <span>🎤 Boka föreläsning</span>
+                                </label>
+                            </div>
+
+                            <div class="radio-card">
+                                <input type="radio" id="arende-partner" name="arende" value="Bli partner">
+                                <label for="arende-partner">
+                                    <span class="radio-dot"></span>
+                                    <span>🤝 Bli företagspartner</span>
+                                </label>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Message -->
+                    <div>
+                        <label for="message" class="block text-xs font-semibold uppercase tracking-widest text-white text-opacity-50 mb-2">Meddelande</label>
+                        <textarea
+                            id="message" name="message" rows="5"
+                            placeholder="Berätta gärna lite om er organisation och vad ni hoppas på…"
+                            class="form-input w-full px-4 py-3.5 rounded-xl text-sm resize-none"
+                        ></textarea>
+                    </div>
+
+                    <!-- Submit -->
+                    <button
+                        id="submit-btn"
+                        type="submit"
+                        class="btn-primary w-full text-white font-bold py-4 rounded-2xl text-base flex items-center justify-center gap-2"
+                    >
+                        <span id="btn-text">Skicka meddelande</span>
+                        <svg id="btn-icon" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/>
+                        </svg>
+                        <svg id="btn-spinner" class="hidden w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"/>
+                        </svg>
+                    </button>
+
+                    <!-- Success message -->
+                    <div id="success-msg" class="rounded-2xl p-5 text-center" style="background: rgba(82,183,136,0.12); border: 1px solid rgba(82,183,136,0.3);">
+                        <p class="text-2xl mb-2">✅</p>
+                        <p class="font-bold text-forest-lighter">Tack för ditt meddelande!</p>
+                        <p class="text-white text-opacity-55 text-sm mt-1">Jag återkommer inom 24 timmar. Vi ses snart!</p>
+                    </div>
+
+                    <p class="text-white text-opacity-25 text-xs text-center">* Obligatoriska fält. Dina uppgifter delas aldrig med tredje part.</p>
+                </form>
+            </div>
+
+            <!-- ── INFO SIDE (2/5) ── -->
+            <aside class="lg:col-span-2 space-y-5 reveal" style="transition-delay: 0.1s;">
+
+                <!-- Kaffe-kort -->
+                <div class="info-card rounded-2xl p-7">
+                    <div class="text-3xl mb-4">☕</div>
+                    <h2 class="text-xl font-bold mb-3">En kaffe i Bollnäs eller Hudiksvall</h2>
+                    <p class="text-white text-opacity-55 text-sm leading-relaxed">
+                        Jag ser fram emot att berätta hur vi kan stärka er personal – och samtidigt rädda domarfotbollen i Hälsingland. Det finns inget bättre än ett möte ansikte mot ansikte.
+                    </p>
+                </div>
+
+                <!-- Direkt kontakt -->
+                <div class="info-card rounded-2xl p-7 space-y-4">
+                    <h3 class="text-sm font-bold uppercase tracking-widest text-white text-opacity-40">Direkt kontakt</h3>
+
+                    <a href="mailto:pontus@lopningochstark.se" class="flex items-center gap-3 group">
+                        <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background: rgba(82,183,136,0.12); border: 1px solid rgba(82,183,136,0.2);">
+                            <span class="text-lg">✉️</span>
+                        </div>
+                        <div>
+                            <p class="text-xs text-white text-opacity-40 mb-0.5">E-post</p>
+                            <p class="text-sm font-semibold text-forest-lighter group-hover:text-white transition-colors">pontus@lopningochstark.se</p>
+                        </div>
+                    </a>
+
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background: rgba(82,183,136,0.12); border: 1px solid rgba(82,183,136,0.2);">
+                            <span class="text-lg">📍</span>
+                        </div>
+                        <div>
+                            <p class="text-xs text-white text-opacity-40 mb-0.5">Ort</p>
+                            <p class="text-sm font-semibold">Bollnäs / Hudiksvall, Hälsingland</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background: rgba(82,183,136,0.12); border: 1px solid rgba(82,183,136,0.2);">
+                            <div class="w-2 h-2 rounded-full bg-forest-lighter pulse-dot"></div>
+                        </div>
+                        <div>
+                            <p class="text-xs text-white text-opacity-40 mb-0.5">Svarstid</p>
+                            <p class="text-sm font-semibold">Inom 24 timmar</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mini stats -->
+                <div class="info-card rounded-2xl p-7">
+                    <h3 class="text-xs font-bold uppercase tracking-widest text-white text-opacity-40 mb-5">Varför det här fungerar</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-white text-opacity-60">Domare finansierade</span>
+                            <span class="stat-num font-extrabold text-lg">45</span>
+                        </div>
+                        <div class="h-px bg-white opacity-5"></div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-white text-opacity-60">Partners à 5 000 kr/mån</span>
+                            <span class="stat-num font-extrabold text-lg">15</span>
+                        </div>
+                        <div class="h-px bg-white opacity-5"></div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-white text-opacity-60">Er impact per år</span>
+                            <span class="stat-num font-extrabold text-lg">3 domare</span>
+                        </div>
+                    </div>
+                </div>
+
+            </aside>
+        </div>
+    </main>
+
+    <!-- ===========================
+         FOOTER
+    ============================ -->
+    <footer class="border-t divider px-6 py-10 mt-8">
+        <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6 text-white text-opacity-30 text-sm">
+            <div class="flex items-center gap-3">
+                <div class="w-7 h-7 rounded-lg flex items-center justify-center" style="background: linear-gradient(135deg, #2d6a4f, #52b788);">
+                    <svg viewBox="0 0 24 24" class="w-4 h-4 fill-white" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="13" cy="4" r="2"/>
+                        <path d="M6 13l1.5 5H11l1-4 3 2v4h2v-5l-3.5-2.5L15 10l-3-1.5-2.5 3L6 13z"/>
+                    </svg>
+                </div>
+                <span>Löpning &amp; Stark · Pontus Östlin · <span id="footer-year"></span></span>
+            </div>
+            <div class="flex gap-6">
+                <a href="index.html"             class="hover:text-white transition-colors">Hem</a>
+                <a href="partner_preview.html"   class="hover:text-white transition-colors">Företagspartner</a>
+                <a href="member_dashboard.html"  class="hover:text-white transition-colors">Medlemsportal</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const open  = document.getElementById('icon-open');
+            const close = document.getElementById('icon-close');
+            menu.classList.toggle('hidden');
+            open.classList.toggle('hidden');
+            close.classList.toggle('hidden');
+        }
+
+        function handleSubmit(e) {
+            e.preventDefault();
+            const form    = document.getElementById('contact-form');
+            const btn     = document.getElementById('submit-btn');
+            const btnText = document.getElementById('btn-text');
+            const btnIcon = document.getElementById('btn-icon');
+            const spinner = document.getElementById('btn-spinner');
+
+            // Validate required fields
+            const name  = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            if (!name || !email) {
+                [document.getElementById('name'), document.getElementById('email')].forEach(el => {
+                    if (!el.value.trim()) {
+                        el.style.borderColor = 'rgba(248,113,113,0.6)';
+                        setTimeout(() => el.style.borderColor = '', 2000);
+                    }
+                });
+                return;
+            }
+
+            // Loading state
+            btn.disabled = true;
+            btnText.textContent = 'Skickar…';
+            btnIcon.classList.add('hidden');
+            spinner.classList.remove('hidden');
+
+            // Simulate send (replace with real API call when ready)
+            setTimeout(() => {
+                form.reset();
+                btn.style.display = 'none';
+                document.getElementById('success-msg').style.display = 'block';
+            }, 1400);
+        }
+
+        // Scroll reveal
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+
+</body>
+</html>

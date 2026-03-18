@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Företagspartner – Löpning & Stark</title>
+    <meta name="description" content="Bli partner med Löpning & Stark – stötta domarfotbollen i Hälsingland och ge din personal tillgång till Pontus Östlins hälsoportal.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy:   { DEFAULT: '#0f1f3d', light: '#1a3260' },
+                        forest: { lighter: '#52b788', light: '#40916c', DEFAULT: '#2d6a4f' },
+                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #0f1f3d; font-family: 'Inter', sans-serif; color: #fff; }
+        .navbar-glass {
+            background: rgba(15,31,61,0.80);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255,255,255,0.07);
+        }
+        .nav-link { position: relative; }
+        .nav-link::after { content:''; position:absolute; bottom:-3px; left:0; width:0; height:2px; background:#52b788; border-radius:2px; transition:width 0.25s ease; }
+        .nav-link:hover::after { width:100%; }
+        .btn-primary { background: linear-gradient(135deg,#2d6a4f,#52b788); transition: opacity .2s, transform .2s, box-shadow .2s; }
+        .btn-primary:hover { opacity:.92; transform:translateY(-2px); box-shadow:0 10px 28px rgba(82,183,136,.35); }
+        .card { background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08); border-radius:20px; transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+        .card:hover { transform:translateY(-4px); box-shadow:0 16px 40px rgba(0,0,0,.35); border-color:rgba(82,183,136,.3); }
+        .pill { background:rgba(82,183,136,.12); border:1px solid rgba(82,183,136,.3); color:#52b788; }
+        .stat-num { background:linear-gradient(90deg,#52b788,#95d5b2); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+        .info-box { background:linear-gradient(135deg,rgba(45,106,79,.3),rgba(15,31,61,.6)); border:1px solid rgba(82,183,136,.2); border-radius:20px; }
+        .divider { border-color:rgba(255,255,255,0.07); }
+        .progress-track { background:rgba(255,255,255,.10); border-radius:99px; overflow:hidden; }
+        .progress-fill { background:linear-gradient(90deg,#2d6a4f,#52b788); border-radius:99px; transition:width 1s ease; }
+        .pulse-dot { animation: pg 2s infinite; }
+        @keyframes pg { 0%,100%{box-shadow:0 0 0 0 rgba(82,183,136,.5)} 50%{box-shadow:0 0 0 6px rgba(82,183,136,0)} }
+    </style>
+</head>
+<body class="min-h-screen">
+
+    <!-- ── NAVBAR ── -->
+    <nav class="navbar-glass fixed top-0 inset-x-0 z-50">
+        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-xl flex items-center justify-center" style="background:linear-gradient(135deg,#2d6a4f,#52b788)">
+                    <svg viewBox="0 0 24 24" class="w-5 h-5 fill-white"><circle cx="13" cy="4" r="2"/><path d="M6 13l1.5 5H11l1-4 3 2v4h2v-5l-3.5-2.5L15 10l-3-1.5-2.5 3L6 13z"/></svg>
+                </div>
+                <span class="font-bold text-sm tracking-wide text-white">Löpning &amp; Stark</span>
+            </a>
+            <div class="hidden md:flex items-center gap-7 text-sm font-medium text-white" style="opacity:.7">
+                <a href="index.html"            class="nav-link hover:opacity-100 transition-opacity">Hem</a>
+                <a href="partner_preview.html"  class="nav-link hover:opacity-100 transition-opacity">Bli Partner</a>
+                <a href="kontakt.html"           class="nav-link hover:opacity-100 transition-opacity">Kontakta Pontus</a>
+            </div>
+            <a href="login.html" class="btn-primary hidden sm:inline-block text-white text-sm font-semibold px-5 py-2.5 rounded-full">Logga in</a>
+        </div>
+    </nav>
+
+    <!-- ── PAGE HERO ── -->
+    <section class="pt-32 pb-16 px-6 text-center" style="background:radial-gradient(ellipse at 60% 0%,rgba(45,106,79,.25) 0%,transparent 55%),linear-gradient(160deg,#0a1628,#0f1f3d 60%,#112a1d)">
+        <span class="pill text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full inline-block mb-5">Partnerprogram</span>
+        <h1 class="text-5xl sm:text-6xl font-black leading-tight mb-4">Hälsinglands<br><span style="background:linear-gradient(90deg,#52b788,#95d5b2);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;">Domarframtid</span></h1>
+        <p class="text-white text-lg max-w-xl mx-auto mb-2" style="opacity:.6">Tillsammans gör vi domarutbildningen i Hälsingland <strong class="text-white" style="opacity:.9">100% kostnadsfri</strong>.</p>
+    </section>
+
+    <!-- ── MAIN CONTENT ── -->
+    <main class="max-w-4xl mx-auto py-12 px-6 space-y-10">
+
+        <!-- Stats grid -->
+        <div class="grid md:grid-cols-2 gap-6">
+            <!-- Domare-mål -->
+            <div class="card p-8">
+                <p class="text-xs font-bold uppercase tracking-widest mb-3" style="color:#52b788">Mål för säsongen</p>
+                <p class="text-4xl font-extrabold mb-0.5">45 Domare</p>
+                <p class="text-sm mb-5" style="color:rgba(255,255,255,.45)">i hela Hälsingland</p>
+                <div class="progress-track h-3 mb-2">
+                    <div class="progress-fill h-full" style="width:15%"></div>
+                </div>
+                <div class="flex items-center justify-between text-xs" style="color:rgba(255,255,255,.4)">
+                    <span>7 av 45 finansierade</span>
+                    <span>15 %</span>
+                </div>
+            </div>
+            <!-- Partner-impact -->
+            <div class="card p-8" style="background:linear-gradient(135deg,rgba(45,106,79,.25),rgba(15,31,61,.6));border-color:rgba(82,183,136,.2)">
+                <p class="text-xs font-bold uppercase tracking-widest mb-3" style="color:#52b788">Er Partner-Impact</p>
+                <p class="text-4xl font-extrabold mb-0.5">3,0 domare<span class="text-2xl font-bold" style="opacity:.5"> / år</span></p>
+                <p class="text-sm mb-5" style="color:rgba(255,255,255,.45)">per partnerföretag à 5 000 kr/mån</p>
+                <p class="text-sm italic" style="color:rgba(255,255,255,.65)">"Er insats tar bort kostnaden för tre unga domare direkt."</p>
+            </div>
+        </div>
+
+        <!-- Mervärde -->
+        <div class="info-box p-8">
+            <h2 class="text-2xl font-bold mb-4">Mervärde för er personal</h2>
+            <p class="mb-6 leading-relaxed" style="color:rgba(255,255,255,.6)">Som partner får ni inte bara exponering. Ni får full tillgång till <strong class="text-white">Löpning &amp; Stark</strong> – ett digitalt program för psykisk hälsa och träning, baserat på Pontus Östlins egna erfarenheter.</p>
+            <ul class="space-y-3 text-sm" style="color:rgba(255,255,255,.75)">
+                <li class="flex items-center gap-2"><span style="color:#52b788">✅</span> Veckovisa träningspass för alla nivåer</li>
+                <li class="flex items-center gap-2"><span style="color:#52b788">✅</span> Föreläsningsserier om mental motståndskraft</li>
+                <li class="flex items-center gap-2"><span style="color:#52b788">✅</span> Personlig coaching via plattformen</li>
+                <li class="flex items-center gap-2"><span style="color:#52b788">✅</span> Tillgång till <a href="member_dashboard.html" class="underline underline-offset-2" style="color:#52b788">Medlemsportalen</a> för hela personalen</li>
+            </ul>
+        </div>
+
+        <!-- CTA -->
+        <div class="text-center py-4">
+            <div class="flex items-center justify-center gap-2 mb-4">
+                <div class="w-2 h-2 rounded-full pulse-dot" style="background:#52b788"></div>
+                <span class="text-xs uppercase tracking-widest font-semibold" style="color:#52b788">Platser kvar: 8 av 15</span>
+            </div>
+            <h2 class="text-3xl font-extrabold mb-3">Vill <span style="opacity:.45">[Företagets Namn]</span> bli en av våra 15 huvudpartners?</h2>
+            <p class="mb-8" style="color:rgba(255,255,255,.5)">5 000 kr/mån – En investering i svensk idrott och er egen personal.</p>
+            <a href="kontakt.html" class="btn-primary text-white font-bold px-10 py-4 rounded-full text-lg inline-block">Boka ett möte i Bollnäs/Hudiksvall</a>
+        </div>
+
+    </main>
+
+    <!-- ── FOOTER ── -->
+    <footer class="border-t divider px-6 py-8 mt-8">
+        <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm" style="color:rgba(255,255,255,.25)">
+            <span>Löpning &amp; Stark · Pontus Östlin · <span id="yr"></span></span>
+            <div class="flex gap-5">
+                <a href="index.html"   class="hover:text-white transition-colors">Hem</a>
+                <a href="kontakt.html" class="hover:text-white transition-colors">Kontakt</a>
+                <a href="login.html"   class="hover:text-white transition-colors">Logga in</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>
