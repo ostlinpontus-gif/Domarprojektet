@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Företagspartner – Löpning & Stark</title>
+    <title>Framtidspuls | Friskvård & Lokalt Stöd</title>
     <meta name="description" content="Bli partner med Löpning & Stark – stötta domarfotbollen i Hälsingland och ge din personal tillgång till Pontus Östlins hälsoportal.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,8 +13,8 @@
             theme: {
                 extend: {
                     colors: {
-                        navy:   { DEFAULT: '#0f1f3d', light: '#1a3260', lighter: '#223d73' },
-                        forest: { lighter: '#52b788', light: '#40916c', DEFAULT: '#2d6a4f' },
+                        navy:   { DEFAULT: '#0b1628', light: '#11213d' },
+                        puls:   { lighter: '#90e0ef', light: '#48cae4', DEFAULT: '#00b4d8' },
                     },
                     fontFamily: { sans: ['Inter', 'sans-serif'] }
                 }
@@ -29,20 +29,20 @@
             border-bottom: 1px solid rgba(255,255,255,0.07);
         }
         .nav-link { position: relative; }
-        .nav-link::after { content:''; position:absolute; bottom:-3px; left:0; width:0; height:2px; background:#52b788; border-radius:2px; transition:width 0.25s ease; }
+        .nav-link::after { content:''; position:absolute; bottom:-3px; left:0; width:0; height:2px; background:#00b4d8; border-radius:2px; transition:width 0.25s ease; }
         .nav-link:hover::after { width:100%; }
-        .btn-primary { background: linear-gradient(135deg,#2d6a4f,#52b788); transition: all 0.2s ease; }
-        .btn-primary:hover { opacity:.92; transform:translateY(-2px); box-shadow:0 10px 28px rgba(82,183,136,.35); }
+        .btn-primary { background: linear-gradient(135deg,#00b4d8,#48cae4); transition: opacity .2s, transform .2s, box-shadow .2s; }
+        .btn-primary:hover { opacity:.92; transform:translateY(-2px); box-shadow:0 10px 28px rgba(0,180,216,.35); }
         .card { background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08); border-radius:20px; transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
-        .card:hover { transform:translateY(-4px); box-shadow:0 16px 40px rgba(0,0,0,.35); border-color:rgba(82,183,136,.3); }
-        .pill { background:rgba(82,183,136,0.12); border:1px solid rgba(82,183,136,0.3); color:#52b788; }
-        .stat-num { background:linear-gradient(90deg,#52b788,#95d5b2); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
-        .info-box { background:linear-gradient(135deg,rgba(45,106,79,.3),rgba(15,31,61,.6)); border:1px solid rgba(82,183,136,.2); border-radius:20px; }
+        .card:hover { transform:translateY(-4px); box-shadow:0 16px 40px rgba(0,0,0,.35); border-color:rgba(0,180,216,.3); }
+        .pill { background:rgba(0,180,216,0.12); border:1px solid rgba(0,180,216,0.3); color:#48cae4; }
+        .stat-num { background:linear-gradient(90deg,#00b4d8,#90e0ef); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+        .info-box { background:linear-gradient(135deg,rgba(0,180,216,.3),rgba(11,22,40,.6)); border:1px solid rgba(0,180,216,.2); border-radius:20px; }
         .divider { border-color:rgba(255,255,255,0.07); }
         .progress-track { background:rgba(255,255,255,.10); border-radius:99px; overflow:hidden; }
-        .progress-fill { background:linear-gradient(90deg,#2d6a4f,#52b788); border-radius:99px; transition:width 1s ease; }
+        .progress-fill { background:linear-gradient(90deg,#00b4d8,#90e0ef); border-radius:99px; transition:width 1s ease; }
         .pulse-dot { animation: pg 2s infinite; }
-        @keyframes pg { 0%,100%{box-shadow:0 0 0 0 rgba(82,183,136,.5)} 50%{box-shadow:0 0 0 6px rgba(82,183,136,0)} }
+        @keyframes pg { 0%,100%{box-shadow:0 0 0 0 rgba(0,180,216,.5)} 50%{box-shadow:0 0 0 6px rgba(0,180,216,0)} }
 
         /* ── Form inputs ── */
         .form-input {
@@ -56,9 +56,9 @@
         }
         .form-input:focus {
             outline: none;
-            border-color: rgba(82,183,136,0.60);
+            border-color: rgba(0,180,216,0.60);
             background: rgba(255,255,255,0.08);
-            box-shadow: 0 0 0 3px rgba(82,183,136,0.12);
+            box-shadow: 0 0 0 3px rgba(0,180,216,0.12);
         }
 
         @keyframes fadeIn {
@@ -73,14 +73,14 @@
     <nav class="navbar-glass fixed top-0 inset-x-0 z-50">
         <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
             <a href="index.html" class="flex items-center gap-3">
-                <div class="w-9 h-9 rounded-xl flex items-center justify-center bg-forest">
+                <div class="w-9 h-9 rounded-xl flex items-center justify-center" style="background:linear-gradient(135deg,#00b4d8,#48cae4)">
                     <svg viewBox="0 0 24 24" class="w-5 h-5 fill-white"><circle cx="13" cy="4" r="2"/><path d="M6 13l1.5 5H11l1-4 3 2v4h2v-5l-3.5-2.5L15 10l-3-1.5-2.5 3L6 13z"/></svg>
                 </div>
-                <span class="font-bold text-sm tracking-wide">Löpning & Stark</span>
+                <span class="font-bold text-sm tracking-wide">Framtidspuls</span>
             </a>
             <div class="hidden md:flex items-center gap-8 text-sm font-medium text-white text-opacity-70">
                 <a href="index.html"   class="nav-link hover:text-white transition-opacity">Hem</a>
-                <a href="partner.html" class="nav-link hover:text-white transition-opacity text-forest-lighter font-bold">Bli Partner</a>
+                <a href="partner.html" class="nav-link hover:opacity-100 transition-opacity text-puls-light font-bold">Bli Partner</a>
                 <a href="kontakt.html"  class="nav-link hover:text-white transition-opacity">Kontakta Pontus</a>
             </div>
             <a href="login.html" class="btn-primary text-white text-sm font-semibold px-5 py-2.5 rounded-full">Logga in</a>
@@ -88,24 +88,24 @@
     </nav>
 
     <!-- ── PAGE HERO ── -->
-    <section class="pt-32 pb-16 px-6 text-center" style="background:radial-gradient(ellipse at 60% 0%,rgba(45,106,79,.2) 0%,transparent 55%)">
+    <section class="pt-32 pb-16 px-6 text-center" style="background:radial-gradient(ellipse at 60% 0%,rgba(0,180,216,.25) 0%,transparent 55%),linear-gradient(160deg,#08101c,#0b1628 60%,#0e1b2b)">
         <span class="pill text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full inline-block mb-5">Partnerprogram</span>
-        <h1 class="text-5xl sm:text-6xl font-black leading-tight mb-4">Hälsinglands<br><span class="stat-num">Domarframtid</span></h1>
-        <p class="text-white text-lg max-w-xl mx-auto mb-2 opacity-60">Tillsammans gör vi domarutbildningen i Hälsingland <strong class="text-white">100% kostnadsfri</strong>.</p>
+        <h1 class="text-5xl sm:text-6xl font-black leading-tight mb-4">Hälsinglands<br><span style="background:linear-gradient(90deg,#00b4d8,#90e0ef);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;">Domarframtid</span></h1>
+        <p class="text-white text-lg max-w-xl mx-auto mb-2" style="opacity:.6">Tillsammans gör vi domarutbildningen i Hälsingland <strong class="text-white" style="opacity:.9">100% kostnadsfri</strong>.</p>
     </section>
 
     <!-- ── MAIN ── -->
     <main class="max-w-4xl mx-auto py-12 px-6 space-y-12">
         <div class="grid md:grid-cols-2 gap-8">
             <div class="card p-8">
-                <p class="text-xs font-bold uppercase tracking-widest mb-3 text-forest-lighter">Mål för säsongen</p>
+                <p class="text-xs font-bold uppercase tracking-widest mb-3" style="color:#00b4d8">Mål för säsongen</p>
                 <p class="text-4xl font-extrabold mb-1">45 Domare</p>
                 <p class="text-white text-opacity-40 text-sm mb-6">Hälsingland totalt</p>
                 <div class="progress-track h-3 mb-2"><div class="progress-fill h-full" style="width:15%"></div></div>
                 <div class="flex justify-between text-xs opacity-40"><span>7 finansierade</span><span>15 %</span></div>
             </div>
-            <div class="card p-10 border-forest-light bg-forest bg-opacity-10">
-                <p class="text-xs font-bold uppercase tracking-widest mb-3 text-forest-lighter">Er Partner-Impact</p>
+            <div class="card p-8" style="background:linear-gradient(135deg,rgba(0,180,216,.25),rgba(11,22,40,.6));border-color:rgba(0,180,216,.2)">
+                <p class="text-xs font-bold uppercase tracking-widest mb-3" style="color:#00b4d8">Er Partner-Impact</p>
                 <p class="text-4xl font-extrabold mb-1">3,0 domare / år</p>
                 <p class="text-white text-opacity-40 text-sm mb-6">per partner à 5000 kr/mån</p>
                 <p class="text-sm italic opacity-60 italic leading-relaxed">"Er insats tar bort kostnaden för tre unga domare direkt varje säsong."</p>
@@ -114,35 +114,69 @@
 
         <div class="info-box p-10">
             <h2 class="text-2xl font-bold mb-6">Mervärde för er personal</h2>
-            <p class="mb-8 leading-relaxed opacity-60">Detta är inte bara välgörenhet. Som partner får hela er personal full tillgång till vår friskvårdsplattform – en investering som lönar sig direkt i personalhälsan.</p>
-            <div class="grid sm:grid-cols-2 gap-4 text-sm font-medium">
-                <div class="flex items-center gap-3">✅ Veckovisa träningspass</div>
-                <div class="flex items-center gap-3">✅ Medlemsportal för alla</div>
-                <div class="flex items-center gap-3">✅ Föreläsningsserier</div>
-                <div class="flex items-center gap-3">✅ Coachning direkt via app</div>
-            </div>
+            <p class="mb-6 leading-relaxed" style="color:rgba(255,255,255,.6)">Som partner får ni inte bara exponering. Ni får full tillgång till <strong class="text-white">Framtidspuls</strong> – ett digitalt program för psykisk hälsa och träning, baserat på Pontus Östlins egna erfarenheter.</p>
+            <ul class="space-y-3 text-sm" style="color:rgba(255,255,255,.75)">
+                <li class="flex items-center gap-2"><span style="color:#00b4d8">✅</span> Veckovisa träningspass för alla nivåer</li>
+                <li class="flex items-center gap-2"><span style="color:#00b4d8">✅</span> Föreläsningsserier om mental motståndskraft</li>
+                <li class="flex items-center gap-2"><span style="color:#00b4d8">✅</span> Personlig coaching via plattformen</li>
+                <li class="flex items-center gap-2"><span style="color:#00b4d8">✅</span> Tillgång till <a href="member_dashboard.html" class="underline underline-offset-2" style="color:#00b4d8">Medlemsportalen</a> för hela personalen</li>
+            </ul>
         </div>
 
         <!-- FORM SECTION -->
-        <div id="anmalan" class="rounded-[32px] overflow-hidden border border-forest border-opacity-30 bg-navy-light shadow-2xl">
-            <div class="grid lg:grid-cols-5">
-                <div class="lg:col-span-2 p-10 bg-forest bg-opacity-5 flex flex-col justify-between border-r border-white border-opacity-5">
+        <div id="anmalan" class="rounded-3xl overflow-hidden" style="background:linear-gradient(135deg,rgba(0,180,216,0.20),rgba(11,22,40,0.70)); border:1px solid rgba(0,180,216,0.20);">
+
+            <div class="grid lg:grid-cols-2 gap-0">
+
+                <!-- ── LEFT: INFO PANEL ── -->
+                <div class="p-8 lg:p-10 flex flex-col justify-between" style="border-right:1px solid rgba(255,255,255,0.06);">
+
                     <div>
-                        <div class="flex items-center gap-2 mb-8">
-                            <div class="w-2.5 h-2.5 rounded-full pulse-dot bg-forest-lighter"></div>
-                            <span class="text-xs font-black uppercase tracking-widest text-forest-lighter">8 platser kvar</span>
+                        <!-- Live badge -->
+                        <div class="flex items-center gap-2 mb-6">
+                            <div class="w-2 h-2 rounded-full pulse-dot" style="background:#00b4d8"></div>
+                            <span class="text-xs uppercase tracking-widest font-semibold" style="color:#00b4d8">Platser kvar: 8 av 15</span>
                         </div>
-                        <h2 class="text-4xl font-black leading-tight mb-6">Skicka en<br><span class="stat-num">Anmälan</span></h2>
-                        <p class="text-sm leading-relaxed opacity-50 mb-8">Vi hör av oss inom 24h för att boka ett förutsättningslöst möte i Bollnäs eller Hudiksvall.</p>
-                        <ul class="space-y-4 text-xs font-bold uppercase tracking-widest opacity-40">
-                             <li class="flex items-center gap-3">✓ Svar inom 24h</li>
-                             <li class="flex items-center gap-3">✓ Ingen bindningstid</li>
-                             <li class="flex items-center gap-3">✓ Månadsvis faktura</li>
+
+                        <h2 class="text-3xl font-extrabold leading-tight mb-3">
+                            Skicka er<br>
+                            <span style="background:linear-gradient(90deg,#00b4d8,#90e0ef);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;">Intresseanmälan</span>
+                        </h2>
+                        <p class="text-sm leading-relaxed mb-8" style="color:rgba(255,255,255,.5)">
+                            Fyll i formuläret så hör Pontus Östlin av sig inom 24 timmar för att boka ett personligt möte i Bollnäs eller Hudiksvall.
+                        </p>
+
+                        <!-- Trust bullets -->
+                        <ul class="space-y-3 text-sm" style="color:rgba(255,255,255,.5)">
+                            <li class="flex items-center gap-2">
+                                <svg class="w-4 h-4 flex-shrink-0" style="color:#00b4d8" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M5 13l4 4L19 7"/></svg>
+                                Svar inom 24 timmar
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <svg class="w-4 h-4 flex-shrink-0" style="color:#00b4d8" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M5 13l4 4L19 7"/></svg>
+                                Ingen bindningstid – avtalsfri uppsägning
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <svg class="w-4 h-4 flex-shrink-0" style="color:#00b4d8" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M5 13l4 4L19 7"/></svg>
+                                Direktkontakt med Pontus Östlin
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <svg class="w-4 h-4 flex-shrink-0" style="color:#00b4d8" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M5 13l4 4L19 7"/></svg>
+                                Faktura månadsvis – ingen förskottsbetalning
+                            </li>
                         </ul>
                     </div>
-                    <div class="mt-12 text-xs opacity-30 italic leading-relaxed">"Låt oss bygga en starkare framtid tillsammans för personal och idrott."<br>– Pontus Östlin</div>
+
+                    <!-- Bottom quote -->
+                    <div class="mt-10 pt-8" style="border-top:1px solid rgba(255,255,255,0.07)">
+                        <p class="text-sm italic" style="color:rgba(255,255,255,.4)">
+                            "Vår starkaste investering är i de människor som gör idrotten möjlig – domarna och er personal."
+                        </p>
+                        <p class="text-xs mt-2 font-semibold" style="color:rgba(0,180,216,0.7)">– Pontus Östlin, Framtidspuls</p>
+                    </div>
+
                 </div>
-                <div class="lg:col-span-3 p-10 bg-navy relative min-h-[400px] flex flex-col justify-center">
+                <div class="lg:col-span-1 p-10 bg-navy relative min-h-[400px] flex flex-col justify-center">
                     <!-- Form Container -->
                     <form id="p-form" class="space-y-5 transition-opacity duration-300">
                         <div id="form-error" class="hidden rounded-xl px-4 py-3 text-sm text-center mb-5" style="background: rgba(248,113,113,0.12); border: 1px solid rgba(248,113,113,0.3); color: #fca5a5;">
@@ -189,7 +223,7 @@
 
                     <!-- Success State -->
                     <div id="success-msg" class="hidden text-center space-y-6 py-10 animate-[fadeIn_0.5s_ease-out]">
-                        <div class="w-20 h-20 bg-forest bg-opacity-20 rounded-full flex items-center justify-center mx-auto text-4xl">✅</div>
+                        <div class="w-20 h-20 bg-puls bg-opacity-20 rounded-full flex items-center justify-center mx-auto text-4xl">✅</div>
                         <h3 class="text-3xl font-black">Tack för din anmälan!</h3>
                         <p class="text-white text-opacity-50 text-lg max-w-sm mx-auto">Vi har tagit emot dina uppgifter och återkommer till dig inom kort. </p>
                         <a href="index.html" class="btn-primary inline-block px-10 py-4 rounded-xl font-bold mt-4 shadow-xl">Tillbaka till startsidan</a>
@@ -204,7 +238,7 @@
         <div class="max-w-6xl mx-auto">
             <div class="grid md:grid-cols-3 gap-16 mb-12">
                 <div>
-                    <a href="index.html" class="flex items-center gap-3 mb-6 font-bold">Löpning & Stark</a>
+                    <a href="index.html" class="flex items-center gap-3 mb-6 font-bold">Framtidspuls</a>
                     <p class="text-xs opacity-40 leading-relaxed max-w-xs">Träning för psykisk hälsa – en investering i människan och idrotten i Hälsingland.</p>
                 </div>
                 <div>
@@ -222,7 +256,7 @@
                 </div>
             </div>
             <div class="pt-8 border-t border-white border-opacity-5 flex justify-between items-center text-[10px] font-bold uppercase tracking-[0.2em] opacity-40">
-                <span>© <span id="y"></span> Löpning & Stark - Supporter av domare</span>
+                <span>© <span id="y"></span> Framtidspuls – Ett initiativ av Löpning &amp; Stark. Tillsammans skapar vi en hållbar framtid för idrotten och din personal.</span>
                 <span>Hälsingland</span>
             </div>
         </div>

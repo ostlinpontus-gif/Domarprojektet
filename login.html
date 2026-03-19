@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Logga in – Löpning & Stark</title>
-    <meta name="description" content="Logga in på Löpning & Stark – din hälsoportal av Pontus Östlin.">
+    <title>Framtidspuls | Friskvård & Lokalt Stöd</title>
+    <meta name="description" content="Logga in på Framtidspuls – din hälsoportal för friskvård och lokalt stöd.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -14,8 +14,8 @@
             theme: {
                 extend: {
                     colors: {
-                        navy:   { DEFAULT: '#0f1f3d', light: '#1a3260', lighter: '#223d73' },
-                        forest: { DEFAULT: '#2d6a4f', light: '#40916c', lighter: '#52b788' },
+                        navy:   { DEFAULT: '#0b1628', light: '#11213d' },
+                        puls:   { lighter: '#90e0ef', light: '#48cae4', DEFAULT: '#00b4d8' },
                     },
                     fontFamily: { sans: ['Inter', 'sans-serif'] }
                 }
@@ -26,11 +26,11 @@
     <style>
         /* ── Page background ── */
         body {
-            background-color: #0a1628;
+            background-color: #0b1628;
             background-image:
-                radial-gradient(ellipse at 15% 20%,  rgba(45,106,79,0.28)  0%, transparent 50%),
-                radial-gradient(ellipse at 85% 75%,  rgba(82,183,136,0.14) 0%, transparent 48%),
-                radial-gradient(ellipse at 50% 50%,  rgba(22,60,100,0.35)  0%, transparent 65%);
+                radial-gradient(ellipse at 15% 20%,  rgba(0,180,216,0.20)  0%, transparent 50%),
+                radial-gradient(ellipse at 85% 75%,  rgba(144,224,239,0.12) 0%, transparent 48%),
+                radial-gradient(ellipse at 50% 50%,  rgba(11,22,40,0.25)  0%, transparent 65%);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -61,9 +61,9 @@
             filter: blur(60px);
             animation: drift 18s ease-in-out infinite alternate;
         }
-        .orb-1 { width: 420px; height: 420px; top: -100px; left: -80px;  background: rgba(45,106,79,0.22);  animation-delay: 0s; }
-        .orb-2 { width: 320px; height: 320px; bottom: -80px; right: -60px; background: rgba(82,183,136,0.16); animation-delay: -6s; }
-        .orb-3 { width: 240px; height: 240px; top: 45%; left: 55%;  background: rgba(22,60,100,0.30);  animation-delay: -12s; }
+        .orb-1 { width: 420px; height: 420px; top: -100px; left: -80px;  background: rgba(0,180,216,0.22);  animation-delay: 0s; }
+        .orb-2 { width: 320px; height: 320px; bottom: -80px; right: -60px; background: rgba(144,224,239,0.16); animation-delay: -6s; }
+        .orb-3 { width: 240px; height: 240px; top: 45%; left: 55%;  background: rgba(11,22,40,0.30);  animation-delay: -12s; }
         @keyframes drift {
             from { transform: translate(0, 0) scale(1); }
             to   { transform: translate(30px, 20px) scale(1.06); }
@@ -86,12 +86,6 @@
             to   { opacity: 1; transform: translateY(0)    scale(1); }
         }
 
-        /* ── Logo icon ── */
-        .logo-icon {
-            background: linear-gradient(135deg, #2d6a4f, #52b788);
-            box-shadow: 0 8px 24px rgba(82,183,136,0.35);
-        }
-
         /* ── Form inputs ── */
         .form-input {
             background: rgba(255,255,255,0.06);
@@ -107,9 +101,9 @@
         }
         .form-input::placeholder { color: rgba(255,255,255,0.28); }
         .form-input:focus {
-            border-color: rgba(82,183,136,0.60);
-            background: rgba(255,255,255,0.09);
-            box-shadow: 0 0 0 3px rgba(82,183,136,0.14);
+            border-color: rgba(0, 180, 216, 0.60);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.12);
         }
         .input-icon {
             position: absolute;
@@ -134,11 +128,11 @@
             padding: 4px;
             transition: color 0.2s;
         }
-        .eye-btn:hover { color: rgba(82,183,136,0.8); }
+        .eye-btn:hover { color: rgba(0,180,216,0.8); }
 
         /* ── Submit button ── */
         .btn-login {
-            background: linear-gradient(135deg, #2d6a4f 0%, #52b788 100%);
+            background: linear-gradient(135deg, #00b4d8 0%, #48cae4 100%);
             border: none;
             color: #fff;
             font-family: 'Inter', sans-serif;
@@ -165,7 +159,7 @@
         }
         .btn-login:hover:not(:disabled) {
             transform: translateY(-2px);
-            box-shadow: 0 12px 32px rgba(82,183,136,0.40);
+            box-shadow: 0 12px 32px rgba(0,180,216,0.40);
         }
         .btn-login:active:not(:disabled) { transform: translateY(0); }
         .btn-login:disabled { opacity: 0.7; cursor: not-allowed; }
@@ -187,9 +181,9 @@
 
         /* ── Pill ── */
         .pill {
-            background: rgba(82,183,136,0.12);
-            border: 1px solid rgba(82,183,136,0.28);
-            color: #52b788;
+            background: rgba(0,180,216,0.12);
+            border: 1px solid rgba(0,180,216,0.28);
+            color: #00b4d8;
         }
 
         /* ── Shake animation on bad login ── */
@@ -205,8 +199,8 @@
         /* ── Pulse dot ── */
         .pulse-dot { animation: pulseG 2s infinite; }
         @keyframes pulseG {
-            0%,100% { box-shadow: 0 0 0 0 rgba(82,183,136,0.5); }
-            50%      { box-shadow: 0 0 0 6px rgba(82,183,136,0); }
+            0%,100% { box-shadow: 0 0 0 0 rgba(0,180,216,0.5); }
+            50%      { box-shadow: 0 0 0 6px rgba(0,180,216,0); }
         }
 
         /* ── Error banner ── */
@@ -227,17 +221,15 @@
         <div class="glass-card px-8 pt-10 pb-8" id="login-card">
 
             <!-- Logo -->
-            <div class="flex flex-col items-center mb-8">
-                <div class="logo-icon w-16 h-16 rounded-2xl flex items-center justify-center mb-4">
-                    <svg viewBox="0 0 24 24" class="w-9 h-9 fill-white" xmlns="http://www.w3.org/2000/svg">
+            <a href="index.html" class="flex items-center gap-3 mb-8 group">
+                <div class="w-10 h-10 rounded-xl flex items-center justify-center transition-transform group-hover:scale-110" style="background: linear-gradient(135deg, #00b4d8, #48cae4);">
+                    <svg viewBox="0 0 24 24" class="w-5 h-5 fill-white" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="13" cy="4" r="2"/>
                         <path d="M6 13l1.5 5H11l1-4 3 2v4h2v-5l-3.5-2.5L15 10l-3-1.5-2.5 3L6 13z"/>
-                        <path d="M8.5 10.5L11 7.5l3.5 1.8 2.2-2.3" stroke="white" stroke-width="0.6" fill="none" stroke-linecap="round"/>
                     </svg>
                 </div>
-                <h1 class="text-2xl font-extrabold tracking-tight">Löpning &amp; Stark</h1>
-                <span class="pill text-xs font-semibold px-3 py-1 rounded-full mt-2">Hälsoportal för partners</span>
-            </div>
+                <span class="font-bold text-xl leading-tight tracking-wide">Framtidspuls</span>
+            </a>
 
             <!-- Welcome text -->
             <div class="text-center mb-7">
@@ -269,7 +261,7 @@
                             name="email"
                             type="email"
                             autocomplete="email"
-                            placeholder="lopningstark@gmail.com"
+                            placeholder="framtidspuls@gmail.com"
                             class="form-input"
                             required
                         >
@@ -311,7 +303,7 @@
 
                 <!-- Forgotten password link -->
                 <div class="text-right">
-                    <a href="#" class="text-xs font-medium text-forest-lighter hover:text-white transition-colors" style="color: #52b788;">Glömt lösenordet?</a>
+                    <a href="#" class="text-xs font-medium text-puls hover:text-white transition-colors" style="color: #00b4d8;">Glömt lösenordet?</a>
                 </div>
 
                 <!-- Submit -->
@@ -332,13 +324,16 @@
 
             </form>
 
+            <!-- Puls Effect -->
+            <div class="absolute -bottom-24 -right-24 w-64 h-64 bg-puls opacity-10 blur-[100px] pointer-events-none"></div>
+
             <!-- Divider -->
-            <div class="divider-line my-6">Löpning &amp; Stark · Hälsingland</div>
+            <div class="divider-line my-6">Framtidspuls · Hälsingland</div>
 
             <!-- Demo hint -->
-            <div class="rounded-xl px-4 py-3 text-center text-xs" style="background: rgba(82,183,136,0.07); border: 1px solid rgba(82,183,136,0.15);">
+            <div class="rounded-xl px-4 py-3 text-center text-xs" style="background: rgba(0,180,216,0.07); border: 1px solid rgba(0,180,216,0.15);">
                 <span class="flex items-center justify-center gap-1.5 text-white text-opacity-40">
-                    <div class="w-1.5 h-1.5 rounded-full bg-forest-lighter pulse-dot" style="background:#52b788;"></div>
+                    <div class="w-1.5 h-1.5 rounded-full bg-puls pulse-dot" style="background:#00b4d8;"></div>
                     Demo: ange valfritt e-post &amp; lösenord för att logga in
                 </span>
             </div>

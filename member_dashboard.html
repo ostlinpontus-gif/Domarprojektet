@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Löpning & Stark – Din Dashboard</title>
+    <title>Framtidspuls | Medlemsdashboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -12,8 +12,8 @@
             theme: {
                 extend: {
                     colors: {
-                        navy:  { DEFAULT: '#0f1f3d', light: '#1a3260', lighter: '#223d73' },
-                        forest: { DEFAULT: '#2d6a4f', light: '#40916c', lighter: '#52b788', pale: '#d8f3dc' },
+                        navy:  { DEFAULT: '#0b1628', light: '#11213d', lighter: '#1b3252' },
+                        puls: { DEFAULT: '#00b4d8', light: '#48cae4', lighter: '#90e0ef', pale: '#caf0f8' },
                         sand:  '#f4f1eb',
                     },
                     fontFamily: { sans: ['Inter', 'sans-serif'] }
@@ -31,11 +31,11 @@
         }
 
         .play-ring {
-            box-shadow: 0 0 0 12px rgba(82, 183, 136, 0.15), 0 0 0 24px rgba(82, 183, 136, 0.07);
+            box-shadow: 0 0 0 12px rgba(0, 180, 216, 0.15), 0 0 0 24px rgba(0, 180, 216, 0.07);
             transition: box-shadow 0.3s ease, transform 0.3s ease;
         }
         .play-ring:hover {
-            box-shadow: 0 0 0 16px rgba(82, 183, 136, 0.25), 0 0 0 32px rgba(82, 183, 136, 0.12);
+            box-shadow: 0 0 0 16px rgba(0, 180, 216, 0.25), 0 0 0 32px rgba(0, 180, 216, 0.12);
             transform: scale(1.07);
         }
 
@@ -51,26 +51,26 @@
             animation: pulse-green 2s infinite;
         }
         @keyframes pulse-green {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(82, 183, 136, 0.5); }
-            50%       { box-shadow: 0 0 0 6px rgba(82, 183, 136, 0); }
+            0%, 100% { box-shadow: 0 0 0 0 rgba(0, 180, 216, 0.5); }
+            50%       { box-shadow: 0 0 0 6px rgba(0, 180, 216, 0); }
         }
 
         .progress-bar {
-            background: linear-gradient(90deg, #2d6a4f, #52b788);
+            background: linear-gradient(90deg, #00b4d8, #48cae4);
             border-radius: 99px;
             transition: width 1s ease;
         }
 
         .badge {
-            background: rgba(82, 183, 136, 0.15);
-            border: 1px solid rgba(82, 183, 136, 0.3);
+            background: rgba(0, 180, 216, 0.15);
+            border: 1px solid rgba(0, 180, 216, 0.3);
         }
     </style>
 </head>
 <body class="font-sans text-white min-h-screen">
 
     <!-- Subtle background texture -->
-    <div class="fixed inset-0 pointer-events-none" style="background: radial-gradient(ellipse at 20% 10%, rgba(45,106,79,0.18) 0%, transparent 55%), radial-gradient(ellipse at 80% 80%, rgba(82,183,136,0.10) 0%, transparent 50%);"></div>
+    <div class="fixed inset-0 pointer-events-none" style="background: radial-gradient(ellipse at 20% 10%, rgba(0,180,216,0.18) 0%, transparent 55%), radial-gradient(ellipse at 80% 80%, rgba(144,224,239,0.10) 0%, transparent 50%);"></div>
 
     <!-- ===== HEADER / NAV ===== -->
     <header class="relative z-10 border-b border-white border-opacity-10">
@@ -78,7 +78,7 @@
 
             <!-- Logo -->
             <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background: linear-gradient(135deg, #2d6a4f, #52b788);">
+                <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background: linear-gradient(135deg, #00b4d8, #48cae4);">
                     <!-- Running figure icon -->
                     <svg viewBox="0 0 24 24" class="w-6 h-6 text-white fill-current" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="13" cy="4" r="2"/>
@@ -86,8 +86,8 @@
                     </svg>
                 </div>
                 <div>
-                    <p class="font-bold text-base leading-tight tracking-wide">Löpning &amp; Stark</p>
-                    <p class="text-xs text-forest-lighter opacity-80">Hälso&shy;portal</p>
+                    <p class="font-bold text-base leading-tight tracking-wide">Framtidspuls</p>
+                    <p class="text-xs text-puls-light opacity-80">Hälso&shy;portal</p>
                 </div>
             </div>
 
@@ -112,7 +112,7 @@
         <!-- Welcome heading -->
         <section>
             <h1 class="text-3xl sm:text-4xl font-extrabold leading-tight mb-1">
-                Välkommen till din hälsoresa, <span style="background: linear-gradient(90deg, #52b788, #95d5b2); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">Anna!</span>
+                Välkommen till din hälsoresa, <span style="background: linear-gradient(90deg, #00b4d8, #90e0ef); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">Anna!</span>
             </h1>
             <p class="text-white text-opacity-50 text-base">Vecka 12 · 18 mars 2026</p>
         </section>
@@ -141,7 +141,7 @@
                     <!-- Play button -->
                     <button
                         class="play-ring w-20 h-20 rounded-full flex items-center justify-center flex-shrink-0 cursor-pointer"
-                        style="background: linear-gradient(135deg, #2d6a4f, #52b788);"
+                        style="background: linear-gradient(135deg, #00b4d8, #48cae4);"
                         aria-label="Spela föreläsning"
                         onclick="document.getElementById('play-label').textContent = 'Startar video…'"
                     >
@@ -152,11 +152,11 @@
 
                     <!-- Text -->
                     <div class="text-center sm:text-left">
-                        <p id="play-label" class="text-xs font-semibold uppercase tracking-widest text-forest-lighter mb-1">Spela föreläsning · 22 min</p>
+                        <p id="play-label" class="text-xs font-semibold uppercase tracking-widest text-puls-light mb-1">Spela föreläsning · 22 min</p>
                         <h2 class="text-2xl font-bold mb-2">Löpning som medicinsk intervention</h2>
                         <p class="text-white text-opacity-60 text-sm max-w-md">Hur regelbunden löpning direkt påverkar serotoninnivåer, ångest och sömnkvalitet – evidensbaserat och praktiskt tillämpbart i din vardag.</p>
                         <div class="mt-4 flex items-center gap-2 justify-center sm:justify-start">
-                            <div class="w-2 h-2 rounded-full bg-forest-lighter pulse-dot"></div>
+                            <div class="w-2 h-2 rounded-full bg-puls-light pulse-dot"></div>
                             <span class="text-xs text-white text-opacity-50">8 kollegor har sett den här veckan</span>
                         </div>
                     </div>
@@ -269,7 +269,9 @@
         <!-- ===== FOOTER ===== -->
         <footer class="border-t divider px-6 py-12 mt-12 bg-navy bg-opacity-40 rounded-3xl">
             <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6 text-[10px] text-white text-opacity-20 uppercase tracking-[0.2em] font-bold">
-                <span>© <span id="yr-dash"></span> Löpning &amp; Stark - Stolt supporter av Hälsinglands domare</span>
+                <span class="font-bold tracking-tight text-white flex items-center gap-2 text-center md:text-left">
+                    © <span id="yr-dash"></span> Framtidspuls – Ett initiativ av Löpning &amp; Stark. Tillsammans skapar vi en hållbar framtid för idrotten och din personal.
+                </span>
                 <div class="flex gap-6">
                     <a href="index.html" class="hover:text-white transition-colors">Start</a>
                     <a href="partner.html" class="hover:text-white transition-colors">Partner</a>

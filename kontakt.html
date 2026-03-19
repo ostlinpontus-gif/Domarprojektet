@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kontakt – Löpning & Stark</title>
+    <title>Framtidspuls | Friskvård & Lokalt Stöd</title>
     <meta name="description" content="Ta kontakt med Pontus Östlin – boka föreläsning eller bli företagspartner i Hälsingland.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,8 +14,8 @@
             theme: {
                 extend: {
                     colors: {
-                        navy:   { DEFAULT: '#0f1f3d', light: '#1a3260', lighter: '#223d73' },
-                        forest: { DEFAULT: '#2d6a4f', light: '#40916c', lighter: '#52b788', pale: '#d8f3dc' },
+                        navy:   { DEFAULT: '#0b1628', light: '#11213d' },
+                        puls:   { lighter: '#90e0ef', light: '#48cae4', DEFAULT: '#00b4d8' },
                     },
                     fontFamily: { sans: ['Inter', 'sans-serif'] }
                 }
@@ -25,10 +25,10 @@
 
     <style>
         :root { scroll-behavior: smooth; }
-        body  { background-color: #0f1f3d; color: #fff; }
+        body  { background-color: #0b1628; color: #fff; }
 
         .navbar-glass {
-            background: rgba(15, 31, 61, 0.75);
+            background: rgba(11, 22, 40, 0.75);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(255,255,255,0.07);
         }
@@ -39,32 +39,32 @@
             position: absolute;
             bottom: -3px; left: 0;
             width: 0; height: 2px;
-            background: #52b788;
+            background: #00b4d8;
             border-radius: 2px;
             transition: width 0.25s ease;
         }
         .nav-link:hover::after { width: 100%; }
 
         .btn-primary {
-            background: linear-gradient(135deg, #2d6a4f, #52b788);
+            background: linear-gradient(135deg, #00b4d8, #48cae4);
             transition: opacity 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
         }
         .btn-primary:hover {
             opacity: 0.92;
             transform: translateY(-2px);
-            box-shadow: 0 10px 28px rgba(82,183,136,0.35);
+            box-shadow: 0 10px 28px rgba(0,180,216,0.35);
         }
         .btn-outline {
-            border: 1.5px solid rgba(82,183,136,0.5);
-            color: #52b788;
+            border: 1.5px solid rgba(0,180,216,0.5);
+            color: #00b4d8;
             transition: background 0.25s ease, color 0.25s ease;
         }
-        .btn-outline:hover { background: rgba(82,183,136,0.12); }
+        .btn-outline:hover { background: rgba(0,180,216,0.12); }
 
         .pill {
-            background: rgba(82,183,136,0.12);
-            border: 1px solid rgba(82,183,136,0.3);
-            color: #52b788;
+            background: rgba(0,180,216,0.12);
+            border: 1px solid rgba(0,180,216,0.3);
+            color: #00b4d8;
         }
 
         .divider { border-color: rgba(255,255,255,0.07); }
@@ -79,11 +79,11 @@
         .form-input::placeholder { color: rgba(255,255,255,0.25); }
         .form-input:focus {
             outline: none;
-            border-color: rgba(82,183,136,0.55);
-            background: rgba(255,255,255,0.07);
-            box-shadow: 0 0 0 3px rgba(82,183,136,0.12);
+            border-color: rgba(0, 180, 216, 0.60);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.12);
         }
-        .form-input option { background: #1a3260; color: #fff; }
+        .form-input option { background: #11213d; color: #fff; }
 
         /* ── Radio pill toggle ── */
         .radio-card input { display: none; }
@@ -101,9 +101,9 @@
             font-weight: 500;
         }
         .radio-card input:checked + label {
-            border-color: rgba(82,183,136,0.55);
-            background: rgba(82,183,136,0.12);
-            color: #52b788;
+            border-color: rgba(0,180,216,0.55);
+            background: rgba(0,180,216,0.12);
+            color: #00b4d8;
         }
         .radio-dot {
             width: 16px; height: 16px;
@@ -114,14 +114,14 @@
             display: flex; align-items: center; justify-content: center;
         }
         .radio-card input:checked + label .radio-dot {
-            border-color: #52b788;
-            background: #52b788;
+            border-color: #00b4d8;
+            background: #00b4d8;
         }
         .radio-dot::after {
             content: '';
             width: 6px; height: 6px;
             border-radius: 50%;
-            background: #0f1f3d;
+            background: #0b1628;
             opacity: 0;
             transition: opacity 0.15s;
         }
@@ -129,13 +129,13 @@
 
         /* ── Info card ── */
         .info-card {
-            background: linear-gradient(135deg, rgba(45,106,79,0.25), rgba(15,31,61,0.55));
-            border: 1px solid rgba(82,183,136,0.18);
+            background: linear-gradient(135deg, rgba(0, 180, 216, 0.3), rgba(11, 22, 40, 0.6));
+            border: 1px solid rgba(0, 180, 216, 0.2);
         }
 
         /* ── Stat badge ── */
         .stat-num {
-            background: linear-gradient(90deg, #52b788, #95d5b2);
+            background: linear-gradient(90deg, #00b4d8, #90e0ef);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -143,8 +143,8 @@
 
         .pulse-dot { animation: pulseG 2s infinite; }
         @keyframes pulseG {
-            0%,100% { box-shadow: 0 0 0 0 rgba(82,183,136,0.5); }
-            50%      { box-shadow: 0 0 0 6px rgba(82,183,136,0); }
+            0%,100% { box-shadow: 0 0 0 0 rgba(0,180,216,0.5); }
+            50%      { box-shadow: 0 0 0 6px rgba(0,180,216,0); }
         }
 
         /* ── Success state ── */
@@ -156,10 +156,10 @@
 
         /* ── Hero sub gradient ── */
         .hero-bg {
-            background:
-                radial-gradient(ellipse at 75% 30%, rgba(45,106,79,0.22) 0%, transparent 55%),
-                radial-gradient(ellipse at 20% 80%, rgba(82,183,136,0.08) 0%, transparent 45%),
-                linear-gradient(160deg, #0a1628 0%, #0f1f3d 50%, #112a1d 100%);
+            background-color: #0b1628;
+            background-image:
+                radial-gradient(ellipse at 10% 10%, rgba(0, 180, 216, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 90% 90%, rgba(144, 224, 239, 0.08) 0%, transparent 50%);
         }
     </style>
 </head>
@@ -173,13 +173,13 @@
         <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
 
             <a href="index.html" class="flex items-center gap-3 group">
-                <div class="w-9 h-9 rounded-xl flex items-center justify-center" style="background: linear-gradient(135deg, #2d6a4f, #52b788);">
+                <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background: linear-gradient(135deg, #00b4d8, #48cae4);">
                     <svg viewBox="0 0 24 24" class="w-5 h-5 fill-white" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="13" cy="4" r="2"/>
                         <path d="M6 13l1.5 5H11l1-4 3 2v4h2v-5l-3.5-2.5L15 10l-3-1.5-2.5 3L6 13z"/>
                     </svg>
                 </div>
-                <span class="font-bold text-sm tracking-wide">Löpning &amp; Stark</span>
+                <span class="font-bold text-base leading-tight tracking-wide">Framtidspuls</span>
             </a>
 
             <div class="hidden md:flex items-center gap-8 text-sm font-medium text-white text-opacity-70">
@@ -215,7 +215,7 @@
             <span class="pill text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full inline-block mb-5">Ta första steget</span>
             <h1 class="text-5xl sm:text-6xl font-black mb-5 leading-tight">
                 Låt oss ta en kaffe<br>
-                <span style="background: linear-gradient(90deg, #52b788, #95d5b2); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">och göra skillnad</span>
+                <span style="background: linear-gradient(90deg, #00b4d8, #90e0ef); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">och göra skillnad</span>
             </h1>
             <p class="text-white text-opacity-55 text-lg max-w-lg mx-auto">
                 I Bollnäs eller Hudiksvall – jag berättar hur vi kan stärka er personal och samtidigt rädda domarfotbollen i Hälsingland.
@@ -258,7 +258,7 @@
                         <label for="email" class="block text-xs font-semibold uppercase tracking-widest text-white text-opacity-50 mb-2">E-post *</label>
                         <input
                             id="email" name="email" type="email" required
-                            placeholder="lopningstark@gmail.com"
+                            placeholder="kontakt@framtidspuls.se"
                             class="form-input w-full px-4 py-3.5 rounded-xl text-sm"
                         >
                     </div>
@@ -314,9 +314,9 @@
                     </button>
 
                     <!-- Success message -->
-                    <div id="success-msg" class="rounded-2xl p-5 text-center" style="background: rgba(82,183,136,0.12); border: 1px solid rgba(82,183,136,0.3);">
+                    <div id="success-msg" class="rounded-2xl p-5 text-center" style="background: rgba(0,180,216,0.12); border: 1px solid rgba(0,180,216,0.3);">
                         <p class="text-2xl mb-2">✅</p>
-                        <p class="font-bold text-forest-lighter">Tack för ditt meddelande!</p>
+                        <p class="font-bold text-puls-lighter">Tack för ditt meddelande!</p>
                         <p class="text-white text-opacity-55 text-sm mt-1">Jag återkommer inom 24 timmar. Vi ses snart!</p>
                     </div>
 
@@ -340,18 +340,18 @@
                 <div class="info-card rounded-2xl p-7 space-y-4">
                     <h3 class="text-sm font-bold uppercase tracking-widest text-white text-opacity-40">Direkt kontakt</h3>
 
-                    <a href="mailto:lopningstark@gmail.com" class="flex items-center gap-3 group">
-                        <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background: rgba(82,183,136,0.12); border: 1px solid rgba(82,183,136,0.2);">
+                    <a href="mailto:kontakt@framtidspuls.se" class="flex items-center gap-3 group">
+                        <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background: rgba(0,180,216,0.12); border: 1px solid rgba(0,180,216,0.2);">
                             <span class="text-lg">✉️</span>
                         </div>
                         <div>
                             <p class="text-xs text-white text-opacity-40 mb-0.5">E-post</p>
-                            <p class="text-sm font-semibold text-forest-lighter group-hover:text-white transition-colors">lopningstark@gmail.com</p>
+                            <p class="text-sm font-semibold text-puls-lighter group-hover:text-white transition-colors">kontakt@framtidspuls.se</p>
                         </div>
                     </a>
 
                     <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background: rgba(82,183,136,0.12); border: 1px solid rgba(82,183,136,0.2);">
+                        <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background: rgba(0,180,216,0.12); border: 1px solid rgba(0,180,216,0.2);">
                             <span class="text-lg">📍</span>
                         </div>
                         <div>
@@ -361,8 +361,8 @@
                     </div>
 
                     <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background: rgba(82,183,136,0.12); border: 1px solid rgba(82,183,136,0.2);">
-                            <div class="w-2 h-2 rounded-full bg-forest-lighter pulse-dot"></div>
+                        <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background: rgba(0,180,216,0.12); border: 1px solid rgba(0,180,216,0.2);">
+                            <div class="w-2 h-2 rounded-full bg-puls-lighter pulse-dot"></div>
                         </div>
                         <div>
                             <p class="text-xs text-white text-opacity-40 mb-0.5">Svarstid</p>
@@ -407,10 +407,10 @@
             <div class="grid md:grid-cols-3 gap-16 mb-16">
                 <div>
                     <a href="index.html" class="flex items-center gap-3 mb-6">
-                        <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-forest">
+                        <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-puls">
                             <svg viewBox="0 0 24 24" class="w-4 h-4 fill-white"><circle cx="13" cy="4" r="2"/><path d="M6 13l1.5 5H11l1-4 3 2v4h2v-5l-3.5-2.5L15 10l-3-1.5-2.5 3L6 13z"/></svg>
                         </div>
-                        <span class="font-bold tracking-wide text-white">Löpning &amp; Stark</span>
+                        <span class="font-bold tracking-wide text-white">Framtidspuls</span>
                     </a>
                     <p class="text-white text-opacity-40 text-sm leading-relaxed max-w-xs">
                         Träning för psykisk hälsa – en investering i människan och idrotten i Hälsingland. Stolt supporter av våra domare.
@@ -423,7 +423,7 @@
                             <span class="text-lg">📍</span> Bollnäs / Hudiksvall
                         </li>
                         <li class="flex items-center gap-3">
-                            <span class="text-lg">✉️</span> <a href="mailto:lopningstark@gmail.com" class="hover:text-white transition-colors">lopningstark@gmail.com</a>
+                            <span class="text-lg">✉️</span> <a href="mailto:kontakt@framtidspuls.se" class="hover:text-white transition-colors">kontakt@framtidspuls.se</a>
                         </li>
                     </ul>
                 </div>
@@ -438,7 +438,9 @@
                 </div>
             </div>
             <div class="pt-8 border-t border-white border-opacity-5 flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] text-white text-opacity-20 uppercase tracking-[0.3em] font-bold">
-                <span>© <span id="yr-footer"></span> Löpning &amp; Stark - Stolt supporter av Hälsinglands domare</span>
+                <span class="font-bold tracking-tight text-white flex items-center gap-2">
+                    © <span id="yr-footer"></span> Framtidspuls – Ett initiativ av Löpning &amp; Stark. Tillsammans skapar vi en hållbar framtid för idrotten och din personal.
+                </span>
                 <div class="flex gap-6">
                     <a href="#" class="hover:text-white transition-colors">Instagram</a>
                     <a href="#" class="hover:text-white transition-colors">LinkedIn</a>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tack – Löpning & Stark</title>
+    <title>Framtidspuls | Friskvård & Lokalt Stöd</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -12,8 +12,8 @@
             theme: {
                 extend: {
                     colors: {
-                        navy:   { DEFAULT: '#0f1f3d', light: '#1a3260', lighter: '#223d73' },
-                        forest: { lighter: '#52b788', light: '#40916c', DEFAULT: '#2d6a4f' },
+                        navy:   { DEFAULT: '#0b1628', light: '#11213d' },
+                        puls:   { lighter: '#90e0ef', light: '#48cae4', DEFAULT: '#00b4d8' },
                     },
                     fontFamily: { sans: ['Inter', 'sans-serif'] }
                 }
@@ -22,11 +22,11 @@
     </script>
     <style>
         body {
-            background-color: #0f1f3d;
+            background-color: #0b1628;
             background-image:
-                radial-gradient(ellipse at 15% 20%,  rgba(45,106,79,0.20)  0%, transparent 50%),
-                radial-gradient(ellipse at 85% 75%,  rgba(82,183,136,0.12) 0%, transparent 48%),
-                radial-gradient(ellipse at 50% 50%,  rgba(22,60,100,0.25)  0%, transparent 65%);
+                radial-gradient(ellipse at 15% 20%,  rgba(0,180,216,0.20)  0%, transparent 50%),
+                radial-gradient(ellipse at 85% 75%,  rgba(144,224,239,0.12) 0%, transparent 48%),
+                radial-gradient(ellipse at 50% 50%,  rgba(11,22,40,0.25)  0%, transparent 65%);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -53,14 +53,14 @@
             to   { opacity: 1; transform: translateY(0); }
         }
         .btn-primary {
-            background: linear-gradient(135deg, #2d6a4f, #52b788);
+            background: linear-gradient(135deg, #00b4d8, #48cae4);
             transition: all 0.2s ease;
-            box-shadow: 0 10px 28px rgba(82,183,136,0.3);
+            box-shadow: 0 10px 28px rgba(0,180,216,0.3);
         }
         .btn-primary:hover {
             opacity: 0.94;
             transform: translateY(-2px);
-            box-shadow: 0 14px 34px rgba(82,183,136,0.4);
+            box-shadow: 0 14px 34px rgba(0,180,216,0.4);
         }
     </style>
 </head>
@@ -68,7 +68,7 @@
 
     <main class="glass-card">
         <!-- Icon -->
-        <div class="w-20 h-20 bg-forest bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-8 text-4xl">
+        <div class="w-20 h-20 bg-puls bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-8 text-4xl">
             ✅
         </div>
 
@@ -94,8 +94,8 @@
     </main>
 
     <!-- Footer credit -->
-    <p class="text-white text-opacity-20 text-[10px] font-bold uppercase tracking-[0.3em] mt-12">
-        Löpning & Stark · Hälsingland
+    <p class="text-white text-opacity-20 text-[10px] font-bold uppercase tracking-[0.3em] mt-12 text-center max-w-lg">
+        © Framtidspuls – Ett initiativ av Löpning &amp; Stark. Tillsammans skapar vi en hållbar framtid för idrotten och din personal.
     </p>
 
 </body>
