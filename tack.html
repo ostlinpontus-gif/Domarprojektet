@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tack – Löpning & Stark</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy:   { DEFAULT: '#0f1f3d', light: '#1a3260', lighter: '#223d73' },
+                        forest: { lighter: '#52b788', light: '#40916c', DEFAULT: '#2d6a4f' },
+                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0f1f3d;
+            background-image:
+                radial-gradient(ellipse at 15% 20%,  rgba(45,106,79,0.20)  0%, transparent 50%),
+                radial-gradient(ellipse at 85% 75%,  rgba(82,183,136,0.12) 0%, transparent 48%),
+                radial-gradient(ellipse at 50% 50%,  rgba(22,60,100,0.25)  0%, transparent 65%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Inter', sans-serif;
+            color: #fff;
+            padding: 24px;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(28px);
+            -webkit-backdrop-filter: blur(28px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 32px;
+            text-align: center;
+            padding: 48px;
+            max-width: 500px;
+            width: 100%;
+            animation: cardUp 0.7s cubic-bezier(0.22,1,0.36,1) both;
+        }
+        @keyframes cardUp {
+            from { opacity: 0; transform: translateY(32px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #2d6a4f, #52b788);
+            transition: all 0.2s ease;
+            box-shadow: 0 10px 28px rgba(82,183,136,0.3);
+        }
+        .btn-primary:hover {
+            opacity: 0.94;
+            transform: translateY(-2px);
+            box-shadow: 0 14px 34px rgba(82,183,136,0.4);
+        }
+    </style>
+</head>
+<body>
+
+    <main class="glass-card">
+        <!-- Icon -->
+        <div class="w-20 h-20 bg-forest bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-8 text-4xl">
+            ✅
+        </div>
+
+        <!-- Headline -->
+        <h1 class="text-3xl font-black mb-4 leading-tight">Tack för din<br>intresseanmälan!</h1>
+
+        <!-- Text -->
+        <p class="text-white text-opacity-50 text-lg leading-relaxed mb-10">
+            Vi har tagit emot dina uppgifter och återkommer till dig inom kort. Under tiden kan du fortsätta läsa mer om våra paket.
+        </p>
+
+        <!-- Button -->
+        <a href="index.html" class="btn-primary text-white font-bold px-10 py-4 rounded-xl text-lg inline-block w-full">
+            Tillbaka till startsidan
+        </a>
+
+        <!-- Small text link -->
+        <div class="mt-8 pt-8 border-t border-white border-opacity-5">
+            <a href="partner.html" class="text-xs font-semibold uppercase tracking-widest text-white text-opacity-30 hover:text-white transition-opacity">
+                Se våra partnerpaket igen
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer credit -->
+    <p class="text-white text-opacity-20 text-[10px] font-bold uppercase tracking-[0.3em] mt-12">
+        Löpning & Stark · Hälsingland
+    </p>
+
+</body>
+</html>
