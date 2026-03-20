@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogg & Insikter | Framtidspuls – Företagshälsa Hälsingland</title>
+    <meta name="description" content="Läs om hur du skapar ett friskare företag och varför stödet till unga domare i Hälsingland är så viktigt.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: '#0b1628',
+                        puls: '#00d4ff',
+                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        .nav-white { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px); border-bottom: 2px solid rgba(0, 0, 0, 0.02); color: #0b1628; }
+        .hero-gradient { background: radial-gradient(circle at 10% 20%, rgba(0,212,255,0.05) 0%, transparent 40%), radial-gradient(circle at 90% 80%, rgba(0,212,255,0.03) 0%, transparent 40%); }
+    </style>
+</head>
+<body class="bg-[#f3f7fa] text-navy antialiased">
+
+    <!-- HEADER -->
+    <nav class="nav-white fixed top-0 inset-x-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-4">
+                <div class="flex items-center gap-3">
+                    <svg width="48" height="48" viewBox="0 0 100 100" class="fill-none stroke-puls" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M10 50h15l10-30 15 60 10-30h15" />
+                        <circle cx="50" cy="15" r="5" fill="#00d4ff" stroke="none" />
+                    </svg>
+                    <div class="flex flex-col leading-none">
+                        <span class="font-black text-xl tracking-tight text-navy uppercase">Framtidspuls</span>
+                        <span class="text-[8px] font-bold text-puls uppercase tracking-[0.3em]">Hälsa & Idrott</span>
+                    </div>
+                </div>
+            </a>
+            <div class="hidden lg:flex items-center gap-10 text-sm font-black text-zinc-600 uppercase tracking-widest">
+                <a href="index.html" class="hover:text-puls transition-colors">Hem</a>
+                <a href="pitch.html" class="hover:text-puls transition-colors">Varför?</a>
+                <a href="about.html" class="hover:text-puls transition-colors">Om oss</a>
+                <a href="blogg.html" class="text-puls">Blogg</a>
+                <a href="kontakt.html" class="hover:text-puls transition-colors">Kontakt</a>
+            </div>
+            <a href="login.html" class="bg-puls text-white px-8 py-3 rounded-full text-sm font-black uppercase tracking-widest hidden sm:block">Portal</a>
+        </div>
+    </nav>
+
+    <main class="pt-40 pb-32 px-6 hero-gradient">
+        <div class="max-w-7xl mx-auto">
+            <header class="text-center mb-24">
+                <span class="text-puls font-black text-xs uppercase tracking-[0.4em] block mb-5">Kunskap & Inspiration</span>
+                <h1 class="text-4xl sm:text-7xl font-black text-navy leading-none mb-8 tracking-tighter">Blogg & Insikter</h1>
+                <p class="text-zinc-500 text-lg sm:text-xl max-w-2xl mx-auto font-medium leading-relaxed italic">Vi skriver om hälsa, ledarskap och idrottens betydelse för Hälsingland.</p>
+            </header>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10 items-stretch">
+                <!-- Blog Card 1 -->
+                <article class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-zinc-100 flex flex-col">
+                    <div class="h-56 bg-zinc-100 relative overflow-hidden group">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="p-8 flex-1 flex flex-col">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="text-[10px] font-black uppercase tracking-widest text-puls bg-puls/5 px-3 py-1 rounded-full">Företagshälsa</span>
+                            <span class="text-[10px] font-bold text-zinc-400">Mars 2026</span>
+                        </div>
+                        <h3 class="text-xl font-black mb-4 leading-tight">Varför frisk personal är din bästa investering 2026</h3>
+                        <p class="text-zinc-500 text-sm leading-relaxed mb-6 flex-1 italic">I en värld där sjuktalen ökar är förebyggande hälsa inte längre en lyx – det är en affärskritisk nödvändighet.</p>
+                        <a href="blogg/frisk-personal.html" class="text-sm font-black text-puls uppercase tracking-widest inline-flex items-center gap-2 group">Läs mer <span class="transition-transform group-hover:translate-x-1">→</span></a>
+                    </div>
+                </article>
+
+                <!-- Blog Card 2 -->
+                <article class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-zinc-100 flex flex-col">
+                    <div class="h-56 bg-zinc-100 relative overflow-hidden group">
+                        <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="p-8 flex-1 flex flex-col">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="text-[10px] font-black uppercase tracking-widest text-puls bg-puls/5 px-3 py-1 rounded-full">Mental Hälsa</span>
+                            <span class="text-[10px] font-bold text-zinc-400">Mars 2026</span>
+                        </div>
+                        <h3 class="text-xl font-black mb-4 leading-tight">Så påverkar rörelse den mentala hälsan på jobbet</h3>
+                        <p class="text-zinc-500 text-sm leading-relaxed mb-6 flex-1 italic">Mental styrka börjar med fysisk rörelse. Vi utforskar kopplingen mellan aktivitet och stresshantering.</p>
+                        <a href="blogg/mental-halsa.html" class="text-sm font-black text-puls uppercase tracking-widest inline-flex items-center gap-2 group">Läs mer <span class="transition-transform group-hover:translate-x-1">→</span></a>
+                    </div>
+                </article>
+
+                <!-- Blog Card 3 -->
+                <article class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-zinc-100 flex flex-col">
+                    <div class="h-56 bg-zinc-100 relative overflow-hidden group">
+                        <img src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="p-8 flex-1 flex flex-col">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="text-[10px] font-black uppercase tracking-widest text-[#90e0ef] bg-[#90e0ef]/10 px-3 py-1 rounded-full">Samhällsnytta</span>
+                            <span class="text-[10px] font-bold text-zinc-400">Mars 2026</span>
+                        </div>
+                        <h3 class="text-xl font-black mb-4 leading-tight">Därför behöver Hälsingland sina domare</h3>
+                        <p class="text-zinc-500 text-sm leading-relaxed mb-6 flex-1 italic">Idrottsrörelsen i våra orter bygger på att det finns trygga ledare på planen. Här är varför vi måste agera nu.</p>
+                        <a href="blogg/behover-domare.html" class="text-sm font-black text-puls uppercase tracking-widest inline-flex items-center gap-2 group">Läs mer <span class="transition-transform group-hover:translate-x-1">→</span></a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER NAV FOR MOBILE -->
+    <footer class="py-24 px-6 bg-white border-t border-zinc-100 mt-12">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col lg:flex-row justify-between items-start gap-16 mb-20 text-navy text-left">
+                <div class="max-w-sm">
+                    <div class="flex items-center gap-3 mb-8">
+                        <svg width="32" height="32" viewBox="0 0 100 100" class="fill-none stroke-puls" stroke-width="10">
+                            <path d="M10 50h15l10-30 15 60 10-30h15" />
+                        </svg>
+                        <span class="font-black text-2xl tracking-tighter text-navy uppercase">Framtidspuls</span>
+                    </div>
+                    <p class="text-zinc-400 font-medium leading-relaxed">
+                        Vi skapar en hållbar brygga mellan näringslivets hälsa och idrottens överlevnad i Hälsingland. Ett initiativ av Löpning & Stark.
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-12 lg:gap-24">
+                    <div class="text-navy text-left">
+                        <h4 class="text-[10px] uppercase font-black tracking-widest text-zinc-300 mb-8">Navigering</h4>
+                        <div class="flex flex-col gap-4 text-sm font-bold text-zinc-600">
+                            <a href="index.html" class="hover:text-puls transition-colors">Hem</a>
+                            <a href="pitch.html" class="hover:text-puls transition-colors">Varför Framtidspuls?</a>
+                            <a href="about.html" class="hover:text-puls transition-colors">Om oss</a>
+                            <a href="partner.html" class="hover:text-puls transition-colors">Bli Partner</a>
+                            <a href="blogg.html" class="hover:text-puls transition-colors text-puls font-black">Blogg</a>
+                            <a href="kontakt.html" class="hover:text-puls transition-colors font-black">Kontakt</a>
+                        </div>
+                    </div>
+                    <div class="text-navy text-left">
+                        <h4 class="text-[10px] uppercase font-black tracking-widest text-zinc-300 mb-8">Direktkontakt</h4>
+                        <div class="flex flex-col gap-4 text-sm font-bold text-zinc-900">
+                            <p>Pontus Östlin</p>
+                            <a href="tel:0738072672" class="text-puls font-black text-xl tracking-tight leading-none hover:scale-105 transition-transform origin-left">073-807 26 72</a>
+                            <a href="mailto:hej@framtidspuls.se" class="text-zinc-500 hover:text-navy transition-colors">hej@framtidspuls.se</a>
+                        </div>
+                    </div>
+                    <div class="hidden sm:block text-navy text-left">
+                        <h4 class="text-[10px] uppercase font-black tracking-widest text-zinc-300 mb-8">Socialt</h4>
+                        <div class="flex flex-col gap-4 text-sm font-bold text-zinc-600">
+                            <a href="https://instagram.com/framtidspuls" target="_blank" class="hover:text-puls transition-colors">Instagram</a>
+                            <a href="https://linkedin.com/company/framtidspuls" target="_blank" class="hover:text-puls transition-colors">LinkedIn</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pt-12 border-t border-zinc-100 flex flex-col sm:flex-row justify-between items-center gap-6">
+                <div class="space-y-2">
+                    <p class="text-zinc-300 text-[10px] font-black uppercase tracking-widest">© 2026 Framtidspuls · Starkare Personal, Tryggare Idrott</p>
+                    <p class="text-zinc-200 text-[10px] font-bold uppercase tracking-widest opacity-30 underline underline-offset-4">Org.nr: [XXXXXX-XXXX]</p>
+                </div>
+                <div class="flex items-center gap-8">
+                    <div class="flex gap-4 text-[10px] font-black uppercase tracking-widest">
+                        <a href="terms.html" class="text-zinc-300 hover:text-puls transition-colors">Villkor</a>
+                        <a href="privacy.html" class="text-zinc-300 hover:text-puls transition-colors">Integritet</a>
+                    </div>
+                    <div class="flex gap-4 border-l border-zinc-100 pl-8">
+                        <span class="w-2 h-2 rounded-full bg-puls"></span>
+                        <span class="text-zinc-300 text-[10px] font-black uppercase tracking-widest">Bollnäs · Hudiksvall · Hälsingland</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

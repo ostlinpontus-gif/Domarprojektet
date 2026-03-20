@@ -3,8 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Framtidspuls | Bygg ett friskare företag & en tryggare idrott</title>
-    <meta name="description" content="Digital hälsoportal för din personal och en möjliggörare för unga domare i Hälsingland.">
+    <title>Framtidspuls | Företagshälsa & Friskvårdsportal för Hälsingland</title>
+    <meta name="description" content="Framtidspuls är den kompletta digitala friskvårdsportalen för företag i Bollnäs och Hudiksvall. Vi stärker din personal och finansierar unga domare i Hälsingland.">
+    <meta name="keywords" content="företagshälsa Bollnäs, friskvård Hudiksvall, friskvårdsportal Hälsingland, digital hälsoportal företag, Löpning & Stark">
+    
+    <!-- JSON-LD Organization Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Framtidspuls",
+      "url": "https://domarprojektet.vercel.app/",
+      "logo": "https://domarprojektet.vercel.app/framtidspuls_logo.png",
+      "description": "Digital friskvårdsportal för företag i Hälsingland med fokus på personalens hälsa och stöd till lokala ungdomsdomare.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "Hälsingland",
+        "addressLocality": "Bollnäs, Hudiksvall",
+        "addressCountry": "SE"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+46738072672",
+        "contactType": "sales",
+        "email": "hej@framtidspuls.se"
+      }
+    }
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -80,7 +105,7 @@
             <a href="index.html" class="flex items-center gap-4">
                 <div class="flex items-center gap-3">
                     <!-- Crisp Logo Symbol -->
-                    <svg width="48" height="48" viewBox="0 0 100 100" class="fill-none stroke-puls" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+                    <svg width="48" height="48" viewBox="0 0 100 100" class="fill-none stroke-puls" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Framtidspuls Logo Symbol – Puls och Idrott">
                         <!-- Pulse Line -->
                         <path d="M10 50h15l10-30 15 60 10-30h15" />
                         <!-- Minimal Athlete Silhouette Sub-hint -->
@@ -95,14 +120,15 @@
 
             <div class="hidden lg:flex items-center gap-10 text-sm font-black text-zinc-600 uppercase tracking-widest">
                 <a href="index.html" class="hover:text-puls transition-colors">Hem</a>
-                <a href="pitch.html" class="hover:text-puls transition-colors">Varför Framtidspuls?</a>
+                <a href="pitch.html" class="hover:text-puls transition-colors">Varför?</a>
                 <a href="about.html" class="hover:text-puls transition-colors">Om oss</a>
+                <a href="blogg.html" class="hover:text-puls transition-colors">Blogg</a>
                 <a href="kontakt.html" class="hover:text-puls transition-colors">Kontakt</a>
             </div>
 
             <div class="flex items-center gap-5">
                 <a href="partner.html" class="hidden sm:flex text-sm font-black text-zinc-500 hover:text-puls uppercase tracking-widest">Bli Partner</a>
-                <a href="login.html" class="btn-turq px-8 py-3 rounded-full text-sm font-bold uppercase tracking-tighter">Portal</a>
+                <a href="login.html" class="bg-puls text-white px-8 py-3 rounded-full text-sm font-black uppercase tracking-widest">Portal</a>
             </div>
         </div>
     </nav>
@@ -138,6 +164,9 @@
                 <span class="text-puls font-black text-xs uppercase tracking-[0.4em] block mb-5">Investering</span>
                 <h2 class="text-4xl sm:text-7xl font-black text-navy px-2">Välj ert engagemang</h2>
                 <p class="text-zinc-500 text-lg sm:text-xl mt-6 max-w-2xl mx-auto font-medium leading-relaxed">Varje paket ger din personal premium-friskvård och gör domarutbildningar 100% kostnadsfria.</p>
+                <p class="text-[10px] font-black uppercase tracking-widest text-[#00b4d8] mt-8 bg-puls/5 py-3 px-8 rounded-full inline-block border border-puls/10 shadow-sm transition-transform hover:scale-105 duration-300">
+                    ⚡ Flexibel fakturering — avsluta när du vill
+                </p>
             </div>
 
             <div class="grid lg:grid-cols-3 gap-10 items-stretch">
@@ -262,10 +291,19 @@
             </div>
             
             <div class="pt-12 border-t border-zinc-100 flex flex-col sm:flex-row justify-between items-center gap-6">
-                <p class="text-zinc-300 text-[10px] font-black uppercase tracking-widest">© 2026 Framtidspuls · Starkare Personal, Tryggare Idrott</p>
-                <div class="flex gap-4">
-                    <span class="w-2 h-2 rounded-full bg-puls"></span>
-                    <span class="text-zinc-300 text-[10px] font-black uppercase tracking-widest">Bollnäs · Hudiksvall · Hälsingland</span>
+                <div class="space-y-2">
+                    <p class="text-zinc-300 text-[10px] font-black uppercase tracking-widest">© 2026 Framtidspuls · Starkare Personal, Tryggare Idrott</p>
+                    <p class="text-zinc-200 text-[10px] font-bold uppercase tracking-widest opacity-30 underline underline-offset-4">Org.nr: [XXXXXX-XXXX]</p>
+                </div>
+                <div class="flex items-center gap-8">
+                    <div class="flex gap-4 text-[10px] font-black uppercase tracking-widest">
+                        <a href="terms.html" class="text-zinc-300 hover:text-puls transition-colors">Villkor</a>
+                        <a href="privacy.html" class="text-zinc-300 hover:text-puls transition-colors">Integritet</a>
+                    </div>
+                    <div class="flex gap-4 border-l border-zinc-100 pl-8">
+                        <span class="w-2 h-2 rounded-full bg-puls"></span>
+                        <span class="text-zinc-300 text-[10px] font-black uppercase tracking-widest">Bollnäs · Hudiksvall · Hälsingland</span>
+                    </div>
                 </div>
             </div>
         </div>
