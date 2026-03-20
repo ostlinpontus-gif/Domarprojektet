@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investeringskalkyl | Framtidspuls</title>
+    <meta name="robots" content="noindex">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy:   { DEFAULT: '#0b1628', light: '#11213d', darker: '#050a14' },
+                        puls:   { DEFAULT: '#00b4d8', light: '#48cae4', lighter: '#90e0ef' },
+                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root { scroll-behavior: smooth; }
+        body { background-color: #0b1628; color: #fff; -webkit-font-smoothing: antialiased; }
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1); }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 32px; }
+        .apple-gradient { background: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 100%); }
+        .hero-title { font-size: clamp(2.5rem, 8vw, 5rem); line-height: 1.1; font-weight: 900; letter-spacing: -0.02em; }
+        .btn-presentation { padding: 1.25rem 3rem; border-radius: 99px; font-weight: 800; font-size: 1.125rem; transition: all 0.3s ease; display: inline-flex; align-items: center; justify-content: center; gap: 12px; }
+        .btn-presentation:hover { transform: scale(1.05); box-shadow: 0 20px 40px rgba(0, 180, 216, 0.3); }
+    </style>
+</head>
+<body class="font-sans">
+
+    <!-- NAVIGATION -->
+    <nav class="fixed top-0 left-0 right-0 z-50 py-6 px-10">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-puls shadow-lg shadow-puls/30">
+                    <svg viewBox="0 0 24 24" class="w-5 h-5 fill-white"><circle cx="13" cy="4" r="2"/><path d="M6 13l1.5 5H11l1-4 3 2v4h2v-5l-3.5-2.5L15 10l-3-1.5-2.5 3L6 13z"/></svg>
+                </div>
+                <span class="font-black text-sm tracking-tight uppercase">Framtidspuls</span>
+            </a>
+            <div class="flex gap-8 text-[10px] uppercase tracking-widest font-black opacity-40">
+                <a href="index.html" class="hover:opacity-100 transition-opacity">Hemsida</a>
+                <a href="about.html" class="hover:opacity-100 transition-opacity">Om oss</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="min-h-screen flex flex-col justify-center items-center px-6 pt-20 pb-20 text-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(0,180,216,0.15)_0%,transparent_60%)] pointer-events-none"></div>
+        <div class="max-w-5xl mx-auto reveal mt-12">
+            <span class="text-puls font-black text-xs uppercase tracking-[0.3em] mb-8 block px-6 py-2 rounded-full border border-puls/20 inline-block">Business Case: Framtidspuls</span>
+            <h1 class="hero-title mb-10">Investera i personalens hälsa & lokalsamhällets framtid.</h1>
+            <p class="text-white text-opacity-50 text-xl sm:text-2xl max-w-2xl mx-auto leading-relaxed mb-12">
+                Hälsa är inte en kostnad – det är en investering med direkt avkastning för er personal och morgondagens idrottsledare.
+            </p>
+            <a href="#kalkyl" class="btn-presentation bg-white text-navy hover:bg-puls hover:text-white">Se ROI-kalkylen ↓</a>
+        </div>
+    </section>
+
+    <!-- ROI KALKYL SECTION -->
+    <section id="kalkyl" class="py-32 px-6">
+        <div class="max-w-4xl mx-auto">
+            <div class="glass p-10 sm:p-20 text-center reveal apple-gradient relative overflow-hidden">
+                <div class="absolute -top-24 -right-24 w-64 h-64 bg-puls opacity-5 blur-[100px] pointer-events-none"></div>
+                <h3 class="text-puls font-black text-xs uppercase tracking-widest mb-10">Investeringens logik</h3>
+                <div class="text-4xl sm:text-6xl font-black mb-8 leading-tight">En sjukdag = 3 000 kr<br><span class="opacity-30">i snittkostnad per anställd.</span></div>
+                <p class="text-white text-opacity-70 text-lg sm:text-xl max-w-xl mx-auto mb-12 leading-relaxed italic">
+                    "Om Framtidspuls räddar endast <strong class="text-white">1 dag i månaden</strong> för er personalstyrka är er investering betald. Resten är ren hälsovinst för era anställda och bygden."
+                </p>
+                <div class="h-px w-20 bg-puls/30 mx-auto mb-12"></div>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-10 text-center">
+                    <div>
+                        <div class="text-3xl font-black text-white mb-2">9%</div>
+                        <div class="text-[10px] text-white/40 uppercase tracking-widest font-black">Högre produktivitet vid regelbunden träning</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-black text-white mb-2">15%</div>
+                        <div class="text-[10px] text-white/40 uppercase tracking-widest font-black">Lägre personalomsättning</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-black text-white mb-2">100%</div>
+                        <div class="text-[10px] text-white/40 uppercase tracking-widest font-black">Direkt samhällsnytta i Hälsingland</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VÄRDE FÖR FÖRETAGET SECTION -->
+    <section class="py-32 px-6 bg-navy-darker">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-24 reveal">
+                <h2 class="text-4xl sm:text-6xl font-black tracking-tight">Tre nivåer av värdeskapande.</h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Punkt 1 -->
+                <div class="glass p-10 reveal" style="transition-delay: 0.1s;">
+                    <div class="w-16 h-16 rounded-2xl bg-puls/10 flex items-center justify-center text-3xl mb-8">⚡</div>
+                    <h4 class="text-2xl font-black mb-4">Piggare personal</h4>
+                    <p class="text-white text-opacity-40 text-sm leading-relaxed mb-6">Genom vår digitala portal får era anställda tillgång till färdiga träningsprogram, inspirationsfilmer och mental coachning som verkligen blir av.</p>
+                    <span class="text-puls font-bold text-xs uppercase tracking-widest">Digital Hälsoportal</span>
+                </div>
+                <!-- Punkt 2 -->
+                <div class="glass p-10 reveal" style="transition-delay: 0.2s;">
+                    <div class="w-16 h-16 rounded-2xl bg-puls/10 flex items-center justify-center text-3xl mb-8">💎</div>
+                    <h4 class="text-2xl font-black mb-4">Employer Branding</h4>
+                    <p class="text-white text-opacity-40 text-sm leading-relaxed mb-6">Visa att ni tar ett aktivt och genuint ansvar. Ni attraherar rätt talanger genom att kombinera internt välmående med extern samhällsnytta.</p>
+                    <span class="text-puls font-bold text-xs uppercase tracking-widest">Hållbart Ledarskap</span>
+                </div>
+                <!-- Punkt 3 -->
+                <div class="glass p-10 reveal" style="transition-delay: 0.3s;">
+                    <div class="w-16 h-16 rounded-2xl bg-puls/10 flex items-center justify-center text-3xl mb-8">🤝</div>
+                    <h4 class="text-2xl font-black mb-4">Samhällsnytta</h4>
+                    <p class="text-white text-opacity-40 text-sm leading-relaxed mb-6">Varje paket finansierar och säkrar återväxten av unga domare i Bollnäs/Hälsingland. Ni blir hjältar både på kontoret och på planen.</p>
+                    <span class="text-puls font-bold text-xs uppercase tracking-widest">Lokal Investering</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CSR VINKELN SECTION -->
+    <section class="py-40 px-6 text-center">
+        <div class="max-w-3xl mx-auto reveal">
+            <h2 class="text-3xl sm:text-5xl font-black mb-12">Framtidens ledare föds på planen.</h2>
+            <div class="text-xl sm:text-2xl text-white text-opacity-60 leading-relaxed mb-16 italic">
+                "Varje partner möjliggör att vi kan utbilda och mentora unga domare som lär sig ledarskap, rättvisa och snabba beslut i en tuff miljö. Tillsammans bygger vi morgondagens ledare i Bollnäs och Hälsingland."
+            </div>
+            <div class="flex items-center justify-center gap-6">
+                <div class="w-px h-16 bg-puls/30"></div>
+                <div class="text-left">
+                    <p class="font-black text-xl">Pontus Östlin</p>
+                    <p class="text-xs text-puls uppercase tracking-widest font-bold">Grundare, Framtidspuls</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CALL TO ACTION & CONTACT -->
+    <section id="start" class="py-32 px-6">
+        <div class="max-w-4xl mx-auto">
+            <div class="glass p-10 sm:p-24 text-center reveal bg-gradient-to-t from-puls/5 to-transparent border-puls/30">
+                <h2 class="text-4xl sm:text-6xl font-black mb-12 tracking-tight">Redo att växla upp?</h2>
+                <a href="partner.html" class="btn-presentation bg-puls text-white hover:bg-white hover:text-navy mb-20 w-full sm:w-auto shadow-2xl shadow-puls/30">Starta vårt partnerskap nu →</a>
+                
+                <div id="kontakt" class="pt-20 border-t border-white/5 reveal" style="transition-delay: 0.2s;">
+                    <p class="text-xs text-white/40 uppercase tracking-[0.3em] font-black mb-10">Direktkontakt</p>
+                    <div class="flex flex-col sm:flex-row justify-center items-center gap-12 group">
+                        <div class="text-center group-hover:scale-105 transition-transform">
+                            <p class="text-white/40 text-[10px] uppercase tracking-widest mb-2">Telefon</p>
+                            <a href="tel:0701234567" class="text-2xl font-black hover:text-puls transition-colors">070-XXX XX XX</a>
+                        </div>
+                        <div class="text-center group-hover:scale-105 transition-transform">
+                            <p class="text-white/40 text-[10px] uppercase tracking-widest mb-2">E-post</p>
+                            <a href="mailto:lopningstark@gmail.com" class="text-2xl font-black hover:text-puls transition-colors">lopningstark@gmail.com</a>
+                        </div>
+                    </div>
+                    <p class="text-xs text-white/20 mt-16 italic font-medium tracking-wide">Framtidspuls är ett initiativ av Löpning & Stark</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER NAV FOR MOBILE -->
+    <div class="fixed bottom-0 left-0 right-0 bg-navy/80 backdrop-blur-xl border-t border-white/5 py-4 px-10 sm:hidden flex justify-between items-center z-50">
+        <a href="index.html" class="text-[10px] font-black uppercase tracking-widest opacity-40 hover:opacity-100 italic transition-opacity">Hem</a>
+        <a href="partner.html" class="text-[10px] font-black uppercase tracking-widest text-puls italic">Bli Partner</a>
+        <a href="about.html" class="text-[10px] font-black uppercase tracking-widest opacity-40 hover:opacity-100 italic transition-opacity">Om oss</a>
+    </div>
+
+    <script>
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
