@@ -32,22 +32,40 @@
         .hero-title { font-size: clamp(2.5rem, 8vw, 5rem); line-height: 1.1; font-weight: 900; letter-spacing: -0.02em; }
         .btn-presentation { padding: 1.25rem 3rem; border-radius: 99px; font-weight: 800; font-size: 1.125rem; transition: all 0.3s ease; display: inline-flex; align-items: center; justify-content: center; gap: 12px; }
         .btn-presentation:hover { transform: scale(1.05); box-shadow: 0 20px 40px rgba(0, 180, 216, 0.3); }
+        .nav-white {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 2px solid rgba(0, 0, 0, 0.02);
+            color: #0b1628;
+        }
     </style>
 </head>
 <body class="font-sans">
 
-    <!-- NAVIGATION -->
-    <nav class="fixed top-0 left-0 right-0 z-50 py-6 px-10">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <a href="index.html" class="flex items-center gap-3">
-                <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-puls shadow-lg shadow-puls/30">
-                    <svg viewBox="0 0 24 24" class="w-5 h-5 fill-white"><circle cx="13" cy="4" r="2"/><path d="M6 13l1.5 5H11l1-4 3 2v4h2v-5l-3.5-2.5L15 10l-3-1.5-2.5 3L6 13z"/></svg>
+    <!-- HEADER -->
+    <nav class="nav-white fixed top-0 inset-x-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-4">
+                <div class="flex items-center gap-3">
+                    <svg width="48" height="48" viewBox="0 0 100 100" class="fill-none stroke-puls" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M10 50h15l10-30 15 60 10-30h15" />
+                        <circle cx="50" cy="15" r="5" fill="#00d4ff" stroke="none" />
+                    </svg>
+                    <div class="flex flex-col leading-none">
+                        <span class="font-black text-xl tracking-tight text-[#0b1628] uppercase">Framtidspuls</span>
+                        <span class="text-[8px] font-bold text-puls uppercase tracking-[0.3em]">Hälsa & Idrott</span>
+                    </div>
                 </div>
-                <span class="font-black text-sm tracking-tight uppercase">Framtidspuls</span>
             </a>
-            <div class="flex gap-8 text-[10px] uppercase tracking-widest font-black opacity-40">
-                <a href="index.html" class="hover:opacity-100 transition-opacity">Hemsida</a>
-                <a href="about.html" class="hover:opacity-100 transition-opacity">Om oss</a>
+            <div class="hidden lg:flex items-center gap-10 text-sm font-black text-zinc-600 uppercase tracking-widest text-opacity-100">
+                <a href="index.html" class="hover:text-puls transition-colors">Hem</a>
+                <a href="pitch.html" class="hover:text-puls transition-colors font-black">Varför Framtidspuls?</a>
+                <a href="about.html" class="hover:text-puls transition-colors font-black">Om oss</a>
+                <a href="kontakt.html" class="hover:text-puls transition-colors font-black">Kontakt</a>
+            </div>
+            <div class="flex items-center gap-5">
+                <a href="partner.html" class="hidden sm:flex text-sm font-black text-zinc-500 hover:text-puls uppercase tracking-widest">Bli Partner</a>
+                <a href="login.html" class="btn-presentation px-8 py-3 rounded-full text-sm font-bold uppercase tracking-tighter" style="padding: 0.75rem 2rem;">Portal</a>
             </div>
         </div>
     </nav>
@@ -97,9 +115,28 @@
     <!-- VÄRDE FÖR FÖRETAGET SECTION -->
     <section class="py-32 px-6 bg-navy-darker">
         <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-24 reveal">
+            <div class="text-center mb-16 reveal">
                 <h2 class="text-4xl sm:text-6xl font-black tracking-tight">Tre nivåer av värdeskapande.</h2>
             </div>
+
+            <!-- ROI Calculator Section -->
+            <div id="kalkylator" class="max-w-xl mx-auto glass p-10 mb-20 reveal">
+                <h3 class="text-xl font-black mb-8 text-center text-puls uppercase tracking-widest">Beräkna er potentiella ROI</h3>
+                <div class="space-y-6">
+                    <div>
+                        <label class="block text-[10px] uppercase tracking-widest font-black opacity-40 mb-3 text-left">Antal anställda</label>
+                        <input type="number" id="employees" value="10" min="1" class="w-full bg-white/5 border border-white/10 rounded-2xl p-4 text-2xl font-black focus:border-puls focus:ring-1 focus:ring-puls transition-all outline-none" oninput="calculateROI()">
+                    </div>
+                    <div class="pt-6 border-t border-white/10 text-center">
+                        <div class="p-8 rounded-2xl bg-puls/10 border border-puls/20">
+                            <p class="text-xs uppercase tracking-widest font-black text-puls mb-2">Er beräknade besparing</p>
+                            <div id="roi-result" class="text-4xl font-black text-white">1 500 kr/mån</div>
+                            <p class="text-[10px] opacity-40 mt-4 leading-relaxed italic">Baserat på 5% minskad sjukfrånvaro (0.05 dagar/anställd) á 3 000 kr/dag.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Punkt 1 -->
                 <div class="glass p-10 reveal" style="transition-delay: 0.1s;">
@@ -169,17 +206,72 @@
     </section>
 
     <!-- FOOTER NAV FOR MOBILE -->
-    <div class="fixed bottom-0 left-0 right-0 bg-navy/80 backdrop-blur-xl border-t border-white/5 py-4 px-10 sm:hidden flex justify-between items-center z-50">
-        <a href="index.html" class="text-[10px] font-black uppercase tracking-widest opacity-40 hover:opacity-100 italic transition-opacity">Hem</a>
-        <a href="partner.html" class="text-[10px] font-black uppercase tracking-widest text-puls italic">Bli Partner</a>
-        <a href="about.html" class="text-[10px] font-black uppercase tracking-widest opacity-40 hover:opacity-100 italic transition-opacity">Om oss</a>
-    </div>
+    <footer class="py-24 px-6 bg-white border-t border-zinc-100 mt-12">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col lg:flex-row justify-between items-start gap-16 mb-20 text-navy text-left">
+                <div class="max-w-sm">
+                    <div class="flex items-center gap-3 mb-8">
+                        <svg width="32" height="32" viewBox="0 0 100 100" class="fill-none stroke-puls" stroke-width="10">
+                            <path d="M10 50h15l10-30 15 60 10-30h15" />
+                        </svg>
+                        <span class="font-black text-2xl tracking-tighter text-navy uppercase">Framtidspuls</span>
+                    </div>
+                    <p class="text-zinc-400 font-medium leading-relaxed">
+                        Vi skapar en hållbar brygga mellan näringslivets hälsa och idrottens överlevnad i Hälsingland. Ett initiativ av Löpning & Stark.
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-12 lg:gap-24">
+                    <div>
+                        <h4 class="text-[10px] uppercase font-black tracking-widest text-zinc-300 mb-8">Navigering</h4>
+                        <div class="flex flex-col gap-4 text-sm font-bold text-zinc-600">
+                            <a href="index.html" class="hover:text-puls transition-colors">Hem</a>
+                            <a href="pitch.html" class="hover:text-puls transition-colors">Varför Framtidspuls?</a>
+                            <a href="about.html" class="hover:text-puls transition-colors">Om oss</a>
+                            <a href="partner.html" class="hover:text-puls transition-colors">Bli Partner</a>
+                            <a href="kontakt.html" class="hover:text-puls transition-colors font-black">Kontakt</a>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-[10px] uppercase font-black tracking-widest text-zinc-300 mb-8">Direktkontakt</h4>
+                        <div class="flex flex-col gap-4 text-sm font-bold text-zinc-900">
+                            <p>Pontus Östlin</p>
+                            <a href="tel:0738072672" class="text-puls font-black text-xl tracking-tight leading-none hover:scale-105 transition-transform origin-left">073-807 26 72</a>
+                            <a href="mailto:hej@framtidspuls.se" class="text-zinc-500 hover:text-navy transition-colors">hej@framtidspuls.se</a>
+                        </div>
+                    </div>
+                    <div class="hidden sm:block">
+                        <h4 class="text-[10px] uppercase font-black tracking-widest text-zinc-300 mb-8">Socialt</h4>
+                        <div class="flex flex-col gap-4 text-sm font-bold text-zinc-600">
+                            <a href="https://instagram.com/framtidspuls" target="_blank" class="hover:text-puls transition-colors">Instagram</a>
+                            <a href="https://linkedin.com/company/framtidspuls" target="_blank" class="hover:text-puls transition-colors">LinkedIn</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pt-12 border-t border-zinc-100 flex flex-col sm:flex-row justify-between items-center gap-6 text-navy">
+                <p class="text-zinc-300 text-[10px] font-black uppercase tracking-widest">© 2026 Framtidspuls · Starkare Personal, Tryggare Idrott</p>
+                <div class="flex gap-4">
+                    <span class="w-2 h-2 rounded-full bg-puls"></span>
+                    <span class="text-zinc-300 text-[10px] font-black uppercase tracking-widest">Bollnäs · Hudiksvall · Hälsingland</span>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script>
         const observer = new IntersectionObserver(entries => {
             entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
         }, { threshold: 0.1 });
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        function calculateROI() {
+            const antal = document.getElementById('employees').value || 0;
+            const sickDaysSaved = antal * 0.05;
+            const costSaved = Math.round(sickDaysSaved * 3000);
+            document.getElementById('roi-result').textContent = costSaved.toLocaleString('sv-SE') + ' kr/mån';
+        }
     </script>
 </body>
 </html>
