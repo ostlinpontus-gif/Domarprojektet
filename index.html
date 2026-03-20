@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Framtidspuls | Friskvård & Lokalt Stöd</title>
-    <meta name="description" content="En digital hälsoportal för din personal och en möjliggörare för unga domare i Hälsingland.">
+    <title>Framtidspuls | Bygg ett friskare företag & en tryggare idrott</title>
+    <meta name="description" content="Digital hälsoportal för din personal och en möjliggörare för unga domare i Hälsingland.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -15,7 +15,8 @@
                 extend: {
                     colors: {
                         puls: { DEFAULT: '#00d4ff', light: '#70e0f8', darker: '#009cc7' },
-                        zinc: { 850: '#18181b', 950: '#09090b' }
+                        sky: { 50: '#F3F7FA' },
+                        navy: { DEFAULT: '#0b1628', focus: '#1b3252' }
                     },
                     fontFamily: { sans: ['Inter', 'sans-serif'] }
                 }
@@ -25,252 +26,247 @@
 
     <style>
         :root { scroll-behavior: smooth; }
-        body { background-color: #f8fafc; color: #18181b; -webkit-font-smoothing: antialiased; }
+        body { background-color: #F3F7FA; color: #18181b; -webkit-font-smoothing: antialiased; }
         
-        /* ── Navbar ── */
-        .nav-light {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(16px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        .nav-white {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 2px solid rgba(0, 0, 0, 0.02);
         }
 
-        /* ── Hero ── */
-        .hero-section {
-            background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.9)), 
-                        url('https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?auto=format&fit=crop&q=80&w=2000');
+        .hero-full {
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.1)), 
+                        url('https://images.unsplash.com/photo-1571008887538-b36bb32f4571?auto=format&fit=crop&q=80&w=2000');
             background-size: cover;
-            background-position: center 30%;
+            background-position: center;
         }
 
-        /* ── Button Clean ── */
-        .btn-puls {
+        .btn-turq {
             background-color: #00d4ff;
             color: #0b1628;
-            box-shadow: 0 4px 14px rgba(0, 212, 255, 0.3);
-            transition: all 0.2s ease;
-        }
-        .btn-puls:hover {
-            background-color: #009cc7;
-            transform: translateY(-1px);
-            box-shadow: 0 6px 20px rgba(0, 212, 255, 0.4);
-        }
-
-        /* ── Card Light ── */
-        .card-fresh {
-            background: #ffffff;
-            border: 1px solid rgba(0, 0, 0, 0.06);
-            border-radius: 24px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+            box-shadow: 0 4px 16px rgba(0, 212, 255, 0.25);
             transition: all 0.3s cubic-bezier(0.2, 1, 0.3, 1);
         }
-        .card-fresh:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+        .btn-turq:hover {
+            background-color: #009cc7;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 212, 255, 0.35);
+        }
+
+        .card-light {
+            background: #ffffff;
+            border-radius: 28px;
+            box-shadow: 0 12px 36px rgba(0, 0, 0, 0.04);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 1px solid rgba(0,0,0,0.02);
+        }
+        .card-light:hover {
+            transform: scale(1.02);
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.08);
             border-color: #00d4ff;
         }
 
-        .reveal { opacity: 0; transform: translateY(20px); transition: all 0.6s ease-out; }
+        .reveal { opacity: 0; transform: translateY(24px); transition: all 0.8s ease-out; }
         .reveal.visible { opacity: 1; transform: translateY(0); }
-
-        /* ── Logo Animation ── */
-        .pulse-line { stroke-dasharray: 100; stroke-dashoffset: 100; animation: pulseDraw 2s infinite ease-in-out; }
-        @keyframes pulseDraw { 0% { stroke-dashoffset: 100; } 50% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: -100; } }
     </style>
 </head>
 <body class="font-sans">
 
-    <!-- NAVIGATION -->
-    <nav class="nav-light fixed top-0 inset-x-0 z-50">
+    <!-- HEADER -->
+    <nav class="nav-white fixed top-0 inset-x-0 z-50">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             
-            <!-- NEW LOGO -->
-            <a href="index.html" class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-xl bg-puls flex items-center justify-center shadow-lg shadow-puls/20 overflow-hidden relative">
-                    <svg viewBox="0 0 24 24" class="w-6 h-6 fill-none stroke-white" stroke-width="2.5">
-                        <path d="M3 13h3l3-8 4 14 3-6h5" class="pulse-line" />
-                        <circle cx="13" cy="4" r="1" fill="white" stroke="none"/>
+            <!-- LOGOTYP (Clean SVG based on requirement) -->
+            <a href="index.html" class="flex items-center gap-4">
+                <div class="flex items-center gap-3">
+                    <!-- Crisp Logo Symbol -->
+                    <svg width="48" height="48" viewBox="0 0 100 100" class="fill-none stroke-puls" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+                        <!-- Pulse Line -->
+                        <path d="M10 50h15l10-30 15 60 10-30h15" />
+                        <!-- Minimal Athlete Silhouette Sub-hint -->
+                        <circle cx="50" cy="15" r="5" fill="#00d4ff" stroke="none" />
                     </svg>
-                </div>
-                <div class="flex flex-col leading-none">
-                    <span class="font-black text-lg tracking-tighter">Framtidspuls</span>
-                    <span class="text-[8px] font-bold text-puls uppercase tracking-[0.2em]">Löpning & Stark</span>
+                    <div class="flex flex-col leading-none">
+                        <span class="font-black text-xl tracking-tight text-navy uppercase">Framtidspuls</span>
+                        <span class="text-[8px] font-bold text-puls uppercase tracking-[0.3em]">Hälsa & Idrott</span>
+                    </div>
                 </div>
             </a>
 
-            <div class="hidden md:flex items-center gap-10 text-sm font-bold text-zinc-600">
+            <div class="hidden lg:flex items-center gap-12 text-sm font-black text-zinc-600 uppercase tracking-widest">
                 <a href="index.html" class="hover:text-puls transition-colors">Hem</a>
                 <a href="about.html" class="hover:text-puls transition-colors">Om oss</a>
                 <a href="partner.html" class="hover:text-puls transition-colors">Bli Partner</a>
-                <a href="kontakt.html" class="hover:text-puls transition-colors">Kontakt</a>
+                <a href="kontakt.html" class="hover:text-puls transition-colors text-puls">Kontakt</a>
             </div>
 
-            <div class="flex items-center gap-4">
-                <a href="login.html" class="hidden sm:flex text-sm font-black text-puls hover:text-puls/80">Logga in</a>
-                <a href="partner.html" class="btn-puls px-6 py-2.5 rounded-full text-sm font-black">Bli Partner</a>
+            <div class="flex items-center gap-5">
+                <a href="login.html" class="hidden sm:flex text-sm font-black text-zinc-500 hover:text-puls uppercase tracking-widest">Portal</a>
+                <a href="partner.html" class="btn-turq px-8 py-3 rounded-full text-sm font-bold uppercase tracking-tighter">Bli Partner</a>
             </div>
         </div>
     </nav>
 
     <!-- HERO SECTION -->
-    <section class="hero-section min-h-screen flex items-center pt-20 px-6 overflow-hidden">
-        <div class="max-w-7xl mx-auto w-full">
-            <div class="max-w-2xl reveal">
-                <div class="inline-flex items-center gap-2 bg-puls/10 border border-puls/20 px-4 py-1.5 rounded-full text-puls font-black text-[10px] uppercase tracking-widest mb-8">
-                    ✨ Nya portalen är här
+    <section class="hero-full min-h-screen flex items-center justify-center pt-20 relative px-6">
+        <div class="max-w-7xl mx-auto w-full text-center relative z-10">
+            <div class="max-w-4xl mx-auto reveal bg-white/10 backdrop-blur-md p-10 sm:p-16 rounded-[40px] border border-white/20 shadow-2xl">
+                <div class="inline-flex items-center gap-2 bg-puls px-5 py-1.5 rounded-full text-navy font-black text-[10px] uppercase tracking-widest mb-10 mx-auto">
+                    🔥 Bygg morgondagens Hälsingland
                 </div>
-                <h1 class="text-5xl sm:text-7xl font-black leading-[1.05] mb-8 text-zinc-950">
-                    Framtidspuls – För ett friskare företag och en tryggare idrott.
+                <h1 class="text-5xl sm:text-7xl lg:text-8xl font-black leading-[1] mb-10 text-white drop-shadow-lg">
+                    Framtidspuls – Bygg ett friskare företag och en tryggare idrott i Hälsingland.
                 </h1>
-                <p class="text-xl text-zinc-600 mb-12 leading-relaxed font-medium">
-                    En digital hälsoportal för din personal. <br class="hidden sm:block"> En möjliggörare för unga domare i Hälsingland.
+                <p class="text-xl sm:text-2xl text-white font-medium mb-12 max-w-2xl mx-auto drop-shadow-md">
+                    En digital hälsoportal för din personal. <br> En möjliggörare för unga domare.
                 </p>
-                <div class="flex flex-wrap gap-4">
-                    <a href="partner.html" class="btn-puls px-10 py-5 rounded-full text-lg font-black">Starta resan nu</a>
-                    <a href="about.html" class="px-10 py-5 rounded-full text-lg font-black bg-zinc-100 text-zinc-900 hover:bg-zinc-200 transition-colors">Läs mer</a>
+                <div class="flex flex-wrap justify-center gap-6">
+                    <a href="pitch.html" class="btn-turq px-12 py-5 rounded-full text-xl font-black">Se ROI-kalkylen</a>
+                    <a href="partner.html" class="px-12 py-5 rounded-full text-xl font-black bg-white text-navy hover:bg-puls hover:text-white transition-all shadow-xl">Utforska portalen</a>
                 </div>
             </div>
         </div>
+        
+        <!-- Bottom Fade -->
+        <div class="absolute bottom-0 inset-x-0 h-40 bg-gradient-to-t from-sky-50 to-transparent"></div>
     </section>
 
-    <!-- THREE CORE PILLARS -->
-    <section class="py-24 px-6 bg-zinc-50">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Pillar 1 -->
-                <div class="card-fresh p-10 reveal">
-                    <div class="w-14 h-14 rounded-2xl bg-puls/10 flex items-center justify-center text-3xl mb-8">💻</div>
-                    <h3 class="text-2xl font-black mb-4">Digital Hälsa</h3>
-                    <p class="text-zinc-500 leading-relaxed font-medium">Veckovisa träningsfilmer, program och coaching direkt i er personals händer. Fokus på hållbarhet och piggare vardag.</p>
-                </div>
-                <!-- Pillar 2 -->
-                <div class="card-fresh p-10 reveal" style="transition-delay: 0.1s;">
-                    <div class="w-14 h-14 rounded-2xl bg-puls/10 flex items-center justify-center text-3xl mb-8">💎</div>
-                    <h3 class="text-2xl font-black mb-4">Employer Branding</h3>
-                    <p class="text-zinc-500 leading-relaxed font-medium">Profilera ert företag som en ansvarsfull aktör som investerar både i sina anställda och i lokal idrott.</p>
-                </div>
-                <!-- Pillar 3 -->
-                <div class="card-fresh p-10 reveal" style="transition-delay: 0.2s;">
-                    <div class="w-14 h-14 rounded-2xl bg-puls/10 flex items-center justify-center text-3xl mb-8">⚽</div>
-                    <h3 class="text-2xl font-black mb-4">Domarstöd</h3>
-                    <p class="text-zinc-500 leading-relaxed font-medium">Era bidrag gör domarutbildningar kostnadsfria och säkrar mentorskap för unga talanger i Bollnäs & Hudiksvall.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PARTNER PACKAGES (The "Makeup") -->
+    <!-- PAKET SEKTION -->
     <section class="py-32 px-6">
         <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-20 reveal">
-                <span class="text-puls font-black text-xs uppercase tracking-widest block mb-4">Vår Modell</span>
-                <h2 class="text-4xl sm:text-6xl font-black text-zinc-950 px-2">Partnerpaket för alla företag</h2>
+            <div class="text-center mb-24 reveal">
+                <span class="text-puls font-black text-xs uppercase tracking-[0.4em] block mb-5">Investering</span>
+                <h2 class="text-4xl sm:text-7xl font-black text-navy px-2">Välj ert engagemang</h2>
+                <p class="text-zinc-500 text-lg sm:text-xl mt-6 max-w-2xl mx-auto font-medium leading-relaxed">Varje paket ger din personal premium-friskvård och gör domarutbildningar 100% kostnadsfria.</p>
             </div>
 
-            <div class="grid lg:grid-cols-3 gap-8 items-stretch">
+            <div class="grid lg:grid-cols-3 gap-10 items-stretch">
                 <!-- Supportern -->
-                <div class="card-fresh p-10 flex flex-col reveal">
-                    <div class="flex justify-between items-start mb-10">
+                <div class="card-light p-12 flex flex-col reveal border-t-8 border-zinc-200">
+                    <div class="flex justify-between items-start mb-12">
                         <div>
-                            <h4 class="text-puls font-black text-[10px] uppercase tracking-widest mb-2">Grundnivå</h4>
-                            <p class="text-3xl font-black">Supportern</p>
+                            <h4 class="text-zinc-400 font-black text-[10px] uppercase tracking-widest mb-3">Lokal hjälte</h4>
+                            <p class="text-4xl font-black text-zinc-850">Supportern</p>
                         </div>
-                        <span class="text-4xl">🥈</span>
+                        <span class="text-5xl">🥈</span>
                     </div>
-                    <div class="mb-10">
-                        <span class="text-5xl font-black text-zinc-900">3 500</span>
-                        <span class="text-zinc-400 font-bold ml-1">kr/mån</span>
-                        <p class="text-zinc-400 text-xs mt-2 uppercase tracking-widest font-bold">Lokal närvaro & stolthet</p>
+                    <div class="mb-12">
+                        <span class="text-6xl font-black text-navy">3 500</span>
+                        <span class="text-zinc-400 font-bold ml-1 italic">kr/mån</span>
+                        <p class="text-zinc-400 text-xs mt-3 uppercase tracking-widest font-black">Synlighet & stolthet</p>
                     </div>
-                    <ul class="space-y-4 mb-12 flex-1">
-                        <li class="flex items-center gap-3 text-sm font-semibold text-zinc-600"><span class="text-puls">✓</span> Välkomstinlägg i nätverket</li>
-                        <li class="flex items-center gap-3 text-sm font-semibold text-zinc-600"><span class="text-puls">✓</span> Logga på hemsidan</li>
-                        <li class="flex items-center gap-3 text-sm font-semibold text-zinc-600"><span class="text-puls">✓</span> Tillgång till portalen</li>
-                        <li class="flex items-center gap-3 text-sm font-semibold text-zinc-600"><span class="text-puls">✓</span> 1 domarutbildning/år</li>
+                    <ul class="space-y-5 mb-14 flex-1">
+                        <li class="flex items-center gap-4 text-sm font-black text-zinc-600 uppercase tracking-tight"><span class="w-2 h-2 rounded-full bg-puls"></span> Välkomstinlägg i nätverket</li>
+                        <li class="flex items-center gap-4 text-sm font-black text-zinc-600 uppercase tracking-tight"><span class="w-2 h-2 rounded-full bg-puls"></span> Logga på framtidspuls.se</li>
+                        <li class="flex items-center gap-4 text-sm font-black text-zinc-600 uppercase tracking-tight"><span class="w-2 h-2 rounded-full bg-puls"></span> Basbibliotek för personalen</li>
+                        <li class="flex items-center gap-4 text-sm font-black text-zinc-600 uppercase tracking-tight"><span class="w-2 h-2 rounded-full bg-puls"></span> 1 domarutbildning finansierad</li>
                     </ul>
-                    <a href="partner.html" class="w-full py-4 rounded-xl text-center font-black bg-zinc-100 text-zinc-900 hover:bg-zinc-200 transition-colors">Välj Supportern</a>
+                    <a href="partner.html" class="w-full py-5 rounded-2xl text-center font-black bg-zinc-100 text-zinc-900 hover:bg-puls hover:text-navy transition-all uppercase tracking-widest text-xs">Bli Supporter</a>
                 </div>
 
                 <!-- Partnern (Highlight) -->
-                <div class="card-fresh p-10 flex flex-col reveal border-puls border-2 relative" style="transition-delay: 0.1s;">
-                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-puls text-white px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest">Mest Populär</div>
-                    <div class="flex justify-between items-start mb-10">
+                <div class="card-light p-12 flex flex-col reveal border-t-8 border-puls shadow-2xl scale-105" style="transition-delay: 0.1s;">
+                    <div class="absolute -top-6 left-1/2 -translate-x-1/2 bg-puls text-navy px-6 py-2 rounded-full text-[10px] font-black uppercase tracking-widest shadow-xl">Populärast</div>
+                    <div class="flex justify-between items-start mb-12">
                         <div>
-                            <h4 class="text-puls font-black text-[10px] uppercase tracking-widest mb-2">Premiumnivå</h4>
-                            <p class="text-3xl font-black">Partnern</p>
+                            <h4 class="text-puls font-black text-[10px] uppercase tracking-widest mb-3">Företagshälsa Plus</h4>
+                            <p class="text-4xl font-black text-zinc-850">Partnern</p>
                         </div>
-                        <span class="text-4xl">🥇</span>
+                        <span class="text-5xl">🥇</span>
                     </div>
-                    <div class="mb-10">
-                        <span class="text-5xl font-black text-zinc-900">7 500</span>
-                        <span class="text-zinc-400 font-bold ml-1">kr/mån</span>
-                        <p class="text-zinc-400 text-xs mt-2 uppercase tracking-widest font-bold">Maximal effekt för personalen</p>
+                    <div class="mb-12">
+                        <span class="text-6xl font-black text-navy">7 500</span>
+                        <span class="text-zinc-400 font-bold ml-1 italic">kr/mån</span>
+                        <p class="text-zinc-400 text-xs mt-3 uppercase tracking-widest font-black italic">Maximal livskraft för teamet</p>
                     </div>
-                    <ul class="space-y-4 mb-12 flex-1">
-                        <li class="flex items-center gap-3 text-sm font-semibold text-zinc-600"><span class="text-puls">✓</span> Allt i Supportern</li>
-                        <li class="flex items-center gap-3 text-sm font-semibold text-zinc-600"><span class="text-puls">✓</span> 1 gemensam fysträff/år</li>
-                        <li class="flex items-center gap-3 text-sm font-semibold text-zinc-600"><span class="text-puls">✓</span> Personliga träningsprogram</li>
-                        <li class="flex items-center gap-3 text-sm font-semibold text-zinc-600"><span class="text-puls">✓</span> 3 domarutbildningar/år</li>
+                    <ul class="space-y-5 mb-14 flex-1">
+                        <li class="flex items-center gap-4 text-sm font-black text-navy uppercase tracking-tight"><span class="w-2.5 h-2.5 rounded-full bg-puls"></span> Allt i Supportern</li>
+                        <li class="flex items-center gap-4 text-sm font-black text-navy uppercase tracking-tight"><span class="w-2.5 h-2.5 rounded-full bg-puls"></span> 1 gemensam fysträff/år</li>
+                        <li class="flex items-center gap-4 text-sm font-black text-navy uppercase tracking-tight"><span class="w-2.5 h-2.5 rounded-full bg-puls"></span> Full tillgång till alla program</li>
+                        <li class="flex items-center gap-4 text-sm font-black text-navy uppercase tracking-tight"><span class="w-2.5 h-2.5 rounded-full bg-puls"></span> 3 domarutbildningar finansierade</li>
                     </ul>
-                    <a href="partner.html" class="w-full py-4 rounded-xl text-center font-black bg-puls text-white shadow-lg shadow-puls/30 hover:bg-puls-darker transition-all">Välj Partnern</a>
+                    <a href="partner.html" class="w-full py-5 rounded-2xl text-center font-black bg-puls text-navy shadow-lg shadow-puls/30 hover:scale-[1.02] transition-all uppercase tracking-widest text-xs">Starta Partnerskap</a>
                 </div>
 
                 <!-- Visionären -->
-                <div class="card-fresh p-10 flex flex-col reveal" style="transition-delay: 0.2s;">
-                    <div class="flex justify-between items-start mb-10">
+                <div class="card-light p-12 flex flex-col reveal border-t-8 border-navy" style="transition-delay: 0.2s;">
+                    <div class="flex justify-between items-start mb-12">
                         <div>
-                            <h4 class="text-puls font-black text-[10px] uppercase tracking-widest mb-2">Exklusiv nivå</h4>
-                            <p class="text-3xl font-black">Visionären</p>
+                            <h4 class="text-navy font-black text-[10px] uppercase tracking-widest mb-3">Samhällsbyggare</h4>
+                            <p class="text-4xl font-black text-zinc-850">Visionären</p>
                         </div>
-                        <span class="text-4xl">💎</span>
+                        <span class="text-5xl">💎</span>
                     </div>
-                    <div class="mb-10">
-                        <span class="text-5xl font-black text-zinc-900">15 000</span>
-                        <span class="text-zinc-400 font-bold ml-1">kr/mån</span>
-                        <p class="text-zinc-400 text-xs mt-2 uppercase tracking-widest font-bold">Ledarskap & samhällsnytta</p>
+                    <div class="mb-12">
+                        <span class="text-6xl font-black text-navy">15 000</span>
+                        <span class="text-zinc-400 font-bold ml-1 italic">kr/mån</span>
+                        <p class="text-zinc-400 text-xs mt-3 uppercase tracking-widest font-black italic">Inspirationsledande kraft</p>
                     </div>
-                    <ul class="space-y-4 mb-12 flex-1">
-                        <li class="flex items-center gap-3 text-sm font-semibold text-zinc-600"><span class="text-puls">✓</span> Allt i Partnern</li>
-                        <li class="flex items-center gap-3 text-sm font-semibold text-zinc-600"><span class="text-puls">✓</span> Exklusiv föreläsning</li>
-                        <li class="flex items-center gap-3 text-sm font-semibold text-zinc-600"><span class="text-puls">✓</span> Inramat partnercertifikat</li>
-                        <li class="flex items-center gap-3 text-sm font-semibold text-zinc-600"><span class="text-puls">✓</span> 10 domarutbildningar/år</li>
+                    <ul class="space-y-5 mb-14 flex-1">
+                        <li class="flex items-center gap-4 text-sm font-black text-zinc-600 uppercase tracking-tight"><span class="w-2 h-2 rounded-full bg-navy"></span> Allt i Partnern</li>
+                        <li class="flex items-center gap-4 text-sm font-black text-zinc-600 uppercase tracking-tight"><span class="w-2 h-2 rounded-full bg-navy"></span> Inspirationsföreläsning LIVE</li>
+                        <li class="flex items-center gap-4 text-sm font-black text-zinc-600 uppercase tracking-tight"><span class="w-2 h-2 rounded-full bg-navy"></span> Framtidspuls Partner-certifikat</li>
+                        <li class="flex items-center gap-4 text-sm font-black text-zinc-600 uppercase tracking-tight"><span class="w-2 h-2 rounded-full bg-navy"></span> 10 domarutbildningar finansierade</li>
                     </ul>
-                    <a href="partner.html" class="w-full py-4 rounded-xl text-center font-black bg-zinc-900 text-white hover:bg-black transition-colors">Välj Visionären</a>
+                    <a href="partner.html" class="w-full py-5 rounded-2xl text-center font-black bg-navy text-white hover:bg-puls hover:text-navy transition-all uppercase tracking-widest text-xs">Bli Visionär</a>
                 </div>
             </div>
             
-            <p class="text-center text-zinc-400 text-xs mt-12 font-bold uppercase tracking-widest">Långsiktigt samarbete · Årsfakturering · En investering för framtiden</p>
+            <p class="text-center text-zinc-400 text-xs mt-20 font-black uppercase tracking-[0.4em]">Investera i personalen · Säkra idrottens framtid · Hälsingland</p>
         </div>
     </section>
 
-    <!-- CALL TO ACTION (Bottom) -->
-    <section class="py-24 px-6 bg-zinc-950 text-white text-center">
-        <div class="max-w-4xl mx-auto reveal">
-            <h2 class="text-4xl sm:text-6xl font-black mb-8">Redo att lyfta er personal?</h2>
-            <p class="text-xl text-zinc-400 mb-12 leading-relaxed">Kontakta Pontus idag för en förutsättningslös demo av portalen och hur vi tillsammans bygger en tryggare idrott i Hälsingland.</p>
-            <div class="flex flex-wrap justify-center gap-6">
-                <a href="kontakt.html" class="btn-puls px-12 py-5 rounded-full text-lg font-black">Boka ett möte</a>
-                <a href="tel:0738072672" class="px-12 py-5 rounded-full text-lg font-black bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">Ring 073-807 26 72</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="py-20 px-6 bg-white border-t border-zinc-100">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
-            <div class="flex items-center gap-4">
-                <div class="w-8 h-8 rounded-lg bg-puls flex items-center justify-center">
-                     <svg viewBox="0 0 24 24" class="w-5 h-5 fill-none stroke-white" stroke-width="2.5"><path d="M3 13h3l3-8 4 14 3-6h5"/></svg>
+    <!-- FOOTER SECTION (White as requested) -->
+    <footer class="py-24 px-6 bg-white border-t border-zinc-100">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col lg:flex-row justify-between items-start gap-16 mb-20">
+                <div class="max-w-sm">
+                    <div class="flex items-center gap-3 mb-8">
+                        <svg width="32" height="32" viewBox="0 0 100 100" class="fill-none stroke-puls" stroke-width="10">
+                            <path d="M10 50h15l10-30 15 60 10-30h15" />
+                        </svg>
+                        <span class="font-black text-2xl tracking-tighter text-navy">Framtidspuls</span>
+                    </div>
+                    <p class="text-zinc-400 font-medium leading-relaxed">
+                        Vi skapar en hållbar brygga mellan näringslivets hälsa och idrottens överlevnad i Hälsingland. Ett initiativ av Löpning & Stark.
+                    </p>
                 </div>
-                <span class="font-black text-xl tracking-tighter">Framtidspuls</span>
+                
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-12 lg:gap-24">
+                    <div>
+                        <h4 class="text-[10px] uppercase font-black tracking-widest text-zinc-300 mb-8">Navigering</h4>
+                        <div class="flex flex-col gap-4 text-sm font-bold text-zinc-600">
+                            <a href="index.html" class="hover:text-puls transition-colors">Hem</a>
+                            <a href="about.html" class="hover:text-puls transition-colors">Om oss</a>
+                            <a href="partner.html" class="hover:text-puls transition-colors">Bli Partner</a>
+                            <a href="kontakt.html" class="hover:text-puls transition-colors">Kontakt</a>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-[10px] uppercase font-black tracking-widest text-zinc-300 mb-8">Direktkontakt</h4>
+                        <div class="flex flex-col gap-4 text-sm font-bold text-zinc-900">
+                            <p>Pontus Östlin</p>
+                            <a href="tel:0738072672" class="text-puls font-black text-xl tracking-tight leading-none hover:scale-105 transition-transform origin-left">073-807 26 72</a>
+                            <a href="mailto:lopningstark@gmail.com" class="text-zinc-500 hover:text-navy transition-colors">lopningstark@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="hidden sm:block">
+                        <h4 class="text-[10px] uppercase font-black tracking-widest text-zinc-300 mb-8">Socialt</h4>
+                        <div class="flex flex-col gap-4 text-sm font-bold text-zinc-600">
+                            <a href="#" class="hover:text-puls">Instagram</a>
+                            <a href="#" class="hover:text-puls">LinkedIn</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="flex gap-10 text-[10px] uppercase font-black tracking-widest text-zinc-400">
-                <a href="index.html" class="hover:text-puls">Hem</a>
-                <a href="about.html" class="hover:text-puls">Om oss</a>
-                <a href="partner.html" class="hover:text-puls">Partner</a>
-                <a href="kontakt.html" class="hover:text-puls">Kontakt</a>
-                <a href="login.html" class="hover:text-puls">Portal</a>
+            
+            <div class="pt-12 border-t border-zinc-100 flex flex-col sm:flex-row justify-between items-center gap-6">
+                <p class="text-zinc-300 text-[10px] font-black uppercase tracking-widest">© 2026 Framtidspuls · Starkare Personal, Tryggare Idrott</p>
+                <div class="flex gap-4">
+                    <span class="w-2 h-2 rounded-full bg-puls"></span>
+                    <span class="text-zinc-300 text-[10px] font-black uppercase tracking-widest">Bollnäs · Hudiksvall · Hälsingland</span>
+                </div>
             </div>
-            <p class="text-zinc-300 text-[10px] font-bold uppercase tracking-widest">© 2026 Framtidspuls · Ett initiativ av Löpning & Stark</p>
         </div>
     </footer>
 
