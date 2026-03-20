@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Träningsportal | Framtidspuls</title>
+    <script>
+        // Light authentication check
+        if (sessionStorage.getItem('portal_auth') !== 'active') {
+            window.location.href = 'login.html';
+        }
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy:   { DEFAULT: '#0b1628', light: '#11213d', darker: '#08101c' },
+                        puls:   { DEFAULT: '#00b4d8', light: '#48cae4', lighter: '#90e0ef' },
+                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root { scroll-behavior: smooth; }
+        body { background-color: #08101c; color: #fff; overscroll-behavior: none; }
+        .glass-card { background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 24px; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .glass-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4); border-color: rgba(0, 180, 216, 0.3); }
+        .pill { background: rgba(0, 180, 216, 0.12); border: 1px solid rgba(0, 180, 216, 0.3); color: #48cae4; }
+        .app-header { background: rgba(11, 22, 40, 0.85); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255, 255, 255, 0.07); position: sticky; top: 0; z-index: 50; }
+        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 16px; background: #000; border: 1px solid rgba(255, 255, 255, 0.1); }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        .btn-logout { background: rgba(255, 255, 255, 0.05); color: #fff; padding: 12px 24px; border-radius: 12px; font-weight: 600; font-size: 0.875rem; transition: all 0.25s ease; border: 1px solid rgba(255, 255, 255, 0.1); }
+        .btn-logout:hover { background: rgba(248, 113, 113, 0.1); color: #f87171; border-color: rgba(248, 113, 113, 0.3); }
+        .pdf-link { background: rgba(255, 255, 255, 0.03); padding: 16px; border-radius: 14px; border: 1px solid rgba(255, 255, 255, 0.05); display: flex; align-items: center; justify-content: space-between; transition: all 0.2s ease; }
+        .pdf-link:hover { background: rgba(0, 180, 216, 0.08); border-color: rgba(0, 180, 216, 0.3); }
+    </style>
+</head>
+
+<body class="font-sans min-h-screen pb-12">
+
+    <!-- APP HEADER -->
+    <header class="app-header">
+        <div class="max-w-4xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl flex items-center justify-center shadow-lg shadow-puls/20" style="background: linear-gradient(135deg, #00b4d8, #48cae4);">
+                    <svg viewBox="0 0 24 24" class="w-6 h-6 fill-white" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="13" cy="4" r="2"/>
+                        <path d="M6 13l1.5 5H11l1-4 3 2v4h2v-5l-3.5-2.5L15 10l-3-1.5-2.5 3L6 13z"/>
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="font-bold text-sm tracking-wide">Framtidspuls</h1>
+                    <p class="text-[10px] text-white text-opacity-30 uppercase tracking-[0.2em]">Träningsportal</p>
+                </div>
+            </div>
+            <button onclick="logout()" class="btn-logout">Logga ut</button>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-6 pt-12">
+        
+        <!-- Welcome banner -->
+        <div class="mb-12">
+            <h2 class="text-4xl sm:text-5xl font-black mb-4 leading-tight">Din Framtidspuls – <br><span class="text-puls">Träning & Inspiration</span></h2>
+            <p class="text-white text-opacity-50 text-lg">Investera i din hälsa idag för en starkare morgondag.</p>
+        </div>
+
+        <div class="grid md:grid-cols-12 gap-8">
+            
+            <!-- Left col: Video (Primary) -->
+            <div class="md:col-span-8 space-y-8">
+                
+                <!-- Månadens Video -->
+                <section class="glass-card p-8">
+                    <div class="flex items-center justify-between mb-8">
+                        <div>
+                            <span class="pill text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full inline-block mb-3">Rekommenderat</span>
+                            <h3 class="text-2xl font-black">Månadens Video</h3>
+                        </div>
+                        <div class="w-12 h-12 rounded-2xl bg-puls bg-opacity-10 flex items-center justify-center text-2xl">📺</div>
+                    </div>
+                    
+                    <div class="video-container">
+                        <!-- Placeholder for Video -->
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <button class="w-20 h-20 rounded-full bg-puls flex items-center justify-center shadow-2xl shadow-puls/40 hover:scale-110 transition-transform">
+                                <svg class="w-8 h-8 fill-white ml-1" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            </button>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1517812959443-469b8b73f47c?auto=format&fit=crop&q=80&w=1200" class="absolute inset-0 w-full h-full object-cover opacity-50 mix-blend-overlay">
+                    </div>
+                    
+                    <p class="mt-8 text-white text-opacity-40 leading-relaxed italic">"Dagens pass fokuserar på rörlighet och funktionell styrka för att stötta en hållbar kropp i vardagen."</p>
+                </section>
+
+                <!-- Veckans Pepp (Tips) -->
+                <section class="glass-card p-8">
+                    <div class="flex items-center gap-6 mb-8">
+                        <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-3xl shadow-xl shadow-puls/10" style="background: rgba(0, 180, 216, 0.15); border: 1px solid rgba(0, 180, 216, 0.25);">🔥</div>
+                        <div>
+                            <span class="pill text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full inline-block mb-2">Nya tips</span>
+                            <h3 class="text-2xl font-black">Veckans Pepp</h3>
+                        </div>
+                    </div>
+                    <div class="p-6 rounded-2xl bg-white bg-opacity-[0.03] border border-white border-opacity-5">
+                        <p class="text-lg leading-relaxed text-white text-opacity-70 italic mb-6">"Kom ihåg att det mest effektiva passet är det som faktiskt blir av. Låt inte perfektion stå i vägen för hållbarhet. Fortsätt kämpa!"</p>
+                        <p class="text-xs text-white text-opacity-30 uppercase tracking-[0.2em] font-bold">– Pontus Östlin</p>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Right col: Downloads & Stats -->
+            <div class="md:col-span-4 space-y-8">
+                
+                <!-- Träningsprogram (PDFs) -->
+                <section class="glass-card p-8">
+                    <div class="text-center mb-8">
+                        <div class="w-12 h-12 rounded-2xl bg-puls bg-opacity-10 flex items-center justify-center text-2xl mx-auto mb-4">📄</div>
+                        <h3 class="text-xl font-bold">Träningsprogram</h3>
+                        <p class="text-white text-opacity-40 text-xs mt-2 uppercase tracking-widest">PDF & Schema</p>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <a href="#" class="pdf-link group">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-xl bg-white bg-opacity-5 flex items-center justify-center text-lg">🏃</div>
+                                <div>
+                                    <p class="text-sm font-bold">Löpschema v.1-4</p>
+                                    <p class="text-[10px] opacity-30 italic">Ladda ner PDF</p>
+                                </div>
+                            </div>
+                            <svg class="w-4 h-4 opacity-20 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M12 4v12m0 0l-4-4m4 4l4-4M4 20h16"/></svg>
+                        </a>
+                        
+                        <a href="#" class="pdf-link group">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-xl bg-white bg-opacity-5 flex items-center justify-center text-lg">⚖️</div>
+                                <div>
+                                    <p class="text-sm font-bold">Styrkeprogram</p>
+                                    <p class="text-[10px] opacity-30 italic">Ladda ner PDF</p>
+                                </div>
+                            </div>
+                            <svg class="w-4 h-4 opacity-20 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M12 4v12m0 0l-4-4m4 4l4-4M4 20h16"/></svg>
+                        </a>
+                        
+                        <a href="#" class="pdf-link group">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-xl bg-white bg-opacity-5 flex items-center justify-center text-lg">🥗</div>
+                                <div>
+                                    <p class="text-sm font-bold">Kom igång-guiden</p>
+                                    <p class="text-[10px] opacity-30 italic">Läs online</p>
+                                </div>
+                            </div>
+                            <svg class="w-4 h-4 opacity-20 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                        </a>
+                    </div>
+                </section>
+
+                <!-- Support box -->
+                <section class="p-8 rounded-3xl bg-puls bg-opacity-10 border border-puls border-opacity-20 flex flex-col items-center text-center">
+                    <p class="text-sm font-bold mb-4">Behöver du hjälp?</p>
+                    <p class="text-xs text-white text-opacity-40 mb-6">Tveka inte att skicka ett meddelande direkt till mig om du har frågor om din träning.</p>
+                    <a href="kontakt.html" class="text-xs font-black uppercase tracking-widest text-puls hover:text-white transition-colors">Skicka meddelande →</a>
+                </section>
+
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        function logout() {
+            sessionStorage.removeItem('portal_auth');
+            window.location.href = 'login.html';
+        }
+    </script>
+</body>
+</html>
