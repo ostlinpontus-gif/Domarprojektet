@@ -91,8 +91,7 @@
             border-color: #00d4ff;
         }
 
-        .reveal { opacity: 0; transform: translateY(24px); transition: all 0.8s ease-out; }
-        .reveal.visible { opacity: 1; transform: translateY(0); }
+        /* Animations disabled for speed */
     </style>
 </head>
 <body class="font-sans">
@@ -124,7 +123,7 @@
     <!-- HERO SECTION -->
     <section class="hero-full min-h-screen flex items-center justify-center pt-20 relative px-6">
         <div class="max-w-7xl mx-auto w-full text-center relative z-10">
-            <div class="max-w-4xl mx-auto reveal bg-black/30 backdrop-blur-md p-10 sm:p-16 rounded-[40px] border border-white/10 shadow-2xl">
+            <div class="max-w-4xl mx-auto bg-black/30 backdrop-blur-md p-10 sm:p-16 rounded-[40px] border border-white/10 shadow-2xl">
                 <div class="inline-flex items-center gap-2 bg-puls px-5 py-1.5 rounded-full text-navy font-black text-[10px] uppercase tracking-widest mb-10 mx-auto">
                     Digital friskvård för företag i Hälsingland
                 </div>
@@ -148,7 +147,7 @@
     <!-- PAKET SEKTION -->
     <section class="py-32 px-6">
         <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-24 reveal">
+            <div class="text-center mb-24">
                 <span class="text-puls font-black text-xs uppercase tracking-[0.4em] block mb-5">Investering</span>
                 <h2 class="text-4xl sm:text-7xl font-black text-navy px-2">Välj ert engagemang</h2>
                 <p class="text-zinc-500 text-lg sm:text-xl mt-6 max-w-2xl mx-auto font-medium leading-relaxed">
@@ -161,7 +160,7 @@
 
             <div class="grid lg:grid-cols-3 gap-10 items-stretch">
                 <!-- Supportern -->
-                <div class="card-light p-12 flex flex-col reveal border-t-8 border-zinc-200">
+                <div class="card-light p-12 flex flex-col border-t-8 border-zinc-200">
                     <div class="flex justify-between items-start mb-12">
                         <div>
                             <p class="text-2xl font-black text-zinc-850">Friskare personal, lägre sjuktal</p>
@@ -183,7 +182,7 @@
                 </div>
 
                 <!-- Partnern (Highlight) -->
-                <div class="card-light p-12 flex flex-col reveal border-t-8 border-puls shadow-2xl scale-105" style="transition-delay: 0.1s;">
+                <div class="card-light p-12 flex flex-col border-t-8 border-puls shadow-2xl scale-105">
                     <div class="absolute -top-6 left-1/2 -translate-x-1/2 bg-puls text-navy px-6 py-2 rounded-full text-[10px] font-black uppercase tracking-widest shadow-xl">Populärast</div>
                     <div class="flex justify-between items-start mb-12">
                         <div>
@@ -206,7 +205,7 @@
                 </div>
 
                 <!-- Visionären -->
-                <div class="card-light p-12 flex flex-col reveal border-t-8 border-navy" style="transition-delay: 0.2s;">
+                <div class="card-light p-12 flex flex-col border-t-8 border-navy">
                     <div class="flex justify-between items-start mb-12">
                         <div>
                             <p class="text-2xl font-black text-zinc-850">Ledande företagskultur & CSR</p>
@@ -294,10 +293,7 @@
     </footer>
 
     <script>
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        // Animations removed for speed
     </script>
 </body>
 </html>

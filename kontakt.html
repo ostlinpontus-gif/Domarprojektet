@@ -155,10 +155,7 @@
         /* ── Success state ── */
         #success-msg { display: none; }
 
-        /* ── Reveal ── */
-        .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
-        .reveal.visible { opacity: 1; transform: translateY(0); }
-
+        /* Animations disabled for speed */
         /* ── Hero sub gradient ── */
         .hero-bg {
             background-color: #fff;
@@ -489,13 +486,7 @@
             }, 1400);
         }
 
-        // Scroll reveal
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(e => {
-                if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
-            });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        // Animations removed for speed
     </script>
 
 </body>

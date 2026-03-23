@@ -46,8 +46,7 @@
         .btn-primary:hover { opacity: 0.92; transform: translateY(-2px); }
         .pill { background: rgba(144,224,239,0.12); border: 1px solid rgba(144,224,239,0.3); color: #90e0ef; }
         .divider { border-color: rgba(255,255,255,0.07); }
-        .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1); }
-        .reveal.visible { opacity: 1; transform: translateY(0); }
+        /* Animations disabled for speed */
     </style>
 </head>
 
@@ -200,10 +199,7 @@
     <script>
         document.getElementById('y').textContent = new Date().getFullYear();
         function toggleMenu() { document.getElementById('mobile-menu').classList.toggle('hidden'); }
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        // Animations removed for speed
     </script>
 </body>
 </html>
