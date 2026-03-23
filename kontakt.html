@@ -28,7 +28,7 @@
 
     <style>
         :root { scroll-behavior: smooth; }
-        body  { background-color: #f8fafc; color: #18181b; }
+        body  { background-color: #F3F7FA; color: #18181b; }
 
         .nav-white {
             background: rgba(255, 255, 255, 0.95);
@@ -76,19 +76,18 @@
 
         /* ── Form inputs ── */
         .form-input {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.10);
-            color: #fff;
-            transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+            background: #fff;
+            border: 1.5px solid rgba(0,0,0,0.1);
+            color: #0b1628;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
         }
-        .form-input::placeholder { color: rgba(255,255,255,0.25); }
+        .form-input::placeholder { color: rgba(0,0,0,0.3); }
         .form-input:focus {
             outline: none;
-            border-color: rgba(0, 180, 216, 0.60);
-            background: rgba(255, 255, 255, 0.08);
-            box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.12);
+            border-color: #00b4d8;
+            box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.1);
         }
-        .form-input option { background: #11213d; color: #fff; }
+        .form-input option { background: #fff; color: #0b1628; }
 
         /* ── Radio pill toggle ── */
         .radio-card input { display: none; }
@@ -106,8 +105,8 @@
             font-weight: 500;
         }
         .radio-card input:checked + label {
-            border-color: rgba(0,180,216,0.55);
-            background: rgba(0,180,216,0.12);
+            border-color: #00b4d8;
+            background: rgba(0,180,216,0.05);
             color: #00b4d8;
         }
         .radio-dot {
@@ -134,8 +133,9 @@
 
         /* ── Info card ── */
         .info-card {
-            background: linear-gradient(135deg, rgba(0, 180, 216, 0.3), rgba(11, 22, 40, 0.6));
-            border: 1px solid rgba(0, 180, 216, 0.2);
+            background: #fff;
+            border: 1.5px solid rgba(0,0,0,0.05);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
         }
 
         /* ── Stat badge ── */
@@ -161,10 +161,8 @@
 
         /* ── Hero sub gradient ── */
         .hero-bg {
-            background-color: #0b1628;
-            background-image:
-                radial-gradient(ellipse at 10% 10%, rgba(0, 180, 216, 0.15) 0%, transparent 50%),
-                radial-gradient(ellipse at 90% 90%, rgba(144, 224, 239, 0.08) 0%, transparent 50%);
+            background-color: #fff;
+            border-bottom: 2px solid #F3F7FA;
         }
     </style>
 </head>
@@ -175,16 +173,7 @@
     <nav class="nav-white fixed top-0 inset-x-0 z-50">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <a href="index.html" class="flex items-center gap-4">
-                <div class="flex items-center gap-3">
-                    <svg width="48" height="48" viewBox="0 0 100 100" class="fill-none stroke-puls" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M10 50h15l10-30 15 60 10-30h15" />
-                        <circle cx="50" cy="15" r="5" fill="#00d4ff" stroke="none" />
-                    </svg>
-                    <div class="flex flex-col leading-none">
-                        <span class="font-black text-xl tracking-tight text-[#0b1628] uppercase">Framtidspuls</span>
-                        <span class="text-[8px] font-bold text-puls uppercase tracking-[0.3em]">Hälsa & Idrott</span>
-                    </div>
-                </div>
+                <img src="framtidspuls_logo.png" alt="Framtidspuls" style="height: 50px; width: auto;">
             </a>
             <div class="hidden lg:flex items-center gap-10 text-sm font-black text-zinc-600 uppercase tracking-widest">
                 <a href="index.html" class="hover:text-puls transition-colors">Hem</a>
@@ -208,15 +197,14 @@
          PAGE HERO
     ============================ -->
     <section class="hero-bg pt-36 pb-16 px-6 text-center relative overflow-hidden">
-        <div class="absolute inset-0 pointer-events-none opacity-5" style="background-image: linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px); background-size: 60px 60px;"></div>
         <div class="relative max-w-2xl mx-auto">
-            <span class="pill text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full inline-block mb-5">Ta första steget</span>
-            <h1 class="text-5xl sm:text-6xl font-black mb-5 leading-tight">
-                Låt oss ta en kaffe<br>
-                <span style="background: linear-gradient(90deg, #00b4d8, #90e0ef); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">och göra skillnad</span>
+            <span class="pill text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full inline-block mb-5">Hör av dig</span>
+            <h1 class="text-5xl sm:text-6xl font-black mb-5 leading-tight text-navy">
+                Vi bygger framtiden<br>
+                <span class="text-puls">över en kopp kaffe</span>
             </h1>
-            <p class="text-white text-opacity-55 text-lg max-w-lg mx-auto">
-                I Bollnäs eller Hudiksvall – jag berättar hur vi kan stärka er personal och samtidigt rädda domarfotbollen i Hälsingland.
+            <p class="text-zinc-500 text-lg max-w-lg mx-auto font-medium">
+                Oavsett om ni sitter i Bollnäs eller Hudiksvall kommer jag gärna förbi och berättar hur vi gör skillnad tillsammans.
             </p>
         </div>
     </section>
@@ -234,18 +222,18 @@
                     <!-- Name + Company row -->
                     <div class="grid sm:grid-cols-2 gap-5">
                         <div>
-                            <label for="name" class="block text-xs font-semibold uppercase tracking-widest text-white text-opacity-50 mb-2">Namn *</label>
+                            <label for="name" class="block text-xs font-semibold uppercase tracking-widest text-zinc-400 mb-2">Namn *</label>
                             <input
                                 id="name" name="name" type="text" required
-                                placeholder="Anna Lindqvist"
+                                placeholder="Ditt namn"
                                 class="form-input w-full px-4 py-3.5 rounded-xl text-sm"
                             >
                         </div>
                         <div>
-                            <label for="company" class="block text-xs font-semibold uppercase tracking-widest text-white text-opacity-50 mb-2">Företag</label>
+                            <label for="company" class="block text-xs font-semibold uppercase tracking-widest text-zinc-400 mb-2">Företag</label>
                             <input
                                 id="company" name="company" type="text"
-                                placeholder="AB Exempelföretaget"
+                                placeholder="Företagets namn"
                                 class="form-input w-full px-4 py-3.5 rounded-xl text-sm"
                             >
                         </div>
@@ -253,17 +241,17 @@
 
                     <!-- Email -->
                     <div>
-                        <label for="email" class="block text-xs font-semibold uppercase tracking-widest text-white text-opacity-50 mb-2">E-post *</label>
+                        <label for="email" class="block text-xs font-semibold uppercase tracking-widest text-zinc-400 mb-2">E-post *</label>
                         <input
                             id="email" name="email" type="email" required
-                            placeholder="kontakt@framtidspuls.se"
+                            placeholder="din.epost@foretag.se"
                             class="form-input w-full px-4 py-3.5 rounded-xl text-sm"
                         >
                     </div>
 
                     <!-- Ärende: Radio cards -->
                     <div>
-                        <p class="block text-xs font-semibold uppercase tracking-widest text-white text-opacity-50 mb-3">Ärende *</p>
+                        <p class="block text-xs font-semibold uppercase tracking-widest text-zinc-400 mb-3">Vad gäller saken? *</p>
                         <div class="grid sm:grid-cols-2 gap-3">
 
                             <div class="radio-card">
@@ -287,10 +275,10 @@
 
                     <!-- Message -->
                     <div>
-                        <label for="message" class="block text-xs font-semibold uppercase tracking-widest text-white text-opacity-50 mb-2">Meddelande</label>
+                        <label for="message" class="block text-xs font-semibold uppercase tracking-widest text-zinc-400 mb-2">Meddelande</label>
                         <textarea
                             id="message" name="message" rows="5"
-                            placeholder="Berätta gärna lite om er organisation och vad ni hoppas på…"
+                            placeholder="Skriv gärna några rader om era behov..."
                             class="form-input w-full px-4 py-3.5 rounded-xl text-sm resize-none"
                         ></textarea>
                     </div>
@@ -299,7 +287,7 @@
                     <button
                         id="submit-btn"
                         type="submit"
-                        class="btn-primary w-full text-white font-bold py-4 rounded-2xl text-base flex items-center justify-center gap-2"
+                        class="btn-primary w-full text-navy font-black py-4 rounded-2xl text-base flex items-center justify-center gap-2"
                     >
                         <span id="btn-text">Skicka meddelande</span>
                         <svg id="btn-icon" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
@@ -328,23 +316,23 @@
                 <!-- Kaffe-kort -->
                 <div class="info-card rounded-2xl p-7">
                     <div class="text-3xl mb-4">☕</div>
-                    <h2 class="text-xl font-bold mb-3">En kaffe i Bollnäs eller Hudiksvall</h2>
-                    <p class="text-white text-opacity-55 text-sm leading-relaxed">
-                        Jag ser fram emot att berätta hur vi kan stärka er personal – och samtidigt rädda domarfotbollen i Hälsingland. Det finns inget bättre än ett möte ansikte mot ansikte.
+                    <h2 class="text-xl font-bold mb-3 text-navy">Fysiska möten är bäst</h2>
+                    <p class="text-zinc-500 text-sm leading-relaxed font-medium">
+                        Oavsett om vi ses i Bollnäs eller Hudiksvall så tror jag på kraften i det fysiska mötet. Låt oss prata om hur vi kan skapa värde tillsammans.
                     </p>
                 </div>
 
                 <!-- Direkt kontakt -->
-                <div class="info-card rounded-2xl p-7 space-y-4">
-                    <h3 class="text-sm font-bold uppercase tracking-widest text-white text-opacity-40">Direkt kontakt</h3>
+                <div class="info-card rounded-2xl p-7 space-y-6">
+                    <h3 class="text-sm font-bold uppercase tracking-widest text-zinc-300">Direkt kontakt</h3>
 
-                    <a href="mailto:kontakt@framtidspuls.se" class="flex items-center gap-3 group">
-                        <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background: rgba(0,180,216,0.12); border: 1px solid rgba(0,180,216,0.2);">
+                    <a href="mailto:framtidspuls@gmail.com" class="flex items-center gap-3 group">
+                        <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 bg-puls/5 border border-puls/10">
                             <span class="text-lg">✉️</span>
                         </div>
                         <div>
-                            <p class="text-xs text-white text-opacity-40 mb-0.5">E-post</p>
-                            <p class="text-sm font-semibold text-puls-lighter group-hover:text-white transition-colors">kontakt@framtidspuls.se</p>
+                            <p class="text-xs text-zinc-400 mb-0.5">E-post</p>
+                            <p class="text-sm font-bold text-navy group-hover:text-puls transition-colors">framtidspuls@gmail.com</p>
                         </div>
                     </a>
 
@@ -399,14 +387,11 @@
         <div class="max-w-7xl mx-auto text-navy">
             <div class="flex flex-col lg:flex-row justify-between items-start gap-16 mb-20">
                 <div class="max-w-sm">
-                    <div class="flex items-center gap-3 mb-8">
-                        <svg width="32" height="32" viewBox="0 0 100 100" class="fill-none stroke-puls" stroke-width="10">
-                            <path d="M10 50h15l10-30 15 60 10-30h15" />
-                        </svg>
-                        <span class="font-black text-2xl tracking-tighter text-navy uppercase">Framtidspuls</span>
+                    <div class="flex items-center gap-3 mb-8 text-navy">
+                        <img src="framtidspuls_logo.png" alt="Framtidspuls" style="height: 40px; width: auto;">
                     </div>
                     <p class="text-zinc-400 font-medium leading-relaxed">
-                        Vi skapar en hållbar brygga mellan näringslivets hälsa och idrottens överlevnad i Hälsingland. Ett initiativ av Löpning & Stark.
+                        Vi skapar livskraft i Hälsingland genom hälsa och sportsligt engagemang. Ett initiativ av Löpning & Stark.
                     </p>
                 </div>
                 
@@ -415,10 +400,9 @@
                         <h4 class="text-[10px] uppercase font-black tracking-widest text-zinc-300 mb-8">Navigering</h4>
                         <div class="flex flex-col gap-4 text-sm font-bold text-zinc-600">
                             <a href="index.html" class="hover:text-puls transition-colors">Hem</a>
-                            <a href="pitch.html" class="hover:text-puls transition-colors">Varför Framtidspuls?</a>
+                            <a href="pitch.html" class="hover:text-puls transition-colors">Varför?</a>
                             <a href="about.html" class="hover:text-puls transition-colors">Om oss</a>
-                            <a href="partner.html" class="hover:text-puls transition-colors">Bli Partner</a>
-                            <a href="kontakt.html" class="hover:text-puls transition-colors font-black">Kontakt</a>
+                            <a href="kontakt.html" class="hover:text-puls transition-colors">Kontakt</a>
                         </div>
                     </div>
                     <div class="text-navy">
@@ -426,7 +410,7 @@
                         <div class="flex flex-col gap-4 text-sm font-bold text-zinc-900">
                             <p>Pontus Östlin</p>
                             <a href="tel:0738072672" class="text-puls font-black text-xl tracking-tight leading-none hover:scale-105 transition-transform origin-left">073-807 26 72</a>
-                            <a href="mailto:hej@framtidspuls.se" class="text-zinc-500 hover:text-navy transition-colors">hej@framtidspuls.se</a>
+                            <a href="mailto:framtidspuls@gmail.com" class="text-zinc-500 hover:text-navy transition-colors">framtidspuls@gmail.com</a>
                         </div>
                     </div>
                     <div class="hidden sm:block text-navy">

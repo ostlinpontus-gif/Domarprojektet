@@ -23,33 +23,29 @@
     </script>
     <style>
         body {
-            background-color: #0b1628;
-            background-image:
-                radial-gradient(ellipse at 15% 20%,  rgba(0,180,216,0.15)  0%, transparent 50%),
-                radial-gradient(ellipse at 85% 75%,  rgba(144,224,239,0.10) 0%, transparent 48%);
+            background-color: #F3F7FA;
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             font-family: 'Inter', sans-serif;
-            color: #fff;
+            color: #18181b;
             padding: 24px;
         }
         .glass-card {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(24px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: #ffffff;
+            border: 1.5px solid rgba(0, 0, 0, 0.05);
             border-radius: 32px;
             padding: 48px;
             max-width: 450px;
             width: 100%;
             text-align: center;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.05);
         }
         .form-input {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-            color: #fff;
+            background: #F3F7FA;
+            border: 1.5px solid rgba(0, 0, 0, 0.05);
+            color: #0b1628;
             border-radius: 16px;
             padding: 16px;
             width: 100%;
@@ -60,19 +56,21 @@
         .form-input:focus {
             outline: none;
             border-color: #00b4d8;
-            background: rgba(255,255,255,0.08);
-            box-shadow: 0 0 0 4px rgba(0,180,216,0.15);
+            background: #fff;
+            box-shadow: 0 0 0 4px rgba(0,180,216,0.1);
         }
         .btn-login {
             background: linear-gradient(135deg, #00b4d8, #48cae4);
             color: #fff;
-            font-weight: 700;
+            font-weight: 800;
             padding: 16px;
             border-radius: 16px;
             width: 100%;
             margin-top: 24px;
             transition: all 0.2s ease;
             box-shadow: 0 10px 25px rgba(0,180,216,0.3);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
         .btn-login:hover {
             transform: translateY(-2px);
@@ -84,16 +82,11 @@
 <body>
 
     <div class="glass-card">
-        <!-- Logo placeholder/Icon -->
-        <div class="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-2xl" style="background: linear-gradient(135deg, #00b4d8, #48cae4);">
-            <svg viewBox="0 0 24 24" class="w-8 h-8 fill-white" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="13" cy="4" r="2"/>
-                <path d="M6 13l1.5 5H11l1-4 3 2v4h2v-5l-3.5-2.5L15 10l-3-1.5-2.5 3L6 13z"/>
-            </svg>
-        </div>
+        <!-- Logo -->
+        <img src="framtidspuls_logo.png" alt="Framtidspuls" class="mx-auto mb-10 h-16 w-auto">
 
-        <h1 class="text-3xl font-black mb-2">Välkommen</h1>
-        <p class="text-white text-opacity-50 mb-10 text-lg leading-relaxed">Välkommen till din träningsportal</p>
+        <h1 class="text-3xl font-black mb-2 text-navy">Träningsportalen</h1>
+        <p class="text-zinc-400 mb-10 text-lg leading-relaxed font-medium">Logga in för att komma åt program och övningar.</p>
 
         <form onsubmit="checkPassword(event)" class="space-y-4">
             <input type="password" id="password" placeholder="Ange lösenord" class="form-input" required>
@@ -101,8 +94,8 @@
             <button type="submit" class="btn-login">Logga in</button>
         </form>
 
-        <a href="index.html" class="inline-block mt-8 text-sm text-white text-opacity-30 hover:text-white transition-opacity">
-            ← Tillbaka till hemsidan
+        <a href="index.html" class="inline-block mt-8 text-sm text-zinc-300 hover:text-puls transition-all font-bold uppercase tracking-widest">
+            ← Tillbaka
         </a>
     </div>
 
