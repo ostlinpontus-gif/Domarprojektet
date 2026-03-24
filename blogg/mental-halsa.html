@@ -4,39 +4,149 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Så påverkar rörelse den mentala hälsan på jobbet | Framtidspuls</title>
-    <meta name="description" content="Kopplingen mellan fysisk aktivitet och mental hälsa är bevisad. Läs om hur rätt rörelse på jobbet kan öka stresståligheten för din personal.">
+    <meta name="description" content="Kopplingen mellan fysisk aktivitet och mental hälsa är bevisad. Läs om hur rätt rörelse på jobbet kan öka stresståligheten för din personal i Hudiksvall.">
+    <meta name="keywords" content="mental hälsa arbetsplats Hudiksvall, personalhälsa, stresshantering, Framtidspuls">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: '#0b1628',
+                        puls: '#00d4ff',
+                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
     <style>
-        body { font-family: 'Inter', sans-serif; background: #f3f7fa; color: #0b1628; }
-        .puls { color: #00b4d8; }
+        body { font-family: 'Inter', sans-serif; background: #f3f7fa; color: #0b1628; scroll-behavior: smooth; }
+        .nav-white { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px); border-bottom: 2px solid rgba(0, 0, 0, 0.02); color: #0b1628; }
         .prose h2 { font-size: 1.5rem; font-weight: 900; margin-top: 2rem; color: #0b1628; }
         .prose p { margin-bottom: 1.5rem; color: #4b5563; line-height: 1.8; }
     </style>
 </head>
-<body class="py-20 px-6">
-    <article class="max-w-3xl mx-auto bg-white p-12 rounded-3xl shadow-xl">
-        <a href="../blogg.html" class="inline-block mb-10 text-sm font-bold text-puls uppercase tracking-widest">← Blogg</a>
-        <header class="mb-12">
-            <span class="text-[10px] font-black uppercase tracking-widest text-[#00b4d8] bg-[#00b4d8]/5 px-3 py-1 rounded-full mb-4 inline-block">Mental Hälsa</span>
-            <h1 class="text-4xl font-black mb-4 leading-tight">Så påverkar rörelse den mentala hälsan på jobbet</h1>
-            <p class="text-zinc-400 font-medium italic">Publicerad mars 2026 · Av Pontus Östlin</p>
-        </header>
+<body class="bg-[#f3f7fa] pt-32">
 
-        <div class="prose max-w-none text-lg">
-            <p>I takt med att arbetslivet blir allt mer digitalt och stressigt blir den mentala hälsa en av våra största utmaningar. Men lösningen är förvånansvärt enkel och finns i rörelse. Som domare har jag sett hur fysisk aktivitet bygger en mental ryggsäck som gör oss rustade för livets mest krävande moment.</p>
+    <!-- HEADER -->
+    <nav class="nav-white fixed top-0 inset-x-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            
+            <!-- LOGOTYP -->
+            <a href="../index.html" class="flex items-center gap-4">
+                <img src="../framtidspuls_logo.png" alt="Framtidspuls" style="height: 50px; width: auto;">
+            </a>
 
-            <h2>Hjärnan älskar att röra på sig</h2>
-            <p>När vi rör oss frigörs endorfiner, dopamin och serotonin – kroppens egna lyckohormoner. Men ännu viktigare är att fysisk aktivitet minskar halterna av stresshormonet kortisol. På en arbetsplats betyder det här klarsynthet, bättre beslutsfattande och en högre tolerans mot de dagliga utmaningarna vi möter på kontoret.</p>
+            <div class="hidden lg:flex items-center gap-10 text-sm font-black text-zinc-600 uppercase tracking-widest">
+                <a href="../index.html" class="hover:text-puls transition-colors font-black">Hem</a>
+                <a href="../pitch.html" class="hover:text-puls transition-colors font-black">Varför?</a>
+                <a href="../about.html" class="hover:text-puls transition-colors font-black">Om oss</a>
+                <a href="../blogg.html" class="hover:text-puls transition-colors text-puls font-black">Blogg</a>
+                <a href="../kontakt.html" class="hover:text-puls transition-colors font-black">Kontakt</a>
+            </div>
 
-            <h2>Mikropausernas magi</h2>
-            <p>Du behöver inte springa ett maraton för att få effekten. Studier visar att korta, frekventa pauser med lätta rörelser – det vi kallar "kontorsgympa" – kan göra underverk för koncentrationsförmågan. Genom att integrera små, enkla och digitalt ledda pass i personalens vardag skapar vi en hållbar miljö där hjärnan får den vila den behöver för att orka prestera.</p>
-
-            <h2>Bygg en tryggare arbetsplats</h2>
-            <p>En personalgrupp som rör på sig tillsammans bygger också en starkare social sammanhållning. Det skapar en trygghet där man vågar vara sig själv, vilket är grunden för all mental hälsa och kreativitet. Friskvård är inte bara muskler och kondition – det är skratt, gemenskap och en känsla av mening i vardagen.</p>
-
-            <p class="mt-8 font-bold text-navy italic">Vill du veta hur vi kan implementera mentalt stärkande rörelse i ditt team? Läs mer om vår portal eller boka ett samtal.</p>
+            <div class="flex items-center gap-5">
+                <a href="../partner.html" class="hidden sm:flex text-sm font-black text-zinc-500 hover:text-puls uppercase tracking-widest">Bli Partner</a>
+                <a href="../login.html" class="bg-puls text-white px-8 py-3 rounded-full text-sm font-black uppercase tracking-widest">Portal</a>
+            </div>
         </div>
-    </article>
+    </nav>
+
+    <main class="max-w-3xl mx-auto px-6 mb-32">
+        <a href="../blogg.html" class="inline-block mb-10 text-sm font-black text-puls uppercase tracking-widest hover:translate-x-1 transition-transform">← Tillbaka till bloggen</a>
+        
+        <article class="bg-white p-12 rounded-[40px] shadow-xl border border-zinc-100">
+            <header class="mb-12">
+                <span class="text-[10px] font-black uppercase tracking-widest text-puls bg-puls/5 px-3 py-1 rounded-full mb-4 inline-block">Mental Hälsa</span>
+                <h1 class="text-4xl font-black mb-4 leading-tight">Så påverkar rörelse den mentala hälsan på jobbet</h1>
+                <p class="text-zinc-400 font-medium italic">Publicerad mars 2026 · Av Pontus Östlin</p>
+            </header>
+
+            <div class="prose max-w-none text-lg">
+                <p>I takt med att arbetslivet blir allt mer digitalt och stressigt blir den mentala hälsa en av våra största utmaningar. Men lösningen är förvånansvärt enkel och finns i rörelse. Som domare har jag sett hur fysisk aktivitet bygger en mental ryggsäck som gör oss rustade för livets mest krävande moment.</p>
+
+                <h2>Hjärnan älskar att röra på sig</h2>
+                <p>När vi rör oss frigörs endorfiner, dopamin och serotonin – kroppens egna lyckohormoner. Men ännu viktigare är att fysisk aktivitet minskar halterna av stresshormonet kortisol. På en arbetsplats betyder det här klarsynthet, bättre beslutsfattande och en högre tolerans mot de dagliga utmaningarna vi möter på kontoret.</p>
+
+                <h2>Mikropausernas magi</h2>
+                <p>Du behöver inte springa ett maraton för att få effekten. Studier visar att korta, frekventa pauser med lätta rörelser – det vi kallar "kontorsgympa" – kan göra underverk för koncentrationsförmågan. Genom att integrera små, enkla och digitalt ledda pass i personalens vardag skapar vi en hållbar miljö där hjärnan får den vila den behöver för att orka prestera.</p>
+
+                <h2>Bygg en tryggare arbetsplats</h2>
+                <p>En personalgrupp som rör på sig tillsammans bygger också en starkare social sammanhållning. Det skapar en trygghet där man vågar vara sig själv, vilket är grunden för all mental hälsa och kreativitet. Friskvård är inte bara muskler och kondition – det är skratt, gemenskap och en känsla av mening i vardagen.</p>
+
+                <p class="mt-8 font-bold text-navy italic">Vill du veta hur vi kan implementera mentalt stärkande rörelse i ditt team? Boka ett möte med oss för att se hur vi kan hjälpa just ert företag.</p>
+            </div>
+        </article>
+
+        <!-- CTA SECTION -->
+        <section class="mt-20 text-center p-12 bg-navy rounded-[40px] text-white shadow-2xl relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-puls opacity-5 blur-[100px]"></div>
+            <h2 class="text-4xl font-black mb-10">Redo att ta nästa steg?</h2>
+            <a href="../kontakt.html" class="inline-block bg-puls text-navy px-12 py-5 rounded-full text-xl font-black hover:scale-105 transition-all shadow-xl shadow-puls/30">Boka ett möte med Pontus →</a>
+        </section>
+    </main>
+
+    <!-- FOOTER SECTION -->
+    <footer class="py-24 px-6 bg-white border-t border-zinc-100">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col lg:flex-row justify-between items-start gap-16 mb-20 text-navy text-left">
+                <div class="max-w-sm">
+                    <div class="flex items-center gap-3 mb-8">
+                        <img src="../framtidspuls_logo.png" alt="Framtidspuls" style="height: 40px; width: auto;">
+                    </div>
+                    <p class="text-zinc-400 font-medium leading-relaxed">
+                        Vi skapar en hållbar brygga mellan näringslivets hälsa och idrottens överlevnad i Hälsingland. Ett initiativ av Löpning & Stark.
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-12 lg:gap-24">
+                    <div>
+                        <h4 class="text-[10px] uppercase font-black tracking-widest text-zinc-300 mb-8">Navigering</h4>
+                        <div class="flex flex-col gap-4 text-sm font-bold text-zinc-600">
+                            <a href="../index.html" class="hover:text-puls transition-colors font-black">Hem</a>
+                            <a href="../pitch.html" class="hover:text-puls transition-colors font-black">Varför Framtidspuls?</a>
+                            <a href="../about.html" class="hover:text-puls transition-colors font-black">Om oss</a>
+                            <a href="../blogg.html" class="hover:text-puls transition-colors font-black">Blogg</a>
+                            <a href="../kontakt.html" class="hover:text-puls transition-colors font-black">Kontakt</a>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-[10px] uppercase font-black tracking-widest text-zinc-300 mb-8">Direktkontakt</h4>
+                        <div class="flex flex-col gap-4 text-sm font-bold text-zinc-900">
+                            <p>Pontus Östlin</p>
+                            <a href="tel:0738072672" class="text-puls font-black text-xl tracking-tight leading-none hover:scale-105 transition-transform origin-left font-black">073-807 26 72</a>
+                            <a href="mailto:framtidspuls@gmail.com" class="text-zinc-500 hover:text-navy transition-colors font-black">framtidspuls@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="hidden sm:block">
+                        <h4 class="text-[10px] uppercase font-black tracking-widest text-zinc-300 mb-8">Socialt</h4>
+                        <div class="flex flex-col gap-4 text-sm font-bold text-zinc-600">
+                            <a href="https://instagram.com/framtidspuls" target="_blank" class="hover:text-puls transition-colors font-black">Instagram</a>
+                            <a href="https://linkedin.com/company/framtidspuls" target="_blank" class="hover:text-puls transition-colors font-black">LinkedIn</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pt-12 border-t border-zinc-100 flex flex-col sm:flex-row justify-between items-center gap-6">
+                <div class="space-y-2 text-left">
+                    <p class="text-zinc-300 text-[10px] font-black uppercase tracking-widest">© 2026 Framtidspuls · Starkare Personal, Tryggare Idrott</p>
+                    <p class="text-zinc-200 text-[10px] font-bold uppercase tracking-widest opacity-30 underline underline-offset-4">Org.nr: [XXXXXX-XXXX]</p>
+                </div>
+                <div class="flex items-center gap-8">
+                    <div class="flex gap-4 text-[10px] font-black uppercase tracking-widest">
+                        <a href="../terms.html" class="text-zinc-300 hover:text-puls transition-colors font-black">Villkor</a>
+                        <a href="../privacy.html" class="text-zinc-300 hover:text-puls transition-colors font-black">Integritet</a>
+                    </div>
+                    <div class="flex gap-4 border-l border-zinc-100 pl-8">
+                        <span class="w-2 h-2 rounded-full bg-puls font-black"></span>
+                        <span class="text-zinc-300 text-[10px] font-black uppercase tracking-widest">Bollnäs · Hudiksvall · Hälsingland</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>

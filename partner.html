@@ -34,16 +34,24 @@
             color: #0b1628 !important;
             transition: all 0.2s ease;
         }
-        .info-box { background: white; border: 1px solid rgba(0,0,0,0.05); border-radius: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.02); }
+        .info-box { background: #F9FAFB; border: 1px solid rgba(0,0,0,0.05); border-radius: 40px; box-shadow: 0 4px 20px rgba(0,0,0,0.02); }
+        .bg-pattern {
+            background-color: #F9FAFB;
+            background-image: radial-gradient(#d1d5db 0.8px, transparent 0.8px);
+            background-size: 24px 24px;
+        }
     </style>
 </head>
 <body class="min-h-screen">
     <!-- HEADER -->
     <nav class="nav-white fixed top-0 inset-x-0 z-50">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            
+            <!-- LOGOTYP -->
             <a href="index.html" class="flex items-center gap-4">
                 <img src="framtidspuls_logo.png" alt="Framtidspuls" style="height: 50px; width: auto;">
             </a>
+
             <div class="hidden lg:flex items-center gap-10 text-sm font-black text-zinc-600 uppercase tracking-widest">
                 <a href="index.html" class="hover:text-puls transition-colors font-black">Hem</a>
                 <a href="pitch.html" class="hover:text-puls transition-colors font-black">Varför?</a>
@@ -51,7 +59,11 @@
                 <a href="blogg.html" class="hover:text-puls transition-colors font-black">Blogg</a>
                 <a href="kontakt.html" class="hover:text-puls transition-colors font-black">Kontakt</a>
             </div>
-            <a href="login.html" class="bg-puls text-white px-8 py-3 rounded-full text-sm font-black uppercase tracking-widest">Portal</a>
+
+            <div class="flex items-center gap-5">
+                <a href="partner.html" class="hidden sm:flex text-sm font-black text-zinc-500 hover:text-puls uppercase tracking-widest">Bli Partner</a>
+                <a href="login.html" class="bg-puls text-white px-8 py-3 rounded-full text-sm font-black uppercase tracking-widest">Portal</a>
+            </div>
         </div>
     </nav>
 
@@ -69,44 +81,145 @@
     </section>
 
     <main class="max-w-4xl mx-auto py-12 px-6 space-y-12">
-        <div class="info-box p-10 bg-white border border-zinc-100 shadow-sm">
-            <h2 class="text-3xl font-black mb-8 text-navy text-center sm:text-left">Personalens nya hälsostöd</h2>
-            <div class="grid sm:grid-cols-2 gap-8">
-                <div>
-                    <p class="font-bold text-navy mb-1">Veckovisa träningsprogram</p>
-                    <p class="text-sm text-zinc-500">Vi levererar pass för alla nivåer som är redo att användas direkt i vardagen.</p>
+        <div class="info-box p-12 sm:p-20 bg-pattern border border-zinc-100 shadow-sm text-center">
+            <h2 class="text-4xl font-black mb-12 text-navy">Personalens nya hälsostöd</h2>
+            <div class="grid sm:grid-cols-2 gap-16">
+                <div class="space-y-4">
+                    <p class="text-xl font-bold text-navy">Veckovisa träningsprogram</p>
+                    <p class="text-zinc-500 leading-relaxed">Vi levererar pass för alla nivåer som är redo att användas direkt i vardagen. Ingen krångel, bara resultat.</p>
                 </div>
-                <div>
-                    <p class="font-bold text-navy mb-1">Mental hälsa & coaching</p>
-                    <p class="text-sm text-zinc-500">Konkreta verktyg för bättre stresshantering och fokus under arbetsdagen.</p>
+                <div class="space-y-4">
+                    <p class="text-xl font-bold text-navy">Mental hälsa & coaching</p>
+                    <p class="text-zinc-500 leading-relaxed">Konkreta verktyg för bättre stresshantering och fokus under arbetsdagen. Starkare sinne, bättre prestation.</p>
                 </div>
             </div>
         </div>
 
-        <div id="anmalan" class="rounded-[40px] p-12 bg-navy text-white text-center shadow-2xl relative overflow-hidden">
-            <div class="absolute top-0 right-0 w-64 h-64 bg-puls opacity-5 blur-[100px]"></div>
-            <h2 class="text-4xl font-black mb-6">Skicka intresseanmälan</h2>
-            <p class="mb-10 text-zinc-400 font-medium max-w-lg mx-auto">Hitta en tid med Pontus eller skicka ett meddelande så hörs vi snart!</p>
-            <div class="grid sm:grid-cols-2 gap-8 max-w-2xl mx-auto">
-                <a href="https://calendly.com/framtidspuls" target="_blank" class="bg-puls text-navy font-black py-4 rounded-xl shadow-xl hover:scale-105 transition-all text-sm uppercase tracking-widest">Boka 20 min med Pontus</a>
-                <a href="mailto:framtidspuls@gmail.com" class="bg-white text-navy font-black py-4 rounded-xl shadow-xl hover:scale-105 transition-all text-sm uppercase tracking-widest">Mejla oss direkt</a>
+        <!-- FAQ Section -->
+        <section class="max-w-3xl mx-auto py-12">
+            <h2 class="text-3xl font-black mb-12 text-navy text-center">Vanliga frågor innan ni bestämmer er.</h2>
+            <div class="space-y-4">
+                <!-- FAQ Item 1 -->
+                <div class="border border-zinc-100 rounded-2xl overflow-hidden shadow-sm bg-white">
+                    <button class="w-full text-left p-6 font-bold text-navy flex justify-between items-center hover:bg-zinc-50 transition-colors" onclick="this.nextElementSibling.classList.toggle('hidden')">
+                        Hur faktureras partnerskapet?
+                        <span class="text-puls">+</span>
+                    </button>
+                    <div class="p-6 text-zinc-500 text-sm hidden border-t border-zinc-100 bg-zinc-50/30">
+                        Vi erbjuder flexibel fakturering — månadsvis eller årsvis. Ni väljer vad som passar er ekonomi bäst. Inga dolda avgifter.
+                    </div>
+                </div>
+                <!-- FAQ Item 2 -->
+                <div class="border border-zinc-100 rounded-2xl overflow-hidden shadow-sm bg-white">
+                    <button class="w-full text-left p-6 font-bold text-navy flex justify-between items-center hover:bg-zinc-50 transition-colors" onclick="this.nextElementSibling.classList.toggle('hidden')">
+                        Kan vi prova innan vi bestämmer oss?
+                        <span class="text-puls">+</span>
+                    </button>
+                    <div class="p-6 text-zinc-500 text-sm hidden border-t border-zinc-100 bg-zinc-50/30">
+                        Ja. Hör av er så bokar vi ett personligt möte där vi visar portalen live och svarar på alla era frågor — helt utan förpliktelser.
+                    </div>
+                </div>
+                <!-- FAQ Item 3 -->
+                <div class="border border-zinc-100 rounded-2xl overflow-hidden shadow-sm bg-white">
+                    <button class="w-full text-left p-6 font-bold text-navy flex justify-between items-center hover:bg-zinc-50 transition-colors" onclick="this.nextElementSibling.classList.toggle('hidden')">
+                        Hur onboardas vår personal?
+                        <span class="text-puls">+</span>
+                    </button>
+                    <div class="p-6 text-zinc-500 text-sm hidden border-t border-zinc-100 bg-zinc-50/30">
+                        Pontus sköter uppstarten personligen. Personalen får tillgång till portalen direkt och vi skickar en välkomstguide som gör det enkelt att komma igång.
+                    </div>
+                </div>
+                <!-- FAQ Item 4 -->
+                <div class="border border-zinc-100 rounded-2xl overflow-hidden shadow-sm bg-white">
+                    <button class="w-full text-left p-6 font-bold text-navy flex justify-between items-center hover:bg-zinc-50 transition-colors" onclick="this.nextElementSibling.classList.toggle('hidden')">
+                        Vad händer om vi vill avsluta?
+                        <span class="text-puls">+</span>
+                    </button>
+                    <div class="p-6 text-zinc-500 text-sm hidden border-t border-zinc-100 bg-zinc-50/30">
+                        Ni kan avsluta med en månads varsel. Inga långa bindningstider eller krångliga processer.
+                    </div>
+                </div>
+                <!-- FAQ Item 5 -->
+                <div class="border border-zinc-100 rounded-2xl overflow-hidden shadow-sm bg-white">
+                    <button class="w-full text-left p-6 font-bold text-navy flex justify-between items-center hover:bg-zinc-50 transition-colors" onclick="this.nextElementSibling.classList.toggle('hidden')">
+                        Är detta bara för stora företag?
+                        <span class="text-puls">+</span>
+                    </button>
+                    <div class="p-6 text-zinc-500 text-sm hidden border-t border-zinc-100 bg-zinc-50/30">
+                        Nej — våra minsta partners har 5 anställda. Paketen är skalade för att ge värde oavsett storlek.
+                    </div>
+                </div>
             </div>
-            <p class="mt-8 text-xs text-zinc-500 font-black uppercase tracking-widest">Svarstid normalt inom 24 timmar</p>
+        </section>
+
+        <div id="anmalan" class="rounded-[50px] p-12 sm:p-24 bg-navy text-white text-center shadow-2xl relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-puls opacity-5 blur-[100px] pointer-events-none"></div>
+            <h2 class="text-4xl sm:text-6xl font-black mb-10 leading-tight">Skicka intresseanmälan</h2>
+            <p class="mb-12 text-zinc-400 font-medium max-w-lg mx-auto text-xl leading-relaxed">Hitta en tid med Pontus eller skicka ett meddelande så hörs vi snart!</p>
+            <div class="flex flex-wrap justify-center gap-8 max-w-2xl mx-auto">
+                <a href="https://calendly.com/framtidspuls" target="_blank" class="bg-puls text-navy font-black py-5 px-10 rounded-2xl shadow-xl hover:scale-105 transition-all text-sm uppercase tracking-widest">Boka 20 min med Pontus</a>
+                <a href="mailto:framtidspuls@gmail.com" class="bg-white text-navy font-black py-5 px-10 rounded-2xl shadow-xl hover:scale-105 transition-all text-sm uppercase tracking-widest">Mejla oss direkt</a>
+            </div>
+            <p class="mt-12 text-xs text-zinc-500 font-black uppercase tracking-widest leading-loose">Svarstid normalt inom 24 timmar</p>
         </div>
     </main>
 
-    <footer class="py-24 px-6 bg-white border-t border-zinc-100 mt-12">
-        <div class="max-w-7xl mx-auto text-navy text-center sm:text-left">
-            <div class="flex flex-col sm:flex-row justify-between items-center gap-8">
-                <div>
-                    <img src="framtidspuls_logo.png" alt="Framtidspuls" style="height: 40px; width: auto;" class="mx-auto sm:mx-0 mb-4">
-                    <p class="text-zinc-400 text-sm font-medium">© 2026 Framtidspuls · Starkare Personal, Tryggare Idrott</p>
-                    <p class="text-zinc-300 text-[10px] font-black uppercase tracking-widest mt-2">framtidspuls@gmail.com · 073-807 26 72</p>
+    <!-- FOOTER SECTION -->
+    <footer class="py-32 px-6 bg-white border-t border-zinc-100">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col lg:flex-row justify-between items-start gap-16 mb-20">
+                <div class="max-w-sm">
+                    <div class="flex items-center gap-3 mb-8">
+                        <img src="framtidspuls_logo.png" alt="Framtidspuls" style="height: 40px; width: auto;">
+                    </div>
+                    <p class="text-zinc-400 font-medium leading-relaxed">
+                        Vi skapar en hållbar brygga mellan näringslivets hälsa och idrottens överlevnad i Hälsingland. Ett initiativ av Löpning & Stark.
+                    </p>
                 </div>
-                <div class="flex gap-8 text-[10px] font-black uppercase tracking-widest text-zinc-400">
-                    <a href="index.html" class="hover:text-puls">Hem</a>
-                    <a href="about.html" class="hover:text-puls">Om oss</a>
-                    <a href="kontakt.html" class="hover:text-puls">Kontakt</a>
+                
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-12 lg:gap-24">
+                    <div>
+                        <h4 class="text-[10px] uppercase font-black tracking-widest text-zinc-300 mb-8">Navigering</h4>
+                        <div class="flex flex-col gap-4 text-sm font-bold text-zinc-600">
+                            <a href="index.html" class="hover:text-puls transition-colors font-black">Hem</a>
+                            <a href="pitch.html" class="hover:text-puls transition-colors font-black">Varför Framtidspuls?</a>
+                            <a href="about.html" class="hover:text-puls transition-colors font-black">Om oss</a>
+                            <a href="blogg.html" class="hover:text-puls transition-colors font-black">Blogg</a>
+                            <a href="kontakt.html" class="hover:text-puls transition-colors font-black">Kontakt</a>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-[10px] uppercase font-black tracking-widest text-zinc-300 mb-8">Direktkontakt</h4>
+                        <div class="flex flex-col gap-4 text-sm font-bold text-zinc-900">
+                            <p>Pontus Östlin</p>
+                            <a href="tel:0738072672" class="text-puls font-black text-xl tracking-tight leading-none hover:scale-105 transition-transform origin-left">073-807 26 72</a>
+                            <a href="mailto:framtidspuls@gmail.com" class="text-zinc-500 hover:text-navy transition-colors">framtidspuls@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="hidden sm:block">
+                        <h4 class="text-[10px] uppercase font-black tracking-widest text-zinc-300 mb-8">Socialt</h4>
+                        <div class="flex flex-col gap-4 text-sm font-bold text-zinc-600">
+                            <a href="https://instagram.com/framtidspuls" target="_blank" class="hover:text-puls transition-colors font-black">Instagram</a>
+                            <a href="https://linkedin.com/company/framtidspuls" target="_blank" class="hover:text-puls transition-colors font-black">LinkedIn</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pt-12 border-t border-zinc-100 flex flex-col sm:flex-row justify-between items-center gap-6">
+                <div class="space-y-2">
+                    <p class="text-zinc-300 text-[10px] font-black uppercase tracking-widest">© 2026 Framtidspuls · Starkare Personal, Tryggare Idrott</p>
+                    <p class="text-zinc-200 text-[10px] font-bold uppercase tracking-widest opacity-30 underline underline-offset-4">Org.nr: [XXXXXX-XXXX]</p>
+                </div>
+                <div class="flex items-center gap-8">
+                    <div class="flex gap-4 text-[10px] font-black uppercase tracking-widest">
+                        <a href="terms.html" class="text-zinc-300 hover:text-puls transition-colors font-black">Villkor</a>
+                        <a href="privacy.html" class="text-zinc-300 hover:text-puls transition-colors font-black">Integritet</a>
+                    </div>
+                    <div class="flex gap-4 border-l border-zinc-100 pl-8">
+                        <span class="w-2 h-2 rounded-full bg-puls font-black"></span>
+                        <span class="text-zinc-300 text-[10px] font-black uppercase tracking-widest">Bollnäs · Hudiksvall · Hälsingland</span>
+                    </div>
                 </div>
             </div>
         </div>

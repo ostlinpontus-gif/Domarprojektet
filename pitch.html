@@ -34,6 +34,11 @@
             border-bottom: 2px solid rgba(0, 0, 0, 0.02);
             color: #0b1628;
         }
+        .bg-pattern {
+            background-color: #F9FAFB;
+            background-image: radial-gradient(#d1d5db 0.8px, transparent 0.8px);
+            background-size: 24px 24px;
+        }
     </style>
 </head>
 <body class="font-sans">
@@ -41,16 +46,20 @@
     <!-- HEADER -->
     <nav class="nav-white fixed top-0 inset-x-0 z-50">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            
+            <!-- LOGOTYP -->
             <a href="index.html" class="flex items-center gap-4">
                 <img src="framtidspuls_logo.png" alt="Framtidspuls" style="height: 50px; width: auto;">
             </a>
-            <div class="hidden lg:flex items-center gap-10 text-sm font-black text-zinc-600 uppercase tracking-widest text-opacity-100">
+
+            <div class="hidden lg:flex items-center gap-10 text-sm font-black text-zinc-600 uppercase tracking-widest">
                 <a href="index.html" class="hover:text-puls transition-colors font-black">Hem</a>
-                <a href="pitch.html" class="hover:text-puls transition-colors text-puls font-black">Varför?</a>
+                <a href="pitch.html" class="hover:text-puls transition-colors font-black text-puls">Varför?</a>
                 <a href="about.html" class="hover:text-puls transition-colors font-black">Om oss</a>
                 <a href="blogg.html" class="hover:text-puls transition-colors font-black">Blogg</a>
                 <a href="kontakt.html" class="hover:text-puls transition-colors font-black">Kontakt</a>
             </div>
+
             <div class="flex items-center gap-5">
                 <a href="partner.html" class="hidden sm:flex text-sm font-black text-zinc-500 hover:text-puls uppercase tracking-widest">Bli Partner</a>
                 <a href="login.html" class="bg-puls text-white px-8 py-3 rounded-full text-sm font-black uppercase tracking-widest">Portal</a>
@@ -77,30 +86,31 @@
     </section>
 
     <!-- ROI KALKYL SECTION -->
-    <section id="kalkyl" class="py-32 px-6 bg-[#F3F7FA]">
+    <section id="kalkyl" class="py-32 px-6 bg-pattern">
         <div class="max-w-4xl mx-auto">
-            <div class="glass p-10 sm:p-20 text-center relative overflow-hidden bg-white border border-zinc-100 shadow-xl">
+            <div class="glass p-12 sm:p-28 text-center relative overflow-hidden bg-white/90 border border-zinc-100 shadow-2xl">
                 <div class="absolute -top-24 -right-24 w-64 h-64 bg-puls opacity-5 blur-[100px] pointer-events-none"></div>
-                <h3 class="text-puls font-black text-xs uppercase tracking-widest mb-10 font-black">Investeringens logik</h3>
-                <div class="text-4xl sm:text-6xl font-black mb-8 leading-tight text-navy">En sjukdag = 3 000 kr<br><span class="opacity-30 text-zinc-400 text-3xl sm:text-4xl">i snittkostnad per anställd.</span></div>
-                <p class="text-zinc-500 text-lg sm:text-xl max-w-xl mx-auto mb-12 leading-relaxed italic font-medium">
-                    Om Framtidspuls hjälper er att sänka sjukfrånvaron med endast en dag i månaden för er personalstyrka är investeringen redan betald. Allt utöver det är ren vinst för organisationen.
-                </p>
-                <div class="h-px w-20 bg-puls/30 mx-auto mb-12"></div>
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-10 text-center">
-                    <div>
-                        <div class="text-3xl font-black text-navy mb-2 font-black">9%</div>
-                        <div class="text-[10px] text-zinc-400 uppercase tracking-widest font-black leading-relaxed">Högre produktivitet</div>
-                    </div>
-                    <div>
-                        <div class="text-3xl font-black text-navy mb-2 font-black">15%</div>
-                        <div class="text-[10px] text-zinc-400 uppercase tracking-widest font-black leading-relaxed">Lägre personalomsättning</div>
-                    </div>
-                    <div>
-                        <div class="text-3xl font-black text-navy mb-2 font-black">100%</div>
-                        <div class="text-[10px] text-zinc-400 uppercase tracking-widest font-black leading-relaxed">Direkt samhällsnytta</div>
-                    </div>
+                <h3 class="text-puls font-black text-xs uppercase tracking-widest mb-10 font-black">Interaktiv ROI-Kalkyl</h3>
+                
+                <div class="mb-12">
+                    <label class="block text-navy font-bold mb-4">Antal anställda i ert företag: <span id="emp-count" class="text-puls">15</span></label>
+                    <input type="range" id="emp-slider" min="5" max="200" value="15" class="w-full h-2 bg-zinc-200 rounded-lg appearance-none cursor-pointer accent-puls" oninput="calculateROI()">
                 </div>
+
+                <div class="p-8 rounded-[32px] bg-green-50 border border-green-100 mb-8 inline-block w-full">
+                    <p class="text-green-600 font-black text-xs uppercase tracking-[0.2em] mb-3">Er beräknade månadsbesparing</p>
+                    <div id="roi-result" class="text-4xl sm:text-6xl font-black text-navy">2 250 kr</div>
+                </div>
+
+                <p class="text-zinc-500 text-lg sm:text-xl max-w-xl mx-auto mb-12 leading-relaxed font-medium">
+                    Det innebär att Framtidspuls-partnerskapet betalar sig själv redan vid <span id="break-even" class="text-navy font-black">0.8</span> räddade dagar per månad.
+                </p>
+
+                <div class="h-px w-20 bg-puls/30 mx-auto mb-8"></div>
+                
+                <p class="text-[10px] text-zinc-400 uppercase tracking-widest font-bold max-w-lg mx-auto leading-relaxed">
+                    Baserat på Försäkringskassans snittkostnad per sjukdag och allmän forskning om effekterna av regelbunden träning på arbetsplatsen.
+                </p>
             </div>
         </div>
     </section>
@@ -112,23 +122,6 @@
                 <h2 class="text-4xl sm:text-6xl font-black tracking-tight text-navy">Hållbart värdeskapande.</h2>
             </div>
 
-            <!-- ROI Calculator Section -->
-            <div id="kalkylator" class="max-w-xl mx-auto glass p-10 mb-20 bg-white border border-zinc-100 shadow-xl">
-                <h3 class="text-xl font-black mb-8 text-center text-puls uppercase tracking-widest">Beräkna er potentiella ROI</h3>
-                <div class="space-y-6">
-                    <div>
-                        <label class="block text-[10px] uppercase tracking-widest font-black opacity-40 mb-3 text-left text-zinc-500">Antal anställda</label>
-                        <input type="number" id="employees" value="10" min="1" class="w-full bg-zinc-50 border border-zinc-100 rounded-2xl p-4 text-2xl font-black focus:border-puls focus:ring-1 focus:ring-puls transition-all outline-none" oninput="calculateROI()">
-                    </div>
-                    <div class="pt-6 border-t border-zinc-100 text-center">
-                        <div class="p-8 rounded-2xl bg-puls/10 border border-puls/20">
-                            <p class="text-xs uppercase tracking-widest font-black text-puls mb-2 font-black">Er beräknade besparing</p>
-                            <div id="roi-result" class="text-4xl font-black text-navy">1 500 kr/mån</div>
-                            <p class="text-[10px] opacity-40 mt-4 leading-relaxed italic text-zinc-600">Baserat på 5% minskad sjukfrånvaro (0.05 dagar/anställd) á 3 000 kr/dag.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Punkt 1 -->
@@ -197,16 +190,16 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer class="py-24 px-6 bg-white border-t border-zinc-100">
+    <!-- FOOTER SECTION -->
+    <footer class="py-32 px-6 bg-white border-t border-zinc-100">
         <div class="max-w-7xl mx-auto">
-            <div class="flex flex-col lg:flex-row justify-between items-start gap-16 mb-20 text-navy text-left">
+            <div class="flex flex-col lg:flex-row justify-between items-start gap-16 mb-20">
                 <div class="max-w-sm">
                     <div class="flex items-center gap-3 mb-8">
                         <img src="framtidspuls_logo.png" alt="Framtidspuls" style="height: 40px; width: auto;">
                     </div>
                     <p class="text-zinc-400 font-medium leading-relaxed">
-                        Tillsammans gör vi skillnad för hälsa och idrott. Ett initiativ av Löpning & Stark.
+                        Vi skapar en hållbar brygga mellan näringslivets hälsa och idrottens överlevnad i Hälsingland. Ett initiativ av Löpning & Stark.
                     </p>
                 </div>
                 
@@ -215,18 +208,18 @@
                         <h4 class="text-[10px] uppercase font-black tracking-widest text-zinc-300 mb-8">Navigering</h4>
                         <div class="flex flex-col gap-4 text-sm font-bold text-zinc-600">
                             <a href="index.html" class="hover:text-puls transition-colors font-black">Hem</a>
-                            <a href="pitch.html" class="hover:text-puls transition-colors font-black font-black">Varför Framtidspuls?</a>
-                            <a href="about.html" class="hover:text-puls transition-colors font-black font-black">Om oss</a>
-                            <a href="partner.html" class="hover:text-puls transition-colors font-black font-black">Bli Partner</a>
-                            <a href="kontakt.html" class="hover:text-puls transition-colors font-black font-black">Kontakt</a>
+                            <a href="pitch.html" class="hover:text-puls transition-colors font-black">Varför Framtidspuls?</a>
+                            <a href="about.html" class="hover:text-puls transition-colors font-black">Om oss</a>
+                            <a href="blogg.html" class="hover:text-puls transition-colors font-black">Blogg</a>
+                            <a href="kontakt.html" class="hover:text-puls transition-colors font-black">Kontakt</a>
                         </div>
                     </div>
                     <div>
                         <h4 class="text-[10px] uppercase font-black tracking-widest text-zinc-300 mb-8">Direktkontakt</h4>
                         <div class="flex flex-col gap-4 text-sm font-bold text-zinc-900">
                             <p>Pontus Östlin</p>
-                            <a href="tel:0738072672" class="text-puls font-black text-xl tracking-tight leading-none hover:scale-105 transition-transform origin-left font-black">073-807 26 72</a>
-                            <a href="mailto:framtidspuls@gmail.com" class="text-zinc-500 hover:text-navy transition-colors font-black">framtidspuls@gmail.com</a>
+                            <a href="tel:0738072672" class="text-puls font-black text-xl tracking-tight leading-none hover:scale-105 transition-transform origin-left">073-807 26 72</a>
+                            <a href="mailto:framtidspuls@gmail.com" class="text-zinc-500 hover:text-navy transition-colors">framtidspuls@gmail.com</a>
                         </div>
                     </div>
                     <div class="hidden sm:block">
@@ -242,6 +235,7 @@
             <div class="pt-12 border-t border-zinc-100 flex flex-col sm:flex-row justify-between items-center gap-6">
                 <div class="space-y-2">
                     <p class="text-zinc-300 text-[10px] font-black uppercase tracking-widest">© 2026 Framtidspuls · Starkare Personal, Tryggare Idrott</p>
+                    <p class="text-zinc-200 text-[10px] font-bold uppercase tracking-widest opacity-30 underline underline-offset-4">Org.nr: [XXXXXX-XXXX]</p>
                 </div>
                 <div class="flex items-center gap-8">
                     <div class="flex gap-4 text-[10px] font-black uppercase tracking-widest">
@@ -259,11 +253,20 @@
 
     <script>
         function calculateROI() {
-            const antal = document.getElementById('employees').value || 0;
+            const antal = document.getElementById('emp-slider').value;
+            document.getElementById('emp-count').textContent = antal;
+            
             const sickDaysSaved = antal * 0.05;
             const costSaved = Math.round(sickDaysSaved * 3000);
-            document.getElementById('roi-result').textContent = costSaved.toLocaleString('sv-SE') + ' kr/mån';
+            
+            document.getElementById('roi-result').textContent = costSaved.toLocaleString('sv-SE') + ' kr';
+            
+            // Break even calculation based on Partner package (7500 kr)
+            const breakEvenDays = Math.round((7500 / 3000) * 10) / 10;
+            document.getElementById('break-even').textContent = breakEvenDays;
         }
+        // Initialize
+        calculateROI();
     </script>
 </body>
 </html>
