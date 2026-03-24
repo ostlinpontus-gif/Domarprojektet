@@ -24,9 +24,7 @@
     <style>
         :root { scroll-behavior: smooth; }
         body { background-color: #F3F7FA; color: #18181b; -webkit-font-smoothing: antialiased; }
-        /* Animations disabled for speed */
         .glass { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(20px); border: 1px solid rgba(0, 0, 0, 0.05); border-radius: 32px; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); }
-        .apple-gradient { background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(243,247,250,1) 100%); }
         .hero-title { font-size: clamp(2.5rem, 8vw, 5rem); line-height: 1.1; font-weight: 900; letter-spacing: -0.02em; }
         .btn-presentation { padding: 1.25rem 3rem; border-radius: 99px; font-weight: 800; font-size: 1.125rem; transition: all 0.3s ease; display: inline-flex; align-items: center; justify-content: center; gap: 12px; }
         .btn-presentation:hover { transform: scale(1.05); box-shadow: 0 20px 40px rgba(0, 180, 216, 0.3); }
@@ -60,25 +58,31 @@
         </div>
     </nav>
 
-    <section class="min-h-screen flex flex-col justify-center items-center px-6 pt-20 pb-20 text-center relative overflow-hidden bg-white">
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(0,180,216,0.05)_0%,transparent_60%)] pointer-events-none"></div>
-        <div class="max-w-5xl mx-auto mt-12">
-            <span class="text-puls font-black text-xs uppercase tracking-[0.3em] mb-8 block px-6 py-2 rounded-full border border-puls/20 inline-block font-black">Business Case for Framtidspuls</span>
-            <h1 class="hero-title mb-10 text-navy">Investera i personalens hälsa och lokalsamhällets framtid.</h1>
-            <p class="text-zinc-500 text-xl sm:text-2xl max-w-2xl mx-auto leading-relaxed mb-12 font-medium">
+    <!-- HERO WITH IMAGE & OVERLAY -->
+    <section class="h-[70vh] relative flex items-center justify-center overflow-hidden">
+        <!-- Bakgrundsbild -->
+        <div class="absolute inset-0 bg-navy z-0">
+            <img src="pitch_hero.png" alt="Energi och framgång" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black/40"></div> <!-- Mörkt overlay för läsbarhet -->
+        </div>
+        <!-- Innehåll -->
+        <div class="max-w-5xl mx-auto text-center relative z-10 px-6 pt-20">
+            <span class="text-puls font-black text-xs uppercase tracking-[0.3em] mb-8 block px-6 py-2 rounded-full border border-puls/30 inline-block bg-white/10 backdrop-blur-sm">Business Case for Framtidspuls</span>
+            <h1 class="hero-title mb-10 text-white drop-shadow-2xl">Investera i personalens hälsa & <span class="text-puls">framtidens ledare.</span></h1>
+            <p class="text-white/90 text-xl sm:text-2xl max-w-2xl mx-auto leading-relaxed mb-12 font-medium drop-shadow-lg">
                 Hälsa är ingen kostnad. Det är en strategisk investering med direkt avkastning för både er personal och morgondagens unga ledare.
             </p>
-            <a href="#kalkyl" class="btn-presentation bg-puls text-white hover:bg-navy">Se ROI-kalkylen ↓</a>
+            <a href="#kalkyl" class="btn-presentation bg-puls text-white hover:bg-navy font-black shadow-lg shadow-puls/30">Se ROI-kalkylen ↓</a>
         </div>
     </section>
 
     <!-- ROI KALKYL SECTION -->
-    <section id="kalkyl" class="py-32 px-6 bg-zinc-50">
+    <section id="kalkyl" class="py-32 px-6 bg-[#F3F7FA]">
         <div class="max-w-4xl mx-auto">
-            <div class="glass p-10 sm:p-20 text-center apple-gradient relative overflow-hidden bg-white">
+            <div class="glass p-10 sm:p-20 text-center relative overflow-hidden bg-white border border-zinc-100 shadow-xl">
                 <div class="absolute -top-24 -right-24 w-64 h-64 bg-puls opacity-5 blur-[100px] pointer-events-none"></div>
                 <h3 class="text-puls font-black text-xs uppercase tracking-widest mb-10 font-black">Investeringens logik</h3>
-                <div class="text-4xl sm:text-6xl font-black mb-8 leading-tight text-navy">En sjukdag = 3 000 kr<br><span class="opacity-30">i snittkostnad per anställd.</span></div>
+                <div class="text-4xl sm:text-6xl font-black mb-8 leading-tight text-navy">En sjukdag = 3 000 kr<br><span class="opacity-30 text-zinc-400 text-3xl sm:text-4xl">i snittkostnad per anställd.</span></div>
                 <p class="text-zinc-500 text-lg sm:text-xl max-w-xl mx-auto mb-12 leading-relaxed italic font-medium">
                     Om Framtidspuls hjälper er att sänka sjukfrånvaron med endast en dag i månaden för er personalstyrka är investeringen redan betald. Allt utöver det är ren vinst för organisationen.
                 </p>
@@ -102,25 +106,25 @@
     </section>
 
     <!-- VÄRDE FÖR FÖRETAGET SECTION -->
-    <section class="py-32 px-6 bg-white">
+    <section class="py-32 px-6 bg-[#F3F7FA]">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-16">
                 <h2 class="text-4xl sm:text-6xl font-black tracking-tight text-navy">Hållbart värdeskapande.</h2>
             </div>
 
             <!-- ROI Calculator Section -->
-            <div id="kalkylator" class="max-w-xl mx-auto glass p-10 mb-20">
+            <div id="kalkylator" class="max-w-xl mx-auto glass p-10 mb-20 bg-white border border-zinc-100 shadow-xl">
                 <h3 class="text-xl font-black mb-8 text-center text-puls uppercase tracking-widest">Beräkna er potentiella ROI</h3>
                 <div class="space-y-6">
                     <div>
-                        <label class="block text-[10px] uppercase tracking-widest font-black opacity-40 mb-3 text-left">Antal anställda</label>
-                        <input type="number" id="employees" value="10" min="1" class="w-full bg-white/5 border border-white/10 rounded-2xl p-4 text-2xl font-black focus:border-puls focus:ring-1 focus:ring-puls transition-all outline-none" oninput="calculateROI()">
+                        <label class="block text-[10px] uppercase tracking-widest font-black opacity-40 mb-3 text-left text-zinc-500">Antal anställda</label>
+                        <input type="number" id="employees" value="10" min="1" class="w-full bg-zinc-50 border border-zinc-100 rounded-2xl p-4 text-2xl font-black focus:border-puls focus:ring-1 focus:ring-puls transition-all outline-none" oninput="calculateROI()">
                     </div>
-                    <div class="pt-6 border-t border-white/10 text-center">
+                    <div class="pt-6 border-t border-zinc-100 text-center">
                         <div class="p-8 rounded-2xl bg-puls/10 border border-puls/20">
                             <p class="text-xs uppercase tracking-widest font-black text-puls mb-2 font-black">Er beräknade besparing</p>
-                            <div id="roi-result" class="text-4xl font-black text-zinc-900">1 500 kr/mån</div>
-                            <p class="text-[10px] opacity-40 mt-4 leading-relaxed italic">Baserat på 5% minskad sjukfrånvaro (0.05 dagar/anställd) á 3 000 kr/dag.</p>
+                            <div id="roi-result" class="text-4xl font-black text-navy">1 500 kr/mån</div>
+                            <p class="text-[10px] opacity-40 mt-4 leading-relaxed italic text-zinc-600">Baserat på 5% minskad sjukfrånvaro (0.05 dagar/anställd) á 3 000 kr/dag.</p>
                         </div>
                     </div>
                 </div>
@@ -128,23 +132,23 @@
 
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Punkt 1 -->
-                <div class="glass p-10">
+                <div class="bg-white p-10 rounded-3xl border border-zinc-100 shadow-sm hover:shadow-xl transition-shadow">
                     <div class="w-16 h-16 rounded-2xl bg-puls/10 flex items-center justify-center text-3xl mb-8">⚡</div>
-                    <h4 class="text-2xl font-black mb-4">Piggare personal</h4>
+                    <h4 class="text-2xl font-black mb-4 text-navy">Piggare personal</h4>
                     <p class="text-zinc-600 text-sm leading-relaxed mb-6 font-medium">Genom vår digitala portal får era anställda tillgång till färdiga träningsprogram, inspirationsfilmer och mental coachning som verkligen blir av.</p>
                     <span class="text-puls font-bold text-xs uppercase tracking-widest font-black">Digital Hälsoportal</span>
                 </div>
                 <!-- Punkt 2 -->
-                <div class="glass p-10">
+                <div class="bg-white p-10 rounded-3xl border border-zinc-100 shadow-sm hover:shadow-xl transition-shadow">
                     <div class="w-16 h-16 rounded-2xl bg-puls/10 flex items-center justify-center text-3xl mb-8">💎</div>
-                    <h4 class="text-2xl font-black mb-4">Employer Branding</h4>
+                    <h4 class="text-2xl font-black mb-4 text-navy">Employer Branding</h4>
                     <p class="text-zinc-600 text-sm leading-relaxed mb-6 font-medium">Visa att ni tar ett aktivt och genuint ansvar. Ni attraherar rätt talanger genom att kombinera internt välmående med extern samhällsnytta.</p>
                     <span class="text-puls font-bold text-xs uppercase tracking-widest font-black">Hållbart Ledarskap</span>
                 </div>
                 <!-- Punkt 3 -->
-                <div class="glass p-10">
+                <div class="bg-white p-10 rounded-3xl border border-zinc-100 shadow-sm hover:shadow-xl transition-shadow">
                     <div class="w-16 h-16 rounded-2xl bg-puls/10 flex items-center justify-center text-3xl mb-8">🤝</div>
-                    <h4 class="text-2xl font-black mb-4">Samhällsnytta</h4>
+                    <h4 class="text-2xl font-black mb-4 text-navy">Samhällsnytta</h4>
                     <p class="text-zinc-600 text-sm leading-relaxed mb-6 font-medium">Varje paket finansierar och säkrar återväxten av unga domare i Bollnäs/Hälsingland. Ni blir hjältar både på kontoret och på planen.</p>
                     <span class="text-puls font-bold text-xs uppercase tracking-widest font-black">Lokal Investering</span>
                 </div>
@@ -153,7 +157,7 @@
     </section>
 
     <!-- CSR VINKELN SECTION -->
-    <section class="py-40 px-6 text-center bg-zinc-50 border-y border-zinc-100">
+    <section class="py-40 px-6 text-center bg-white border-y border-zinc-100">
         <div class="max-w-3xl mx-auto">
             <h2 class="text-3xl sm:text-5xl font-black mb-12 text-navy">Framtidens ledare formas här.</h2>
             <p class="text-xl sm:text-2xl text-zinc-500 leading-relaxed mb-16 italic font-medium">
@@ -170,13 +174,13 @@
     </section>
 
     <!-- CALL TO ACTION -->
-    <section id="start" class="py-32 px-6 bg-white">
+    <section id="start" class="py-32 px-6 bg-[#F3F7FA]">
         <div class="max-w-4xl mx-auto">
-            <div class="glass p-10 sm:p-24 text-center bg-zinc-50 border-zinc-200">
+            <div class="bg-white p-10 sm:p-24 text-center rounded-[40px] border border-zinc-100 shadow-2xl">
                 <h2 class="text-4xl sm:text-6xl font-black mb-12 tracking-tight text-navy">Redo att komma igång?</h2>
                 <a href="partner.html" class="btn-presentation bg-puls text-white hover:bg-navy mb-20 w-full sm:w-auto shadow-2xl shadow-puls/30 font-black">Starta partnerskapet här →</a>
                 
-                <div id="kontakt" class="pt-20 border-t border-zinc-200">
+                <div id="kontakt" class="pt-20 border-t border-zinc-100">
                     <p class="text-xs text-zinc-400 uppercase tracking-[0.3em] font-black mb-10">Direktkontakt</p>
                     <div class="flex flex-col sm:flex-row justify-center items-center gap-12 group">
                         <div class="text-center group-hover:scale-105 transition-transform">
@@ -211,10 +215,10 @@
                         <h4 class="text-[10px] uppercase font-black tracking-widest text-zinc-300 mb-8">Navigering</h4>
                         <div class="flex flex-col gap-4 text-sm font-bold text-zinc-600">
                             <a href="index.html" class="hover:text-puls transition-colors font-black">Hem</a>
-                            <a href="pitch.html" class="hover:text-puls transition-colors font-black">Varför Framtidspuls?</a>
-                            <a href="about.html" class="hover:text-puls transition-colors font-black">Om oss</a>
-                            <a href="partner.html" class="hover:text-puls transition-colors font-black">Bli Partner</a>
-                            <a href="kontakt.html" class="hover:text-puls transition-colors font-black">Kontakt</a>
+                            <a href="pitch.html" class="hover:text-puls transition-colors font-black font-black">Varför Framtidspuls?</a>
+                            <a href="about.html" class="hover:text-puls transition-colors font-black font-black">Om oss</a>
+                            <a href="partner.html" class="hover:text-puls transition-colors font-black font-black">Bli Partner</a>
+                            <a href="kontakt.html" class="hover:text-puls transition-colors font-black font-black">Kontakt</a>
                         </div>
                     </div>
                     <div>
@@ -254,8 +258,6 @@
     </footer>
 
     <script>
-        // Animations removed for speed
-
         function calculateROI() {
             const antal = document.getElementById('employees').value || 0;
             const sickDaysSaved = antal * 0.05;

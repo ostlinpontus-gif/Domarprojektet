@@ -46,13 +46,6 @@
             border: 1.5px solid rgba(0,0,0,0.05);
             box-shadow: 0 4px 15px rgba(0,0,0,0.02);
         }
-        .stat-num {
-            background: linear-gradient(90deg, #00b4d8, #90e0ef);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        /* Animations disabled for speed */
     </style>
 </head>
 <body class="font-sans min-h-screen">
@@ -73,11 +66,21 @@
         </div>
     </nav>
 
-    <section class="pt-36 pb-16 px-6 text-center bg-white border-b border-zinc-50">
-        <div class="max-w-2xl mx-auto">
-            <span class="bg-puls/10 text-puls text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full inline-block mb-5">Hör av dig</span>
-            <h1 class="text-5xl sm:text-6xl font-black mb-5 leading-tight text-navy">Vi bygger framtiden<br><span class="text-puls">över en kopp kaffe</span></h1>
-            <p class="text-zinc-500 text-lg max-w-lg mx-auto font-medium">Oavsett om ni sitter i Bollnäs eller Hudiksvall kommer jag gärna förbi och berättar hur vi gör skillnad tillsammans.</p>
+    <!-- HERO WITH IMAGE & OVERLAY -->
+    <section class="h-[60vh] relative flex items-center justify-center overflow-hidden bg-navy">
+        <div class="absolute inset-0 z-0">
+            <img src="kontakt_hero.png" alt="Kontakt och dialog" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black/40"></div>
+        </div>
+        <div class="max-w-2xl mx-auto text-center relative z-10 px-6 pt-20">
+            <span class="bg-puls/20 text-puls text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full inline-block mb-5 border border-puls/30 backdrop-blur-sm">Hör av dig</span>
+            <h1 class="text-5xl sm:text-7xl font-black mb-5 leading-tight text-white drop-shadow-2xl">
+                Vi bygger framtiden<br>
+                <span class="text-puls">över en kopp kaffe.</span>
+            </h1>
+            <p class="text-white/90 text-lg sm:text-xl max-w-lg mx-auto font-medium drop-shadow-lg">
+                Oavsett om ni sitter i Bollnäs eller Hudiksvall kommer jag gärna förbi och berättar hur vi gör skillnad tillsammans.
+            </p>
         </div>
     </section>
 
@@ -119,21 +122,22 @@
                     <p class="text-zinc-500 text-sm leading-relaxed font-medium">Jag tror på kraften i det personliga mötet. Låt oss prata om hur vi kan skapa värde för er personal och idrotten i Hälsingland.</p>
                 </div>
                 <div class="info-card rounded-2xl p-7 space-y-4">
-                    <h3 class="text-xs font-bold uppercase tracking-widest text-zinc-300">Direktkontakt</h3>
+                    <h3 class="text-[10px] font-black uppercase tracking-widest text-zinc-300">Direktkontakt</h3>
                     <p class="text-sm font-bold text-navy">Pontus Östlin</p>
-                    <a href="tel:0738072672" class="text-xl font-black text-puls block">073-807 26 72</a>
-                    <a href="mailto:framtidspuls@gmail.com" class="text-sm text-zinc-500 block">framtidspuls@gmail.com</a>
+                    <a href="tel:0738072672" class="text-xl font-black text-puls block hover:scale-105 transition-transform origin-left">073-807 26 72</a>
+                    <a href="mailto:framtidspuls@gmail.com" class="text-sm text-zinc-500 block hover:text-navy transition-colors">framtidspuls@gmail.com</a>
                 </div>
             </aside>
         </div>
     </main>
 
-    <footer class="py-24 px-6 bg-white border-t border-zinc-100">
+    <footer class="py-24 px-6 bg-white border-t border-zinc-100 mt-12">
         <div class="max-w-7xl mx-auto text-navy text-center sm:text-left">
             <div class="flex flex-col sm:flex-row justify-between items-center gap-8">
                 <div>
                     <img src="framtidspuls_logo.png" alt="Framtidspuls" style="height: 40px; width: auto;" class="mx-auto sm:mx-0 mb-4">
                     <p class="text-zinc-400 text-sm">© 2026 Framtidspuls · Starkare Personal, Tryggare Idrott</p>
+                    <p class="text-zinc-300 text-[10px] font-black uppercase tracking-widest mt-2">framtidspuls@gmail.com · 073-807 26 72</p>
                 </div>
                 <div class="flex gap-8 text-[10px] font-black uppercase tracking-widest text-zinc-300">
                     <a href="index.html" class="hover:text-puls">Hem</a>
